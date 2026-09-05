@@ -41,7 +41,14 @@ h1{font-size:1.45rem;margin:1.2rem 0 .2rem}
 .cmpfree{background:#f2f4f7}.cmpawx{background:#eaf3f8;border:1px solid #bcd6e4}
 .cmptag{display:inline-block;font-size:.68rem;font-weight:800;padding:.12rem .5rem;border-radius:8px;margin-bottom:.3rem;letter-spacing:.3px}
 .cmptag.free{background:#d8dde3;color:#4a5561}.cmptag.awx{background:#0b3d62;color:#fff}
-@media(min-width:640px){.cmpfeat{flex:1 1 100%}}footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
+@media(min-width:640px){.cmpfeat{flex:1 1 100%}}.lr{display:flex;gap:.5rem;padding:.45rem 0;border-bottom:1px solid #eef1f5;align-items:stretch}
+.lr:last-child{border:none}
+.lrt{flex:0 0 3.2rem;font-weight:700;font-size:.85rem;padding-top:.4rem}
+.lrc{flex:1;font-size:.82rem;padding:.4rem .5rem;border-radius:8px}
+.lrom{background:#f2f4f7}.lraw{background:#eaf3f8;border:1px solid #bcd6e4}
+.lrd .lraw{background:#fde8e8;border-color:#e3b8b4;font-weight:600}
+.lrd .lrom{text-decoration:line-through;text-decoration-color:#c0392b66}
+.cmphead{border-bottom:2px solid #dde3ea}footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 </style></head>
 <body>
 <div class="topline" id="topline"></div>
@@ -55,10 +62,14 @@ h1{font-size:1.45rem;margin:1.2rem 0 .2rem}
 <div class="card nearmiss"><h2>10 days ago, in your backyard</h2>
 <div class="headline">Sep 1 — TS Edouard made landfall 60 miles east of Calcasieu Pass</div>
 <ul class="facts"><li>4 Gulf LNG terminals under storm surge warnings</li><li>Non-essential personnel evacuated from nearby platforms</li><li>Marine ops disrupted across TX/LA ports for 3 days</li><li>Operators guessed on evacuate vs. ride-out timing — each wrong guess costs millions</li></ul></div>
-<div class="card"><h2>Free weather APIs vs AccuWeather — this exact event</h2><div class="sub" id="cmp-intro" style="margin-bottom:.7rem"></div><div id="cmp"></div><div id="cmp-closer" style="margin-top:.8rem;font-weight:600;color:#b3261e"></div></div><div class="card"><h2>What AccuWeather for Business delivers at your sites</h2><div id="caps"></div></div>
+<div class="card" id="livecmp-card"><h2>Same coordinates. Same hour. Live data.</h2>
+<div class="sub" style="margin-bottom:.7rem">Calcasieu Pass LNG · 29.75°N 93.32°W · pulled today from both APIs</div>
+<div class="cmprow cmphead"><div class="cmpfeat" style="text-align:center;font-size:.8rem;color:#5a6875">NEXT 12 HOURS</div></div>
+<div id="livecmp"></div>
+<div class="sub" style="margin-top:.7rem">Gray: OpenMeteo (free, NOAA/GFS-based). Blue: AccuWeather. Both queried at the same moment for the same coordinates.</div></div><div class="card"><h2>Free weather APIs vs AccuWeather — this exact event</h2><div class="sub" id="cmp-intro" style="margin-bottom:.7rem"></div><div id="cmp"></div><div id="cmp-closer" style="margin-top:.8rem;font-weight:600;color:#b3261e"></div></div><div class="card"><h2>What AccuWeather for Business delivers at your sites</h2><div id="caps"></div></div>
 <footer>Prepared with AccuWeather forecast data. Sample brief for evaluation — not an official AccuWeather publication.</footer>
 </div></div>
-<script src="data.js?v=3"></script>
+<script src="data.js?v=4"></script>
 <script>
 mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
 const d=DEMO_DATA;
@@ -71,6 +82,16 @@ const rc={ELEVATED:'#c05621',HIGH:'#b3261e',MODERATE:'#9a7b0c',CLEAR:'#1e8449'};
 d.assets.forEach(a=>{new mapboxgl.Marker({color:rc[a.risk]||'#888'}).setLngLat([a.lon,a.lat]).setPopup(new mapboxgl.Popup().setHTML(`<b>${a.name}</b><br>RISK: ${a.risk}<br>${a.current}`)).addTo(map);});
 document.getElementById('assets').innerHTML=d.assets.map(a=>`<div class="asset"><span class="asset-name">${a.name}</span> <span class="chip ${a.risk}">${a.risk}</span> <span class="sub">${a.current}</span><ul class="why">${a.risk_why.map(w=>`<li>${w}</li>`).join('')}</ul></div>`).join('');
 document.getElementById('timeline').innerHTML=d.next_72h.map(t=>`<div class="tl"><b>${t.when}</b> — ${t.what}<br><span class="sub">Impact: ${t.impact}</span></div>`).join('');
+(() => {
+const rows = LIVE_COMPARISON.awx.map((a,i) => ({t:a.t, awx:a, om:LIVE_COMPARISON.om[i]}));
+const danger = r => (r.awx.pop||0) >= 50 && /t-?storm|thunder/i.test(r.awx.wx||'');
+document.getElementById('livecmp').innerHTML = rows.map(r=>{
+ const d = danger(r);
+ return `<div class="lr ${d?'lrd':''}"><div class="lrt">${r.t}</div>
+ <div class="lrc lrom"><span class="cmptag free">FREE</span><br>${r.om?('code '+r.om.code+' · '+r.om.tp+'°F · '+r.om.pop+'% rain'):'—'}</div>
+ <div class="lrc lraw"><span class="cmptag awx">AWX</span><br>${r.awx.wx} · ${r.awx.tp}°F · ${r.awx.pop}% rain</div></div>`;
+}).join('');
+})();
 document.getElementById('cmp-intro').textContent=d.comparison.intro;
 document.getElementById('cmp').innerHTML=d.comparison.rows.map(r=>`<div class="cmprow"><div class="cmpfeat">${r.feature}</div><div class="cmpfree"><span class="cmptag free">FREE (OpenMeteo/NOAA)</span><br>${r.free}</div><div class="cmpawx"><span class="cmptag awx">ACCUBEATHER</span><br>${r.awx}</div></div>`).join('');
 document.getElementById('cmp-closer').textContent=d.comparison.closer;
