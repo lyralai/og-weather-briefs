@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weather Risk Brief — Venture Global</title>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.js"></script>
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#f6f8fa;color:#1c2430;margin:0;padding:0}
+.wrap{max-width:860px;margin:0 auto;padding:2rem 1.2rem}
+h1{font-size:1.5rem;margin:.2rem 0}
+.sub{color:#5a6875;font-size:.95rem}
+.hero{background:linear-gradient(135deg,#0b3d62,#16697a);color:#fff;border-radius:12px;padding:1.6rem;margin-bottom:1.4rem}
+.hero h1{color:#fff}
+.card{background:#fff;border:1px solid #dde3ea;border-radius:12px;padding:1.2rem;margin:1rem 0;box-shadow:0 1px 3px rgba(20,40,60,.06)}
+#map{height:380px;border-radius:10px}
+.asset{padding:.7rem 0;border-bottom:1px solid #eef1f5}
+.asset:last-child{border-bottom:none}
+.tag{display:inline-block;background:#eef4fb;color:#0b3d62;font-size:.72rem;font-weight:600;padding:.15rem .55rem;border-radius:10px;margin-right:.4rem}
+.alert{color:#c0392b;font-weight:600}.ok{color:#1e8449}
+.cap{display:flex;gap:.6rem;align-items:flex-start;padding:.45rem 0}
+.cap b{color:#16697a}
+footer{color:#8a97a4;font-size:.8rem;margin-top:1.5rem}
+</style></head>
+<body><div class="wrap">
+<div class="hero">
+<h1>Weather Risk Brief — Venture Global</h1>
+<div class="sub" style="color:#cfe3f0">Calcasieu Pass LNG &amp; Plaquemines LNG · Generated <span id="gen"></span> · Data: AccuWeather</div>
+</div>
+<div class="card"><div id="map"></div>
+<div class="sub" style="margin-top:.6rem">Asset-level current conditions and forecast headlines, refreshed daily.</div></div>
+<div class="card"><h2 style="margin-top:0">Your assets, right now</h2><div id="assets"></div></div>
+<div class="card"><h2 style="margin-top:0">Why it matters</h2>
+<div class="sub">TS Edouard (Sep 1) put 4 Gulf LNG terminals under storm surge warnings. Operators without hyperlocal nowcasting flew blind on evacuate/ride-out timing.</div></div>
+<div class="card"><h2 style="margin-top:0">What AccuWeather for Business delivers at your sites</h2><div id="caps"></div></div>
+<footer>Prepared with AccuWeather forecast data. Sample brief for evaluation — not an official AccuWeather publication.</footer>
+</div>
+<script src="data.js"></script>
+<script>
+mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
+const d=DEMO_DATA;
+document.getElementById('gen').textContent=d.generated;
+const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/satellite-streets-v12',center:[-91.5,29.5],zoom:8});
+d.assets.forEach(a=>{const c=a.alerts>0?'#c0392b':'#16697a';
+new mapboxgl.Marker({color:c}).setLngLat([a.lon,a.lat]).setPopup(new mapboxgl.Popup().setHTML(`<b>${a.name}</b><br>${a.current}`)).addTo(map);});
+document.getElementById('assets').innerHTML=d.assets.map(a=>`<div class="asset"><span class="tag">${a.name}</span> ${a.current} · <span class="${a.alerts>0?'alert':'ok'}">${a.alerts>0?a.alerts+' active alert(s)': 'no active alerts'}</span><br><span class="sub">${a.headline}</span></div>`).join('');
+document.getElementById('caps').innerHTML=d.capabilities.map(c=>`<div class="cap">▸ <span>${c}</span></div>`).join('');
+</script></body></html>
