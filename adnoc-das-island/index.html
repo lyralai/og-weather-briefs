@@ -67,10 +67,13 @@ footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 <div class="maptools">
 <button class="mbtn on" id="b-radar">⚡ Live radar</button>
 <button class="mbtn" id="b-sat">🛰 Satellite</button>
+<button class="mbtn" id="b-heat">🌡 Heat</button>
+<button class="mbtn" id="b-wind">💨 Wind</button>
 <button class="mbtn" id="b-storm">🌀 Storm track</button>
 <button class="mbtn" id="b-clear">Clean</button>
 <span id="rtime"></span>
 </div>
+<div id="heatlegend" style="display:none;margin-top:.55rem;font-size:.72rem;color:#5a6875">🌡 temp scale&nbsp;<span style="display:inline-block;vertical-align:middle;width:150px;height:10px;border-radius:5px;background:linear-gradient(90deg,#20a0c8,#40c8a0,#a0d860,#f0e860,#f0a030,#e04830)"></span>&nbsp;−25°C → +45°C (land) · −2 → +32°C (sea) · NASA daily</div>
 </div>
 <div class="card"><h2>Asset risk — current assessment</h2><div id="assets"></div></div>
 <div class="card timeline-card"><h2>Next 72 hours</h2><div class="timeline" id="timeline"></div></div>
@@ -84,7 +87,7 @@ footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 <div class="card" style="background:#0b3d62;color:#fff;border:none"><h2 style="color:#fff;margin-top:0">Want this for every site, every day?</h2><div style="font-size:.92rem">This brief was prepared manually as a sample. AccuWeather for Business delivers this continuously: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Ask about a live demo for your assets</b></div></div>
 <footer>Prepared with AccuWeather forecast data. Radar overlay: RainViewer. Sample brief for evaluation — not an official AccuWeather publication.</footer>
 </div></div>
-<script src="data.js?v=5"></script>
+<script src="data.js?v=6"></script>
 <script>
 mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
 const d=DEMO_DATA;
@@ -102,8 +105,9 @@ const c0=[d.assets[0].lon,d.assets[0].lat];
 const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/dark-v11',center:c0,zoom:7.6});
 const rc={ELEVATED:'#c05621',HIGH:'#b3261e',MODERATE:'#9a7b0c',CLEAR:'#1e8449'};
 let activeLayer='radar';
+let windOn=false,windAnim=null,windGrid=null;
 
-function setBtns(id){['b-radar','b-sat','b-storm','b-clear'].forEach(b=>document.getElementById(b).classList.toggle('on',b===id));}
+function setBtns(id){['b-radar','b-sat','b-heat','b-storm','b-clear'].forEach(b=>document.getElementById(b).classList.toggle('on',b===id));}
 
 map.on('load', async () => {
   // auto-center on prospect assets
@@ -115,6 +119,13 @@ map.on('load', async () => {
   d.assets.forEach(a=>{const el=document.createElement('div');
     el.style.cssText=`width:16px;height:16px;border-radius:50%;background:${rc[a.risk]||'#888'};border:3px solid #fff;box-shadow:0 0 0 2px ${rc[a.risk]||'#888'}40, 0 2px 6px rgba(0,0,0,.5);cursor:pointer`;
     new mapboxgl.Marker({element:el}).setLngLat([a.lon,a.lat]).setPopup(new mapboxgl.Popup().setHTML(`<b>${a.name}</b><br>RISK: ${a.risk}<br>${a.current}`)).addTo(map);});
+
+  function hideBase(){
+    frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',0));
+    if(map.getLayer('gibs-sat'))map.setLayoutProperty('gibs-sat','visibility','none');
+    ['heat-lst','heat-sst','storm-line','storm-pts'].forEach(l=>{if(map.getLayer(l))map.setLayoutProperty(l,'visibility','none');});
+    document.getElementById('heatlegend').style.display='none';
+  }
 
   // RAINVIEWER radar frames
   let frames=[], fvHost='';
@@ -128,7 +139,7 @@ map.on('load', async () => {
       const t=new Date(frames[i].time*1000);document.getElementById('rtime').textContent=' radar '+t.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})+(i>=8?' (nowcast)':'');};
     show(cur);
     let playing=false;
-    document.getElementById('b-radar').onclick=()=>{setBtns('b-radar');activeLayer='radar';show(cur);
+    document.getElementById('b-radar').onclick=()=>{setBtns('b-radar');activeLayer='radar';hideBase();show(cur);
       if(!playing){playing=true;const step=()=>{if(!playing||activeLayer!=='radar')return;cur=(cur+1)%frames.length;show(cur);setTimeout(step,700);};step();}};
   }catch(e){document.getElementById('rtime').textContent=' radar unavailable';}
 
@@ -137,10 +148,91 @@ map.on('load', async () => {
   if(!map.getSource('gibs')){map.addSource('gibs',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${yd}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`],tileSize:256});
     map.addLayer({id:'gibs-sat',type:'raster',source:'gibs',paint:{'raster-opacity':0.85,'raster-fade-duration':0}},'place-city-lg-n');
     map.setLayoutProperty('gibs-sat','visibility','none');}
-  document.getElementById('b-sat').onclick=()=>{setBtns('b-sat');activeLayer='sat';
-    frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',0));
+  document.getElementById('b-sat').onclick=()=>{setBtns('b-sat');activeLayer='sat';hideBase();
     map.setLayoutProperty('gibs-sat','visibility','visible');
     document.getElementById('rtime').textContent=' satellite '+yd+' (NASA VIIRS)';};
+
+  // HEAT — NASA GIBS: land surface temp (MODIS) + sea surface temp (MUR), keyless
+  const hd=new Date(Date.now()-864e5).toISOString().slice(0,10);
+  map.addSource('gibs-lst',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Land_Surface_Temp_Day/default/${hd}/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png`],tileSize:256,maxzoom:7});
+  map.addLayer({id:'heat-lst',type:'raster',source:'gibs-lst',paint:{'raster-opacity':0.78}},'place-city-lg-n');
+  map.addSource('gibs-sst',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/GHRSST_L4_MUR_Sea_Surface_Temperature/default/${hd}/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png`],tileSize:256,maxzoom:7});
+  map.addLayer({id:'heat-sst',type:'raster',source:'gibs-sst',paint:{'raster-opacity':0.65}},'place-city-lg-n');
+  ['heat-lst','heat-sst'].forEach(l=>map.setLayoutProperty(l,'visibility','none'));
+  document.getElementById('b-heat').onclick=()=>{setBtns('b-heat');activeLayer='heat';hideBase();
+    ['heat-lst','heat-sst'].forEach(l=>map.setLayoutProperty(l,'visibility','visible'));
+    document.getElementById('heatlegend').style.display='block';
+    document.getElementById('rtime').textContent=' temps '+hd+' (NASA LST+SST)';};
+
+  // WIND — animated particles from live OpenMeteo grid (keyless)
+  const cvs=document.createElement('canvas');
+  cvs.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5';
+  document.getElementById('map').appendChild(cvs);
+  const ctx=cvs.getContext('2d');
+  const dpr=devicePixelRatio||1;
+  const sizeCanvas=()=>{const r=cvs.getBoundingClientRect();cvs.width=Math.round(r.width*dpr);cvs.height=Math.round(r.height*dpr);};
+  sizeCanvas();map.on('resize',sizeCanvas);
+  const speedColor=kn=>kn<6?'rgba(170,205,235,.9)':kn<12?'rgba(140,205,140,.9)':kn<20?'rgba(250,220,100,.95)':kn<30?'rgba(250,150,60,.95)':'rgba(240,70,60,1)';
+  async function fetchWindGrid(){
+    const b=map.getBounds(),cols=7,rows=5,lats=[],lons=[];
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){lats.push((b.getSouth()+(b.getNorth()-b.getSouth())*r/(rows-1)).toFixed(2));lons.push((b.getWest()+(b.getEast()-b.getWest())*c/(cols-1)).toFixed(2));}
+    const res=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lats.join(',')}&longitude=${lons.join(',')}&current=wind_speed_10m,wind_direction_10m&wind_speed_unit=kn`).then(r=>r.json());
+    const arr=Array.isArray(res)?res:[res],U=[],V=[];
+    for(const a of arr){const sp=a.current.wind_speed_10m,dr=a.current.wind_direction_10m*Math.PI/180;U.push(-sp*Math.sin(dr));V.push(-sp*Math.cos(dr));}
+    return {w:b.getWest(),e:b.getEast(),s:b.getSouth(),n:b.getNorth(),cols,rows,U,V};
+  }
+  function windAt(g,lon,lat){
+    const fx=Math.max(0,Math.min(g.cols-1.001,(lon-g.w)/(g.e-g.w)*(g.cols-1))),fy=Math.max(0,Math.min(g.rows-1.001,(lat-g.s)/(g.n-g.s)*(g.rows-1)));
+    const x0=Math.floor(fx),y0=Math.floor(fy),tx=fx-x0,ty=fy-y0,i=y0*g.cols+x0;
+    return [(g.U[i]*(1-tx)+g.U[i+1]*tx)*(1-ty)+(g.U[i+g.cols]*(1-tx)+g.U[i+g.cols+1]*tx)*ty,
+            (g.V[i]*(1-tx)+g.V[i+1]*tx)*(1-ty)+(g.V[i+g.cols]*(1-tx)+g.V[i+g.cols+1]*tx)*ty];
+  }
+  let parts=[];
+  const respawn=p=>{const b=map.getBounds();p.lon=b.getWest()+Math.random()*(b.getEast()-b.getWest());p.lat=b.getSouth()+Math.random()*(b.getNorth()-b.getSouth());p.age=40+Math.random()*160;p.hist=[];};
+  function runWind(){
+    const n=Math.round(Math.max(500,Math.min(1400,cvs.width*cvs.height/16000)));
+    parts=Array.from({length:n},()=>{const p={};respawn(p);return p;});
+    windOn=true;
+    const step=()=>{
+      if(!windOn)return;
+      ctx.clearRect(0,0,cvs.width,cvs.height);
+      const b=map.getBounds();
+      ctx.lineWidth=dpr*1.1;ctx.lineCap='round';
+      for(const p of parts){
+        if(--p.age<0||p.lon<b.getWest()||p.lon>b.getEast()||p.lat<b.getSouth()||p.lat>b.getNorth()){respawn(p);continue;}
+        const uv=windAt(windGrid,p.lon,p.lat),mag=Math.hypot(uv[0],uv[1]);
+        const a=map.project([p.lon,p.lat]);
+        const a2=map.project([p.lon+uv[0]*0.05,p.lat+uv[1]*0.05]);
+        const vx=a2.x-a.x,vy=a2.y-a.y,len=Math.hypot(vx,vy);
+        if(len>0.01){
+          const target=Math.min(1+mag*0.09,3.0);
+          const np=map.unproject([a.x+vx/len*target,a.y+vy/len*target]);
+          p.lon=np.lng;p.lat=np.lat;
+        }
+        const pt=map.project([p.lon,p.lat]);
+        p.hist.push(pt);if(p.hist.length>8)p.hist.shift();
+        if(p.hist.length>2){
+          ctx.strokeStyle=speedColor(mag);ctx.globalAlpha=0.8;
+          ctx.beginPath();ctx.moveTo(p.hist[0].x,p.hist[0].y);
+          for(let i=1;i<p.hist.length;i++)ctx.lineTo(p.hist[i].x,p.hist[i].y);
+          ctx.stroke();
+        }
+      }
+      ctx.globalAlpha=1;
+      windAnim=requestAnimationFrame(step);
+    };
+    step();
+  }
+  const stopWind=()=>{windOn=false;cancelAnimationFrame(windAnim);ctx.clearRect(0,0,cvs.width,cvs.height);};
+  document.getElementById('b-wind').onclick=()=>{
+    const btn=document.getElementById('b-wind');
+    if(windOn){stopWind();btn.classList.remove('on');document.getElementById('rtime').textContent='';return;}
+    btn.classList.add('on');
+    document.getElementById('rtime').textContent=' wind 10m · live (OpenMeteo)';
+    if(windGrid)runWind();
+    else fetchWindGrid().then(g=>{windGrid=g;runWind();}).catch(()=>{btn.classList.remove('on');document.getElementById('rtime').textContent=' wind unavailable';});
+  };
+  map.on('move',()=>{for(const p of parts)p.hist=[];});
 
   // STORM TRACK — drawn only if data provides one (live NHC tracks during events; retrospective for demo)
   const stBtn=document.getElementById('b-storm');
@@ -150,18 +242,12 @@ map.on('load', async () => {
     map.addLayer({id:'storm-line',type:'line',source:'storm',paint:{'line-color':'#ff5a5f','line-width':3,'line-dasharray':[2,1.5]}});
     map.addLayer({id:'storm-pts',type:'circle',source:'storm',paint:{'circle-radius':5,'circle-color':'#ff5a5f','circle-stroke-width':2,'circle-stroke-color':'#fff'}});
     ['storm-line','storm-pts'].forEach(l=>map.setLayoutProperty(l,'visibility','none'));
-    stBtn.onclick=()=>{setBtns('b-storm');activeLayer='storm';
-      frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',0));
-      map.setLayoutProperty('gibs-sat','visibility','none');
+    stBtn.onclick=()=>{setBtns('b-storm');activeLayer='storm';hideBase();
       ['storm-line','storm-pts'].forEach(l=>map.setLayoutProperty(l,'visibility','visible'));
       document.getElementById('rtime').textContent=' '+(d.storm_label||'storm track');};
   }else{stBtn.style.display='none';}
 
-  document.getElementById('b-clear').onclick=()=>{setBtns('b-clear');activeLayer='none';
-    frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',0));
-    map.setLayoutProperty('gibs-sat','visibility','none');
-    ['storm-line','storm-pts'].forEach(l=>map.setLayoutProperty(l,'visibility','none'));
-    document.getElementById('rtime').textContent='';};
+  document.getElementById('b-clear').onclick=()=>{setBtns('b-clear');activeLayer='none';hideBase();stopWind();document.getElementById('b-wind').classList.remove('on');document.getElementById('rtime').textContent='';};
 });
 
 // asset list + sparkline charts (AccuWeather 12h data)

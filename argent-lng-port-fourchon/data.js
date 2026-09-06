@@ -47,6 +47,7 @@ const DEMO_DATA = {
  "comparison": {
   "intro": "Your team can already pull free weather data. Here's what each would have told you about this afternoon at your coordinates \u2014 live from both APIs, same hour.",
   "rows": [
+ {"feature":"Lightning strike tracking","free":"Not available — no free weather API serves real-time strike data","awx":"Real-time strikes + 30-min history, alerts pinned to each site"},
    {
     "feature": "Thunderstorm arrival this afternoon",
     "free": "\"Partly cloudy, 6% rain\" \u2014 40-km grid, no storm signal",

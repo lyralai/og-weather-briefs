@@ -47,6 +47,7 @@ const DEMO_DATA = {
  "comparison": {
   "intro": "Your team can already pull free weather data (OpenMeteo, NOAA/GFS feeds). Here's what each tells you about heat ops at Das Island \u2014 and what AccuWeather adds.",
   "rows": [
+ {"feature":"Lightning strike tracking","free":"Not available — no free weather API serves real-time strike data","awx":"Real-time strikes + 30-min history, alerts pinned to each site"},
    {
     "feature": "Heat-stress threshold timing at your facility",
     "free": "Temperature to 2\u00b0C on a 25-km grid \u2014 the island, not your plant",
