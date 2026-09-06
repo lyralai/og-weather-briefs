@@ -15,6 +15,8 @@ const DEMO_DATA = {
        "Peak intensity 10 AM-2 PM: lightning + heavy rain",
        "Low-lying surge-vulnerable corridor; tropical peak week ahead"]}
   ],
+  storm_track: [[-88.6,27.6],[-90.5,28.4],[-92.4,29.3],[-93.6,29.9],[-94.1,30.2]],
+  storm_label: "TS Edouard track (retrospective, Sep 1)",
   near_miss: {
     headline: "Sep 1 — TS Edouard made landfall 60 miles east of Calcasieu Pass",
     facts: ["4 Gulf LNG terminals under storm surge warnings","Non-essential personnel evacuated from nearby platforms","Marine ops disrupted across TX/LA ports for 3 days","Operators guessed on evacuate vs. ride-out timing — each wrong guess costs millions"]

@@ -1,6 +1,6 @@
 <!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Weather Risk Brief — Venture Global</title>
+<title>Weather Risk Brief</title>
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.js"></script>
 <style>
@@ -15,7 +15,11 @@ h1{font-size:1.45rem;margin:1.2rem 0 .2rem}
 .banner .txt{font-size:.95rem}
 .card{background:#fff;border:1px solid #dde3ea;border-radius:10px;padding:1.1rem 1.2rem;margin:1rem 0;box-shadow:0 1px 3px rgba(20,40,60,.06)}
 .card h2{margin:.1rem 0 .8rem;font-size:1.05rem}
-#map{height:340px;border-radius:10px}
+#map{height:400px;border-radius:10px}
+.maptools{display:flex;gap:.4rem;margin-top:.6rem;flex-wrap:wrap;align-items:center}
+.mbtn{font-size:.78rem;font-weight:600;padding:.35rem .7rem;border-radius:14px;border:1px solid #c8d2dc;background:#fff;color:#39434f;cursor:pointer}
+.mbtn.on{background:#0b3d62;color:#fff;border-color:#0b3d62}
+#rtime{font-size:.75rem;color:#5a6875;margin-left:auto}
 .asset{padding:.8rem 0;border-bottom:1px solid #eef1f5}
 .asset:last-child{border:none}
 .chip{display:inline-block;font-size:.72rem;font-weight:800;padding:.18rem .6rem;border-radius:9px;letter-spacing:.4px}
@@ -23,6 +27,8 @@ h1{font-size:1.45rem;margin:1.2rem 0 .2rem}
 .asset-name{font-weight:700}
 .why{margin:.5rem 0 0;padding-left:1.2rem;font-size:.9rem;color:#39434f}
 .why li{margin:.2rem 0}
+.chart{margin-top:.6rem;background:#f8fafc;border:1px solid #e6ebf1;border-radius:8px;padding:.6rem}
+.chart .ct{font-size:.75rem;color:#5a6875;margin-bottom:.2rem}
 .timeline{border-left:3px solid #c8d2dc;margin-left:.4rem;padding-left:1rem}
 .tl{position:relative;padding:.45rem 0}
 .tl b{color:#b3261e}
@@ -32,69 +38,160 @@ h1{font-size:1.45rem;margin:1.2rem 0 .2rem}
 .nearmiss .facts{margin:.6rem 0 0;padding-left:1.2rem;font-size:.92rem}
 .nearmiss .facts li{margin:.3rem 0}
 .nearmiss .headline{font-size:1rem;font-weight:700;color:#ffb4a9}
-.cap{display:flex;gap:.7rem;padding:.55rem 0;border-bottom:1px solid #eef1f5}
-.cap:last-child{border:none}
-.cap b{color:#16697a;white-space:nowrap}
 .cmprow{display:flex;gap:.6rem;padding:.6rem 0;border-bottom:1px solid #eef1f5;flex-wrap:wrap}
 .cmpfeat{flex:1 1 100%;font-weight:700;font-size:.9rem}
 .cmpfree,.cmpawx{flex:1 1 45%;font-size:.85rem;padding:.5rem;border-radius:8px}
 .cmpfree{background:#f2f4f7}.cmpawx{background:#eaf3f8;border:1px solid #bcd6e4}
 .cmptag{display:inline-block;font-size:.68rem;font-weight:800;padding:.12rem .5rem;border-radius:8px;margin-bottom:.3rem;letter-spacing:.3px}
 .cmptag.free{background:#d8dde3;color:#4a5561}.cmptag.awx{background:#0b3d62;color:#fff}
-@media(min-width:640px){.cmpfeat{flex:1 1 100%}}.lr{display:flex;gap:.5rem;padding:.45rem 0;border-bottom:1px solid #eef1f5;align-items:stretch}
+.lr{display:flex;gap:.5rem;padding:.45rem 0;border-bottom:1px solid #eef1f5;align-items:stretch}
 .lr:last-child{border:none}
 .lrt{flex:0 0 3.2rem;font-weight:700;font-size:.85rem;padding-top:.4rem}
 .lrc{flex:1;font-size:.82rem;padding:.4rem .5rem;border-radius:8px}
 .lrom{background:#f2f4f7}.lraw{background:#eaf3f8;border:1px solid #bcd6e4}
 .lrd .lraw{background:#fde8e8;border-color:#e3b8b4;font-weight:600}
 .lrd .lrom{text-decoration:line-through;text-decoration-color:#c0392b66}
-.cmphead{border-bottom:2px solid #dde3ea}footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
+.cap{display:flex;gap:.7rem;padding:.55rem 0;border-bottom:1px solid #eef1f5}
+.cap:last-child{border:none}
+.cap b{color:#16697a;white-space:nowrap}
+footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 </style></head>
 <body>
 <div class="topline" id="topline"></div>
 <div class="wrap"><div class="wrap-inner">
-<h1>Weather Risk Brief — Venture Global</h1>
-<div class="sub">Calcasieu Pass LNG &amp; Plaquemines LNG · Generated <span id="gen"></span> · Forecast data: AccuWeather</div>
+<h1 id="ptitle">Weather Risk Brief</h1>
+<div class="sub"><span id="assetsline"></span> · Generated <span id="gen"></span> · Forecast data: AccuWeather · Radar: RainViewer</div>
 <div class="banner"><div class="lvl" id="lvl"></div><div class="txt" id="lvlsub"></div></div>
-<div class="card"><div id="map"></div></div>
+<div class="card">
+<div id="map"></div>
+<div class="maptools">
+<button class="mbtn on" id="b-radar">⚡ Live radar</button>
+<button class="mbtn" id="b-sat">🛰 Satellite</button>
+<button class="mbtn" id="b-storm">🌀 Storm track</button>
+<button class="mbtn" id="b-clear">Clean</button>
+<span id="rtime"></span>
+</div>
+</div>
 <div class="card"><h2>Asset risk — current assessment</h2><div id="assets"></div></div>
 <div class="card timeline-card"><h2>Next 72 hours</h2><div class="timeline" id="timeline"></div></div>
-<div class="card nearmiss"><h2>10 days ago, in your backyard</h2>
-<div class="headline">Sep 1 — TS Edouard made landfall 60 miles east of Calcasieu Pass</div>
-<ul class="facts"><li>4 Gulf LNG terminals under storm surge warnings</li><li>Non-essential personnel evacuated from nearby platforms</li><li>Marine ops disrupted across TX/LA ports for 3 days</li><li>Operators guessed on evacuate vs. ride-out timing — each wrong guess costs millions</li></ul></div>
+<div class="card nearmiss" id="nearmiss"></div>
 <div class="card" id="livecmp-card"><h2>Same coordinates. Same hour. Live data.</h2>
 <div class="sub" style="margin-bottom:.7rem">Calcasieu Pass LNG · 29.75°N 93.32°W · pulled today from both APIs</div>
-<div class="cmprow cmphead"><div class="cmpfeat" style="text-align:center;font-size:.8rem;color:#5a6875">NEXT 12 HOURS</div></div>
 <div id="livecmp"></div>
-<div class="sub" style="margin-top:.7rem">Gray: OpenMeteo (free, NOAA/GFS-based). Blue: AccuWeather. Both queried at the same moment for the same coordinates.</div></div><div class="card"><h2>Free weather APIs vs AccuWeather — this exact event</h2><div class="sub" id="cmp-intro" style="margin-bottom:.7rem"></div><div id="cmp"></div><div id="cmp-closer" style="margin-top:.8rem;font-weight:600;color:#b3261e"></div></div><div class="card"><h2>What AccuWeather for Business delivers at your sites</h2><div id="caps"></div></div>
+<div class="sub" style="margin-top:.7rem">Gray: OpenMeteo (free, NOAA/GFS-based). Blue: AccuWeather. Both queried at the same moment for the same coordinates.</div></div>
+<div class="card"><h2>Free weather APIs vs AccuWeather — this exact event</h2><div class="sub" id="cmp-intro" style="margin-bottom:.7rem"></div><div id="cmp"></div><div id="cmp-closer" style="margin-top:.8rem;font-weight:600;color:#b3261e"></div></div>
+<div class="card"><h2>What AccuWeather for Business delivers at your sites</h2><div id="caps"></div></div>
 <div class="card" style="background:#0b3d62;color:#fff;border:none"><h2 style="color:#fff;margin-top:0">Want this for every site, every day?</h2><div style="font-size:.92rem">This brief was prepared manually as a sample. AccuWeather for Business delivers this continuously: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Ask about a live demo for your assets</b></div></div>
-<footer>Prepared with AccuWeather forecast data. Sample brief for evaluation — not an official AccuWeather publication.</footer>
+<footer>Prepared with AccuWeather forecast data. Radar overlay: RainViewer. Sample brief for evaluation — not an official AccuWeather publication.</footer>
 </div></div>
-<script src="data.js?v=4"></script>
+<script src="data.js?v=5"></script>
 <script>
 mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
 const d=DEMO_DATA;
+document.title='Weather Risk Brief — '+d.operator;
+document.getElementById('ptitle').textContent='Weather Risk Brief — '+d.operator;
+document.getElementById('assetsline').textContent=d.assets.map(a=>a.name).join(' & ');
+const nmEl=document.getElementById('nearmiss');
+if(d.near_miss&&d.near_miss.headline){nmEl.innerHTML='<h2>Recent weather event — near your asset</h2><div class="headline">'+d.near_miss.headline+'</div><ul class="facts">'+(d.near_miss.facts||[]).map(f=>'<li>'+f+'</li>').join('')+'</ul>';}else{nmEl.style.display='none';}
 document.getElementById('topline').textContent=d.topline;
 document.getElementById('gen').textContent=d.generated;
 document.getElementById('lvl').textContent=d.risk_level;
 document.getElementById('lvlsub').innerHTML='<b>Overall portfolio risk: '+d.risk_level+'</b><br>'+d.assets.length+' assets monitored · active weather threats within 72h';
-const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/satellite-streets-v12',center:[-91.5,29.5],zoom:8});
+
+const c0=[d.assets[0].lon,d.assets[0].lat];
+const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/dark-v11',center:c0,zoom:7.6});
 const rc={ELEVATED:'#c05621',HIGH:'#b3261e',MODERATE:'#9a7b0c',CLEAR:'#1e8449'};
-d.assets.forEach(a=>{new mapboxgl.Marker({color:rc[a.risk]||'#888'}).setLngLat([a.lon,a.lat]).setPopup(new mapboxgl.Popup().setHTML(`<b>${a.name}</b><br>RISK: ${a.risk}<br>${a.current}`)).addTo(map);});
-document.getElementById('assets').innerHTML=d.assets.map(a=>`<div class="asset"><span class="asset-name">${a.name}</span> <span class="chip ${a.risk}">${a.risk}</span> <span class="sub">${a.current}</span><ul class="why">${a.risk_why.map(w=>`<li>${w}</li>`).join('')}</ul></div>`).join('');
+let activeLayer='radar';
+
+function setBtns(id){['b-radar','b-sat','b-storm','b-clear'].forEach(b=>document.getElementById(b).classList.toggle('on',b===id));}
+
+map.on('load', async () => {
+  // auto-center on prospect assets
+  const lons=d.assets.map(a=>a.lon),lats=d.assets.map(a=>a.lat);
+  const span=Math.max(Math.max(...lons)-Math.min(...lons),Math.max(...lats)-Math.min(...lats));
+  if(span>0.5){map.fitBounds([[Math.min(...lons),Math.min(...lats)],[Math.max(...lons),Math.max(...lats)]],{padding:70,duration:0});}
+  else{map.setCenter(c0);map.setZoom(8);}
+  // asset markers (risk colored)
+  d.assets.forEach(a=>{const el=document.createElement('div');
+    el.style.cssText=`width:16px;height:16px;border-radius:50%;background:${rc[a.risk]||'#888'};border:3px solid #fff;box-shadow:0 0 0 2px ${rc[a.risk]||'#888'}40, 0 2px 6px rgba(0,0,0,.5);cursor:pointer`;
+    new mapboxgl.Marker({element:el}).setLngLat([a.lon,a.lat]).setPopup(new mapboxgl.Popup().setHTML(`<b>${a.name}</b><br>RISK: ${a.risk}<br>${a.current}`)).addTo(map);});
+
+  // RAINVIEWER radar frames
+  let frames=[], fvHost='';
+  try{const rv=await fetch('https://api.rainviewer.com/public/weather-maps.json').then(r=>r.json());
+    fvHost=rv.host; frames=[...rv.radar.past.slice(-8),...rv.radar.nowcast.slice(0,4)];
+    frames.forEach((f,i)=>{const id='radar'+i;
+      map.addSource(id,{type:'raster',tiles:[`${rv.host}${f.path}/512/{z}/{x}/{y}/6/1_1.png`],tileSize:512});
+      map.addLayer({id:id,type:'raster',source:id,paint:{'raster-opacity':0}} ,'place-city-lg-n');});
+    let cur=frames.length-5>=0?frames.length-5:0;
+    const show=i=>{frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',j===i?0.75:0));
+      const t=new Date(frames[i].time*1000);document.getElementById('rtime').textContent=' radar '+t.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})+(i>=8?' (nowcast)':'');};
+    show(cur);
+    let playing=false;
+    document.getElementById('b-radar').onclick=()=>{setBtns('b-radar');activeLayer='radar';show(cur);
+      if(!playing){playing=true;const step=()=>{if(!playing||activeLayer!=='radar')return;cur=(cur+1)%frames.length;show(cur);setTimeout(step,700);};step();}};
+  }catch(e){document.getElementById('rtime').textContent=' radar unavailable';}
+
+  // NASA GIBS satellite (yesterday, VIIRS true color)
+  const yd=new Date(Date.now()-864e5).toISOString().slice(0,10);
+  if(!map.getSource('gibs')){map.addSource('gibs',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${yd}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`],tileSize:256});
+    map.addLayer({id:'gibs-sat',type:'raster',source:'gibs',paint:{'raster-opacity':0.85,'raster-fade-duration':0}},'place-city-lg-n');
+    map.setLayoutProperty('gibs-sat','visibility','none');}
+  document.getElementById('b-sat').onclick=()=>{setBtns('b-sat');activeLayer='sat';
+    frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',0));
+    map.setLayoutProperty('gibs-sat','visibility','visible');
+    document.getElementById('rtime').textContent=' satellite '+yd+' (NASA VIIRS)';};
+
+  // STORM TRACK — drawn only if data provides one (live NHC tracks during events; retrospective for demo)
+  const stBtn=document.getElementById('b-storm');
+  if(Array.isArray(d.storm_track)&&d.storm_track.length>1){
+    const track={type:'FeatureCollection',features:[{type:'Feature',geometry:{type:'LineString',coordinates:d.storm_track},properties:{}}]};
+    map.addSource('storm',{type:'geojson',data:track});
+    map.addLayer({id:'storm-line',type:'line',source:'storm',paint:{'line-color':'#ff5a5f','line-width':3,'line-dasharray':[2,1.5]}});
+    map.addLayer({id:'storm-pts',type:'circle',source:'storm',paint:{'circle-radius':5,'circle-color':'#ff5a5f','circle-stroke-width':2,'circle-stroke-color':'#fff'}});
+    ['storm-line','storm-pts'].forEach(l=>map.setLayoutProperty(l,'visibility','none'));
+    stBtn.onclick=()=>{setBtns('b-storm');activeLayer='storm';
+      frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',0));
+      map.setLayoutProperty('gibs-sat','visibility','none');
+      ['storm-line','storm-pts'].forEach(l=>map.setLayoutProperty(l,'visibility','visible'));
+      document.getElementById('rtime').textContent=' '+(d.storm_label||'storm track');};
+  }else{stBtn.style.display='none';}
+
+  document.getElementById('b-clear').onclick=()=>{setBtns('b-clear');activeLayer='none';
+    frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',0));
+    map.setLayoutProperty('gibs-sat','visibility','none');
+    ['storm-line','storm-pts'].forEach(l=>map.setLayoutProperty(l,'visibility','none'));
+    document.getElementById('rtime').textContent='';};
+});
+
+// asset list + sparkline charts (AccuWeather 12h data)
+function spark(awx){
+  const w=320,h=64,pad=6;
+  const temps=awx.map(a=>a.tp), pops=awx.map(a=>a.pop||0);
+  const tmin=Math.min(...temps),tmax=Math.max(...temps);
+  const X=i=>pad+i*(w-2*pad)/(awx.length-1);
+  const Y=t=>h-pad-(t-tmin)/((tmax-tmin)||1)*(h-2*pad-10);
+  const pts=temps.map((t,i)=>`${X(i).toFixed(1)},${Y(t).toFixed(1)}`).join(' ');
+  const bars=pops.map((p,i)=>{const bh=p/100*22;return `<rect x="${X(i)-4}" y="${h-pad-bh}" width="8" height="${bh}" fill="#7fb3d5" opacity=".85" rx="1"/>`;}).join('');
+  const lbls=awx.map((a,i)=>i%3===0?`<text x="${X(i)}" y="${h-1}" font-size="8" fill="#8a97a4" text-anchor="middle">${a.t}</text>`:'').join('');
+  return `<svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:360px">${bars}<polyline points="${pts}" fill="none" stroke="#c0392b" stroke-width="2"/>${lbls}</svg>`;
+}
+document.getElementById('assets').innerHTML=d.assets.map(a=>{
+  const series=(typeof LIVE_COMPARISON!=='undefined'&&LIVE_COMPARISON.awx)?LIVE_COMPARISON.awx:[];
+  return `<div class="asset"><span class="asset-name">${a.name}</span> <span class="chip ${a.risk}">${a.risk}</span> <span class="sub">${a.current}</span>
+  <ul class="why">${a.risk_why.map(w=>`<li>${w}</li>`).join('')}</ul>
+  <div class="chart"><div class="ct">Next 12h — AccuWeather hourly: temperature (red) + precip probability (blue bars)</div>${spark(series)}</div></div>`;}).join('');
 document.getElementById('timeline').innerHTML=d.next_72h.map(t=>`<div class="tl"><b>${t.when}</b> — ${t.what}<br><span class="sub">Impact: ${t.impact}</span></div>`).join('');
-(() => {
-const rows = LIVE_COMPARISON.awx.map((a,i) => ({t:a.t, awx:a, om:LIVE_COMPARISON.om[i]}));
-const danger = r => (r.awx.pop||0) >= 50 && /t-?storm|thunder/i.test(r.awx.wx||'');
-document.getElementById('livecmp').innerHTML = rows.map(r=>{
- const d = danger(r);
- return `<div class="lr ${d?'lrd':''}"><div class="lrt">${r.t}</div>
- <div class="lrc lrom"><span class="cmptag free">FREE</span><br>${r.om?('code '+r.om.code+' · '+r.om.tp+'°F · '+r.om.pop+'% rain'):'—'}</div>
- <div class="lrc lraw"><span class="cmptag awx">AWX</span><br>${r.awx.wx} · ${r.awx.tp}°F · ${r.awx.pop}% rain</div></div>`;
-}).join('');
-})();
 document.getElementById('cmp-intro').textContent=d.comparison.intro;
 document.getElementById('cmp').innerHTML=d.comparison.rows.map(r=>`<div class="cmprow"><div class="cmpfeat">${r.feature}</div><div class="cmpfree"><span class="cmptag free">FREE (OpenMeteo/NOAA)</span><br>${r.free}</div><div class="cmpawx"><span class="cmptag awx">ACCUBEATHER</span><br>${r.awx}</div></div>`).join('');
 document.getElementById('cmp-closer').textContent=d.comparison.closer;
 document.getElementById('caps').innerHTML=d.capabilities.map(c=>`<div class="cap"><b>${c[0]}</b><span>${c[1]}</span></div>`).join('');
+if(typeof LIVE_COMPARISON!=='undefined'){
+  const rows=LIVE_COMPARISON.awx.map((a,i)=>({t:a.t,awx:a,om:LIVE_COMPARISON.om[i]}));
+  const danger=r=>(r.awx.pop||0)>=50&&/t-?storm|thunder/i.test(r.awx.wx||'');
+  document.getElementById('livecmp').innerHTML=rows.map(r=>{const dg=danger(r);
+    return `<div class="lr ${dg?'lrd':''}"><div class="lrt">${r.t}</div>
+    <div class="lrc lrom"><span class="cmptag free">FREE</span><br>${r.om?('code '+r.om.code+' · '+r.om.tp+'°F · '+r.om.pop+'% rain'):'—'}</div>
+    <div class="lrc lraw"><span class="cmptag awx">AWX</span><br>${r.awx.wx} · ${r.awx.tp}°F · ${r.awx.pop}% rain</div></div>`;}).join('');
+}
 </script></body></html>
