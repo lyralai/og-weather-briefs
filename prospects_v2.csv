@@ -1,349 +1,347 @@
 Rank,Company,Tier,Segment,Sub-Segment,Region,HQ,Weather Hook (why they buy),Key Assets / Notes
-1,Global Infrastructure Partners,1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Rio Grande LNG Phase 1 investor; infrastructure weather risk,Rio Grande LNG JV
-2,Japan LNG Investment (Mitsubishi + NYK),1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Cameron LNG 16.6%; joint Japanese investment vehicle,Cameron LNG JV
-3,Mitsui & Co.,1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Cameron LNG 16.6% + multiple US LNG stakes; Japanese trading house weather desks,Cameron LNG JV
-4,Mubadala Energy,1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,"Rio Grande LNG stake; UAE strategic, global weather exposure",Rio Grande LNG JV
-5,Stonepeak,1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Calcasieu Pass LNG infrastructure investor; Gulf surge exposure,Calcasieu Pass JV
-6,CVR — Coffeyville KS,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Historic 2007 flood shutdown; tornadoes,~115 kbd
-7,CVR — Wynnewood OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms; tornadoes,~70 kbd
-8,Chevron — El Segundo CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Coastal marine layer; heat,~290 kbd
-9,Chevron — Pascagoula MS,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Direct hurricane corridor,~360 kbd
-10,Chevron — Richmond CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Bay fog; heat events; wildfire smoke,~245 kbd
-11,Chevron — Salt Lake City UT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Inversion + snow,~45 kbd
-12,Citgo — Corpus Christi TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane corridor; lightning,~165 kbd
-13,Citgo — Lemont IL,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Chicago winters; barge ice,~167 kbd
-14,Delek — Big Spring TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,West TX wind + hail,~73 kbd
-15,Delek — El Dorado AR,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms; tornadoes,~80 kbd
-16,Delek — Tyler TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,East TX storms,~60 kbd
-17,ExxonMobil — Baton Rouge LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane corridor,~509 kbd
-18,ExxonMobil — Baytown TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Largest US refinery; surge + lightning,~564 kbd
-19,ExxonMobil — Beaumont TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane corridor; freeze,~409 kbd
-20,Flint Hills — Corpus Christi (East+West) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Gulf heat; lightning; hurricanes,~600 kbd combined
-21,Flint Hills — Pine Bend (Rosemount) MN,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Blizzards; spring flooding; -30F ops,~375 kbd
-22,HF Sinclair — Cheyenne WY,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Converted renewable diesel; wind ops,RD facility
-23,HF Sinclair — El Dorado KS,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Winter storms,~135 kbd
-24,HF Sinclair — Sinclair WY,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Wind + high-altitude snow,~95 kbd
-25,HF Sinclair — Tulsa East OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms,~125 kbd
-26,HF Sinclair — Tulsa West OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms,~125 kbd
-27,Marathon — Anacortes WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog for tanker berthing,~119 kbd
-28,Marathon — Canton OH,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Winter storms; barge logistics,~100 kbd
-29,Marathon — Catlettsburg KY,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ohio River flooding; winter ice,~280 kbd
-30,Marathon — Detroit MI,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Great Lakes freeze/thaw logistics,~140 kbd
-31,Marathon — El Paso TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Desert heat + dust; monsoon surges,~134 kbd
-32,Marathon — Galveston Bay (Texas City) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane Ike lineage; lightning + surge,593 kbd
-33,Marathon — Garyville LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Direct hurricane path; levy-side location,597 kbd
-34,Marathon — Kenai AK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Cook Inlet ice + volcanics + winter ops,~68 kbd
-35,Marathon — Los Angeles CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Santa Ana + heat; emissions constraints,~363 kbd
-36,Marathon — Mandan ND,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Bakken blizzards; river ice,~124 kbd
-37,Marathon — Robinson IL,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Midwest storms; tornado proximity,~253 kbd
-38,Marathon — Salt Lake City UT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Inversion season + snow ops,~61 kbd
-39,PBF — Chalmette LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Katrina-lineage exposure; surge,~190 kbd
-40,PBF — Delaware City DE,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Nor'easters; harbor ice,~190 kbd
-41,PBF — Paulsboro NJ,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,River ice; coastal storms,~160 kbd
-42,PBF — Torrance CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Santa Ana; earthquake-adjacent; fog,~165 kbd
-43,Par Pacific — Anacortes WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog,~149 kbd
-44,Par Pacific — Billings MT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Blizzards; flooding,~60 kbd
-45,Par Pacific — Hawaii (Kapolei),1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific hurricanes; tsunami; remote logistics,~94 kbd
-46,Phillips 66 — Bayway (Linden) NJ,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Nor'easters; Sandy lineage,~130 kbd
-47,Phillips 66 — Billings MT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Blizzards; Yellowstone flooding,~60 kbd
-48,Phillips 66 — Borger TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Panhandle wind/ice,~150 kbd
-49,Phillips 66 — Ferndale WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog berthing,~105 kbd
-50,Phillips 66 — Lake Charles LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane direct-hit corridor,~264 kbd
-51,Phillips 66 — Los Angeles CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Heat + marine layer ops,~139 kbd
-52,Phillips 66 — Ponca City OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Tornado alley; ice storms,~200 kbd
-53,Phillips 66 — Sweeny (Old Ocean) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Freeze events (Uri lineage); lightning,~265 kbd
-54,Phillips 66 — Wood River IL (Roxana),1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Mississippi flooding; winter ice,~356 kbd
-55,Valero — Ardmore OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms; tornadoes,~90 kbd
-56,Valero — Benicia CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Bay fog for tanker ops; wildfire smoke,~170 kbd
-57,Valero — Corpus Christi (East+West) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Lightning; hurricane approach; 95F heat ops,~290 kbd
-58,Valero — Houston TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ship Channel fog/surge,~205 kbd
-59,Valero — McKee (Sunray) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Panhandle blizzards; tornado alley,~200 kbd
-60,Valero — Memphis TN,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Mississippi River flooding; tornadoes,~195 kbd
-61,Valero — Meraux LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Surge-vulnerable parish ops,~135 kbd
-62,Valero — Port Arthur TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Surge + lightning corridor,~335 kbd
-63,Valero — St. Charles (Norco) LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Direct hurricane path; lightning,~340 kbd
-64,Valero — Texas City TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane hyper-corridor,~475 kbd (combined)
-65,Valero — Three Rivers TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Eagle Ford storm corridor,~89 kbd
-66,Valero — Wilmington (Los Angeles) CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Port congestion + heat + marine layer,~135 kbd
-67,bp — Cherry Point WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog berthing,~230 kbd
-68,bp — Toledo OH,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Lake-effect; ice,~160 kbd
-69,bp — Whiting IN,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Lake-effect snow; Uri-lineage freeze,~430 kbd
-70,Aries Marine,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,Morgan City OSV fleet; storm-bound ops,Gulf OSV operator
-71,Bordelon Marine,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,Fourchon OSV + liftboats,Family Gulf operator
-72,Cox Oil,1 - Existential,Offshore E&P,Operator (Private),US Gulf,Private,GoM shelf operator (Ch.11 2023 restructuring); storm-exposed shelf assets,Restructuring = cost focus
-73,Jackson Offshore Operators,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,New Orleans deepwater OSVs; MSV fleet,Gulf OSV operator
-74,LLOG Exploration,1 - Existential,Offshore E&P,Operator (Private),US Gulf,Private,Major private GoM deepwater operator; Who Dat + Buckskin; every storm is P&L,Verified active GoM operator
-75,Otto Candies,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,Gulf OSV/supply + subsea support; Fourchon-based,Family-owned Gulf fleet
-76,Ridgewood Energy,1 - Existential,Offshore E&P,Operator (Private),US Gulf,Private,GoM deepwater investor-operator; severe weather exposure,PE-backed GoM portfolio
-77,Cantium,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Gulf Coast producer; hurricane + freeze exposure,Former Fieldwood assets
-78,Hibernia Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Gulf Coast gas,Hurricane corridor
-79,Rockcliff Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Haynesville private,Hurricane corridor gas
-80,Tap Rock (NGP),2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,New Mexico Delaware; private NGP portfolio,Water + ops weather
-81,Validus Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Eagle Ford; private,Storm corridor ops
-82,Vital Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Permian pure-play public; heat + lightning exposure,Multiple Delaware assets
-83,Bharat Oman Refineries (BORL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,Bina; central India heat + monsoon,~156 kbd
-84,Bharat Petroleum (BPCL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,Kochi + Mumbai + Numaligarh stake; monsoon + cyclones,~700 kbd gross
-85,CPC Corporation (Taiwan),3 - International,International E&P/Refining,Refiner,Taiwan,Regional HQ,Kaohsiung + Taoyuan; typhoon exposure,~470 kbd
-86,Engen (Vivo Energy),3 - International,International E&P/Refining,Refiner,South Africa,Regional HQ,Durban refinery; Indian Ocean cyclones; coastal storms,~135 kbd
-87,HPCL-Mittal Energy (HMEL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,Bathinda; north India fog + heat,~229 kbd
-88,Hindustan Petroleum (HPCL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,Mumbai + Visakhapatnam + Mangalore stake; monsoon ops,~500 kbd gross
-89,Mangalore Refinery & Petrochemicals (MRPL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,West coast monsoon; cyclone belt,~199 kbd
-90,PTT Global Chemical,3 - International,International E&P/Refining,Refiner,Thailand,Regional HQ,Map Ta Phut; Gulf of Thailand monsoon,~280 kbd
-91,PetroVietnam,3 - International,International E&P/Refining,Refiner,Vietnam,Regional HQ,Dung Quat + Nghi Son stake; typhoon belt,~200 kbd
-92,Petron Corporation,3 - International,International E&P/Refining,Refiner,Philippines,Regional HQ,Batangas + Bataan; 20 typhoons/year,~440 kbd group
-93,Sasol,3 - International,International E&P/Refining,Refiner,South Africa,Regional HQ,Natref JV + Secunda synthfuels; Highveld winter + storms,Natref ~100 kbd + Secunda
-94,Tüpraş,3 - International,International E&P/Refining,Refiner,Turkey,Regional HQ,"Izmit + Izmir + Kırıkkale + Batman refineries; Marmara storms, Black Sea winter",~540 kbd total (4 plants)
-95,1,ADNOC LNG,1 - Existential,LNG,Producer/Operator,Middle East,Abu Dhabi,Das Island summer heat + Gulf storms
-96,130,APA Corp,2 - Expensive,Shale/Onshore E&P,Operator,US/Egypt,Houston TX,Permian + Egypt desert ops
-97,131,ARC Resources,2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Montney weather + LNG link
-98,132,Aethon Energy,2 - Expensive,Shale/Onshore E&P,Operator,US (private),Greenwich CT,Haynesville storms
-99,133,Antero Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Denver CO,Freeze + midstream dependency
-100,134,Ascent Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Ohio,Oklahoma City,Utica freeze
-101,164,Archer Limited,2 - Expensive,Field Services,Services/Equipment,Global,Aberdeen,Platform drilling weather
-102,182,ADNOC (group),3 - International,International E&P/Refining,Operator,Middle East,Abu Dhabi,Summer heat 50C; Gulf shamals; Das Island
-103,2,Argent LNG,1 - Existential,LNG,Producer/Operator,US Gulf,Baton Rouge LA,Louisiana surge corridor
-104,224,AET Tankers,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Kuala Lumpur,FPSO + tankers (MISC group)
-105,56,Aker BP,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea,Lysaker,Edvard Grieg/Johan Sverdrup partner
-106,57,Allseas,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Geneva,Pioneering Spirit weather windows
-107,58,Arena Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,The Woodlands TX,GoM shelf
-108,99,AltaGas,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada/Asia,Calgary,PNG LNG export + utilities
-109,100,Buckeye Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US (private),Houston TX,Bahamas/Caribbean terminal hurricanes
-110,165,Baker Hughes,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,LNG equipment + services weather
-111,183,Bapco,3 - International,International E&P/Refining,Operator,Middle East,Manama,Bahrain refinery weather
-112,184,Bharat Petroleum,3 - International,International E&P/Refining,Operator,India,Mumbai,Monsoon refining ops
-113,225,BW Group,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Singapore,LNG + tankers + offshore
-114,226,Berge Bulk,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Singapore,Dry bulk cape routing
-115,227,Bisso Towboat,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Gulf,New Orleans LA,Harbor tugs storms
-116,3,Berkshire Hathaway Energy,1 - Existential,LNG,Producer/Operator,US Atlantic,Des Moines IA,Chesapeake winter storm + LNG ops
-117,59,Beacon Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Dallas TX,GoM producer
-118,60,Boskalis,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Papendrecht,Marine works weather
-119,101,Colonial Pipeline,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Southeast,Alpharetta GA,Southeast hurricanes (history) + freeze
-120,135,CNX Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Pittsburgh PA,Freeze events
-121,136,Canadian Natural (thermal oil),2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Mild lake bitumen freeze/thaw
-122,137,Chord Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Bakken,Williston ND,Bakken freeze exposure
-123,138,Civitas Resources,2 - Expensive,Shale/Onshore E&P,Operator,US DJ/Permian,Denver CO,DJ blizzards; Permian heat
-124,139,Comstock Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Haynesville,Frisco TX,Hurricane corridor gas ops (Jerry Jones-owned)
-125,140,Continental Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Bakken,Oklahoma City,Bakken freeze (-30F events)
-126,141,Coterra Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Houston TX,Permian + Marcellus freeze
-127,166,Calfrac Well Services,2 - Expensive,Field Services,Services/Equipment,US/Canada,Calgary,Canadian frac freeze; US heat
-128,167,Core Laboratories,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Lab ops less weather-bound (low priority)
-129,185,CNOOC Ltd,3 - International,International E&P/Refining,Operator,China,Beijing,Same check
-130,186,Cairn India (Vedanta),3 - International,International E&P/Refining,Operator,India,New Delhi,Rajasthan heat + monsoon
-131,187,Cepsa,3 - International,International E&P/Refining,Operator,Spain,Madrid,Canary Islands + Gibraltar strait ops
-132,228,Castleton Commodities,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US,Stamford CT,Chartering weather
-133,229,Cool Company,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,LNG carriers
-134,230,Crosby Tugs,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Gulf,Houma LA,Gulf tug/barge storms
-135,26,CVR Energy,1 - Existential,Refining,Refiner,US Midcon,Sugar Land TX,Coffeyville flooding history
-136,27,Calumet,1 - Existential,Refining,Refiner,US Midcon,Indianapolis IN,Specialty ops freeze
-137,28,Citgo,1 - Existential,Refining,Refiner,US Gulf,Houston TX,Lake Charles direct hurricane path (Laura/Rita history)
-138,4,Cheniere Energy,1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Surge + lightning halt loading at Sabine/Corpus
-139,5,Chevron (LNG),1 - Existential,LNG,Producer/Operator,APAC/US,San Ramon CA,Cyclone exposure NW Shelf Australia
-140,6,ConocoPhillips (LNG),1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Port Arthur ACP surge + Qatar JV
-141,61,CNOOC International,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea/GoM,Calgary,Buzzard North Sea storms
-142,62,Cenovus (Offshore),1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,Calgary,Newfoundland icebergs + North Atlantic
-143,63,Crescent Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM/Eagle Ford,Fort Worth TX,GoM shelf storms
-144,102,DT Midstream,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Detroit,Haynesville/Appalachia freeze
-145,142,Devon Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Oklahoma City,Permian/Bakken/Anadarko
-146,143,Diamondback Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Midland TX,Permian heat + lightning
-147,168,Distribution Now,2 - Expensive,Field Services,Services/Equipment,US,Houston TX,Supply chain weather
-148,231,DHT Holdings,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,Crude tankers storm routing
-149,232,Dynagas,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Athens,LNG carriers ice-class
-150,29,Deer Park Refining LP,1 - Existential,Refining,Refiner,US Gulf,Deer Park TX,Houston Ship Channel surge/lightning
-151,30,Delek US,1 - Existential,Refining,Refiner,US Gulf,Brentwood TN,Tyler/Big Spring tornado alley
-152,64,Diamond Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Houston TX,GoM storm history
-153,7,Delfin LNG,1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Deepwater port hurricane exposure
-154,10,Exmar,1 - Existential,LNG,Producer/Operator,Global,Antwerp,FLNG/tanker marine weather
-155,103,EnLink Midstream,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Houston TX,North Texas freeze exposure
-156,104,Energy Transfer,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Dallas TX,Bakken pipeline freeze; Gulf export
-157,105,Enterprise Products Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Mont Belvieu lightning; offshore ports
-158,106,Explorer Pipeline,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Midcon,Tulsa OK,Tornado corridor
-159,11,ExxonMobil (LNG),1 - Existential,LNG,Producer/Operator,Global,Spring TX,Golden Pass surge risk; Qatar partner ops
-160,144,EOG Resources,2 - Expensive,Shale/Onshore E&P,Operator,US,Denver CO,Permian/EF/DJ heat + freeze; Trinidad
-161,145,EQT,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Pittsburgh PA,Appalachian winter storms (Uri history)
-162,146,Expand Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Haynesville,Oklahoma City,Haynesville hurricane corridor
-163,169,Expro Group,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Well services weather
-164,188,EGPC/EGAS,3 - International,International E&P/Refining,Operator,Egypt,Cairo,Suez wind; Zohr ops
-165,189,ENH Mozambique,3 - International,International E&P/Refining,Operator,East Africa,Maputo,Cyclone belt (Idai!)
-166,31,ENEOS (JXTG),1 - Existential,Refining,Refiner,Japan,Tokyo,Typhoon exposure nationwide system
-167,32,Ecopetrol (Refining),1 - Existential,Refining,Refiner,Colombia,Bogota,Caribbean hurricanes at Cartagena
-168,65,Edison Chouest,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Galliano LA,THE GoM OSV fleet; Fourchon home port
-169,66,EnVen Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,New Orleans LA,GoM producer
-170,67,Eni (Offshore),1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Milan,West Africa squalls + Norway
-171,68,Equinor,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea,Stavanger,Sverdrup/Castberg Arctic + North Sea storms
-172,69,Equinor Canada,1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,St. John's,Bay du Nord; N Atlantic storms
-173,70,ExxonMobil Canada (Hibernia),1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,St. John's,Iceberg season ops
-174,8,Enbridge (LNG/midstream),1 - Existential,LNG,Producer/Operator,US Gulf,Calgary,Gulf import/export positions
-175,9,Excelerate Energy,1 - Existential,LNG,Producer/Operator,Global,The Woodlands TX,FSRU berthing weather windows worldwide
-176,233,Flex LNG,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,LNG carrier scheduling
-177,234,Freepoint Commodities,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US,Stamford CT,Gas/power weather books
-178,235,Frontline,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,Tanker weather routing + storm delays
-179,33,Flint Hills Resources,1 - Existential,Refining,Refiner,US Gulf/Midwest,Wichita KS,Corpus lightning; Pine Bend blizzards
-180,107,Genesis Energy,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Offshore pipelines + soda ash
-181,108,Gibson Energy,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada,Calgary,Hardisty terminal weather
-182,109,Global Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US NE,Waltham MA,New England winter fuel logistics
-183,110,Greater Lafourche Port Comm.,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Galliano LA,Port Fourchon = GoM service hub; every storm
-184,147,Gulfport Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Oklahoma City,Utica/Scoop weather
-185,190,GNPC,3 - International,International E&P/Refining,Operator,West Africa,Accra,Jubilee weather
-186,191,Galp,3 - International,International E&P/Refining,Operator,Portugal,Lisbon,Sines refinery Atlantic storms
-187,236,GasLog,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Piraeus,LNG carrier weather windows
-188,237,Gunvor,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva,Rotterdam assets + routing
-189,34,GS Caltex,1 - Existential,Refining,Refiner,Korea,Seoul,Typhoon exposure Yeosu
-190,111,Howard Energy Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US (private),San Antonio,Eagle Ford + Gulf
-191,12,Höegh Eviivo,1 - Existential,LNG,Producer/Operator,Global,Oslo,FSRU ops marine weather windows
-192,148,HighPeak Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Midland TX,Howard County heat
-193,149,Hilcorp,2 - Expensive,Shale/Onshore E&P,Operator,US (private),Houston TX,GoM + Cook Inlet extreme ops
-194,170,Halliburton,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Frack crew weather downtime; Permian heat
-195,171,Helmerich & Payne,2 - Expensive,Field Services,Services/Equipment,US,Tulsa OK,Rig move weather
-196,192,Heritage Petroleum,3 - International,International E&P/Refining,Operator,Caribbean,Port of Spain,Trinidad hurricanes
-197,193,Hilcorp Alaska,3 - International,International E&P/Refining,Operator,US Alaska,Anchorage,Arctic + Cook Inlet ice
-198,238,Hartree Partners,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US/UK,New York,Weather-driven trading books
-199,35,HF Sinclair,1 - Existential,Refining,Refiner,US Midcon/Rockies,Dallas TX,Tulsa ice; Cheyenne blizzards
-200,36,Hellenic Petroleum,1 - Existential,Refining,Refiner,Greece,Athens,Thessaloniki/N Med weather
-201,37,Hyundai Oilbank,1 - Existential,Refining,Refiner,Korea,Seoul,Daesan typhoon exposure
-202,71,Harbour Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea/SE Asia,London,Premier+Chrysaor; NS storms
-203,72,Harvey Gulf,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,New Orleans LA,OSV + subsea support
-204,73,Heerema,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Leiden,Heavy-lift windows
-205,74,Hess,1 - Existential,Offshore E&P,Operator/Driller/Marine,Guyana,Houston TX,Guyana co-owner; Atlantic tropical belt
-206,75,Hornbeck Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Covington LA,OSV ops
-207,13,INPEX,1 - Existential,LNG,Producer/Operator,APAC,Tokyo,Ichthys cyclone exposure (NW Shelf)
-208,150,Imperial Oil,2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Kearl/Cold Lake -40 ops
-209,194,Indian Oil Corp,3 - International,International E&P/Refining,Operator,India,New Delhi,Refining + product logistics monsoon
-210,239,International Seaways,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,New York NY,Product + crude routing
-211,38,Idemitsu Kosan,1 - Existential,Refining,Refiner,Japan,Tokyo,Typhoons; Hokkaido snow
-212,76,Ithaca Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea,Aberdeen,NS portfolio
-213,195,JX Nippon Oil & Gas,3 - International,International E&P/Refining,Operator,Japan,Tokyo,Ichthys stake + Japan ops
-214,196,Japan Petroleum Exploration (JAPEX),3 - International,International E&P/Refining,Operator,Japan,Tokyo,Hokkaido winter ops
-215,112,Keyera,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada,Calgary,Alberta deep freeze ops
-216,113,Kinder Morgan,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Houston TX,Texas intrastate freeze exposure (Uri)
-217,14,Kinder Morgan LNG,1 - Existential,LNG,Producer/Operator,US Gulf/Atlantic,Houston TX,Elba Island hurricane exposure
-218,172,KLX Energy Services,2 - Expensive,Field Services,Services/Equipment,US,Wellington FL,US basins services
-219,197,KazMunayGas,3 - International,International E&P/Refining,Operator,Caspian,Astana,Kashagan ICE risk (unique!) + Caspian storms
-220,198,Kuwait Petroleum,3 - International,International E&P/Refining,Operator,Middle East,Kuwait City,Dust storms + heat
-221,240,Knot Offshore Partners,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,North Sea,Aberdeen,Shuttle tankers NS storms
-222,241,Koch Supply & Trading,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Global,Wichita KS,Pine Bend ops + global trading
-223,77,Kosmos Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM/Africa,Dallas TX,Ghana/GoM operations
-224,114,LOOP LLC,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Covington LA,Offshore port wave/surge exposure
-225,173,Liberty Energy,2 - Expensive,Field Services,Services/Equipment,US,Denver CO,Frack fleets heat/lightning
-226,39,LyondellBasell,1 - Existential,Refining,Refiner,US Gulf,Houston TX,Houston corridor lightning/heat
-227,115,MPLX,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Findlay OH,Permian/Gulf gathering storms
-228,151,Magnolia Oil & Gas,2 - Expensive,Shale/Onshore E&P,Operator,US Eagle Ford,Houston TX,EF lightning/tornado
-229,152,Matador Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Dallas TX,Delaware Basin ops
-230,153,Mewbourne Oil,2 - Expensive,Shale/Onshore E&P,Operator,US (private),Amarillo TX,Permian/Anadarko freeze
-231,199,MedcoEnergi,3 - International,International E&P/Refining,Operator,SE Asia,Jakarta,Indonesian monsoon ops
-232,200,Mubadala Energy,3 - International,International E&P/Refining,Operator,Middle East/Asia,Abu Dhabi,SE Asia + NL gas weather
-233,242,Maran Gas (Angelicoussis),4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Athens,World's largest private LNG fleet
-234,243,McAllister Towing,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US East,New York NY,NY Harbor tugs + hurricanes
-235,244,Mercuria,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva,Same
-236,245,Moran Towing,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US East/Gulf,New Canaan CT,Harbor + offshore towing
-237,40,MOL Group,1 - Existential,Refining,Refiner,Europe/CE,Budapest,Danube flooding risk
-238,41,Marathon Petroleum,1 - Existential,Refining,Refiner,US Gulf/Midwest,Findlay OH,13 refineries = 13 plant accounts
-239,42,Motiva,1 - Existential,Refining,Refiner,US Gulf,Houston TX,Port Arthur lightning + surge
-240,43,Motor Oil Hellas,1 - Existential,Refining,Refiner,Greece,Athens,Med storms; Corinth refinery
-241,78,McDermott,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,GoM marine construction history
-242,79,Murphy Oil,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM,El Dorado AR,GoM + Tupper Montney freeze
-243,15,New Fortress Energy,1 - Existential,LNG,Producer/Operator,US/Caribbean,New York NY,Fast LNG FLNG hurricane exposure; PR operations
-244,16,NextDecade,1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Hurricane exposure at Brownsville ship channel
-245,174,Nabors Industries,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Rig downtime weather
-246,175,Nine Energy Service,2 - Expensive,Field Services,Services/Equipment,US,Houston TX,Completion weather
-247,201,NNPC,3 - International,International E&P/Refining,Operator,West Africa,Abuja,Niger Delta squalls + offshore
-248,202,Nayara Energy,3 - International,International E&P/Refining,Operator,India,Mumbai,Vadinar monsoon exposure
-249,203,Neste,3 - International,International E&P/Refining,Operator,Finland,Espoo,Porvoo Arctic-Baltic ops + renewables
-250,246,Norden,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Copenhagen,Dry/cargo routing
-251,80,Noble Corporation,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Houston TX,Contract weather downtime
-252,116,ONEOK,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Tulsa OK,NGL freeze corridor (Rockies)
-253,154,Occidental,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Houston TX,Permian heat (water/crews); Denver freeze
-254,155,Ovintiv,2 - Expensive,Shale/Onshore E&P,Operator,US/Canada,Denver,Permian + Montney freeze
-255,176,Oil States International,2 - Expensive,Field Services,Services/Equipment,US Gulf,Houston TX,GoM offshore equipment
-256,204,OMV Petrom,3 - International,International E&P/Refining,Operator,Romania,Bucharest,Black Sea Neptun Deep + Petrobrazi
-257,205,ONGC,3 - International,International E&P/Refining,Operator,India,New Delhi,Monsoon offshore ops (Bombay High cyclones)
-258,206,ONGC Videsh / overseas arm,3 - International,International E&P/Refining,Operator,Global,New Delhi,Overseas assets weather
-259,207,OQ,3 - International,International E&P/Refining,Operator,Middle East,Muscat,Duqm terminal cyclone belt (recent Gonu history)
-260,208,Oil India,3 - International,International E&P/Refining,Operator,India,Noida,NE India monsoon flooding
-261,44,OMV,1 - Existential,Refining,Refiner,Europe,Vienna,Burghausen/Schwechat floods
-262,45,Orlen,1 - Existential,Refining,Refiner,Poland/Baltic,Plock,Baltic storms; Mazeikiai
-263,81,Oceaneering,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,ROV/inspection windows
-264,117,Pembina Pipeline,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada,Calgary,NGL + coast export weather
-265,118,Plains All American,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Houston TX,Permian crude gathering + Cushing
-266,119,Plantation Pipe Line,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Southeast,Atlanta GA,Same corridor
-267,120,Plaquemines Port Harbor,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Belle Chasse LA,Fresh surge exposure; LNG growth
-268,121,Port of Corpus Christi,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Corpus Christi TX,Crude export dock weather; LNG buildout
-269,122,Port of Houston,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Ship Channel fog/surge/lightning
-270,123,Port of Lake Charles,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Lake Charles LA,Direct hurricane path history
-271,156,Pampa Energía,2 - Expensive,Shale/Onshore E&P,Operator,Argentina,Buenos Aires,Vaca Muerta stake + power
-272,157,Pan American Energy,2 - Expensive,Shale/Onshore E&P,Operator,Argentina,Buenos Aires,Vaca Muerta partner
-273,158,Permian Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Midland TX,Permian pure-play
-274,17,PETRONAS (MLNG),1 - Existential,LNG,Producer/Operator,APAC,Kuala Lumpur,Bintulu monsoon exposure
-275,177,Patterson-UTI,2 - Expensive,Field Services,Services/Equipment,US,Houston TX,Rigs + frac weather
-276,178,ProPetro,2 - Expensive,Field Services,Services/Equipment,US Permian,Midland TX,Permian-only frac exposure
-277,209,PTT,3 - International,International E&P/Refining,Operator,SE Asia,Bangkok,Terminal monsoon
-278,210,PTTEP,3 - International,International E&P/Refining,Operator,SE Asia,Bangkok,Gulf of Thailand monsoon
-279,211,Pertamina,3 - International,International E&P/Refining,Operator,SE Asia,Jakarta,Monsoon + archipelago marine ops
-280,212,PetroChina,3 - International,International E&P/Refining,Operator,China,Beijing,Same check
-281,213,Petrosen,3 - International,International E&P/Refining,Operator,West Africa,Dakar,Sangomar offshore
-282,214,Preem,3 - International,International E&P/Refining,Operator,Sweden,Stockholm,Baltic winter; Lysekil
-283,46,PBF Energy,1 - Existential,Refining,Refiner,US Gulf/East,Parsippany NJ,Delaware City nor'easters + hurricanes
-284,47,Par Pacific,1 - Existential,Refining,Refiner,US West/HI,Houston TX,Hawaii hurricanes; Billings blizzards
-285,48,Pemex (International),1 - Existential,Refining,Refiner,Mexico,Mexico City,Gulf cyclones both coasts
-286,49,Petrobras (Refining),1 - Existential,Refining,Refiner,Brazil,Rio de Janeiro,Sao Paulo state flooding history
-287,50,Phillips 66,1 - Existential,Refining,Refiner,US Gulf/West,Houston TX,Sweeny freeze; Bayway hurricanes
-288,82,Petrobras America,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Pre-salt FPSO experience in GoM
-289,18,QatarEnergy,1 - Existential,LNG,Producer/Operator,Middle East,Doha,Shamal wind/heat ops at Ras Laffan; US JV partner
-290,83,QuarterNorth Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,GoM producer
-291,159,Range Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Fort Worth TX,Winter freeze; pipeline nominations
-292,179,RPC Inc,2 - Expensive,Field Services,Services/Equipment,US,Atlanta GA,Pressure pumping weather
-293,215,Repsol,3 - International,International E&P/Refining,Operator,Spain/LatAm,Madrid,La Refinería + Peru ops
-294,51,Reliance Jamnagar,1 - Existential,Refining,Refiner,India,Mumbai,Monsoon shutdown planning
-295,124,South Bow,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada/US,Calgary,Keystone ops post-split
-296,125,Sunoco LP,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Dallas TX,Refined products terminals
-297,160,SM Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Denver CO,Permian/EF/Bakken
-298,180,SLB,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Global ops weather
-299,19,Santos,1 - Existential,LNG,Producer/Operator,APAC,Adelaide,Cyclone exposure Darwin + Gladstone
-300,20,Sempra Infrastructure,1 - Existential,LNG,Producer/Operator,US Gulf/Atlantic/Mexico,Houston TX,Gulf + Pacific terminal exposure (ECA Baja)
-301,21,Shell (LNG),1 - Existential,LNG,Producer/Operator,Global,London/The Hague,Global LNG weather logistics; GoM terminals
-302,216,SOCAR,3 - International,International E&P/Refining,Operator,Caspian,Baku,Caspian storms; Shah Deniz partner
-303,217,SOCAR Turkey / Petkim,3 - International,International E&P/Refining,Operator,Turkey,Izmir,Aegean storms
-304,218,Saudi Aramco,3 - International,International E&P/Refining,Operator,Middle East,Dhahran,Shamal dust storms; Ras Tanura marine ops
-305,219,Sinopec (US-sanctions check),3 - International,International E&P/Refining,Operator,China,Beijing,Global refining; consider export controls
-306,220,Sonangol,3 - International,International E&P/Refining,Operator,West Africa,Luanda,Atlantic swell windows
-307,221,Sonatrach,3 - International,International E&P/Refining,Operator,North Africa,Algiers,Sahara heat + flash floods history
-308,247,Scorpio Tankers,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Monaco,Product tanker routing
-309,248,Signet Maritime,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Gulf,Texas City TX,Tug weather windows
-310,249,Stena Bulk,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Gothenburg,Tanker + weather routing tech user
-311,52,S-Oil,1 - Existential,Refining,Refiner,Korea,Seoul,Ulsan typhoons; Saudi JV
-312,53,SK Energy,1 - Existential,Refining,Refiner,Korea,Seoul,Typhoon exposure Ulsan
-313,84,Saipem,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Milan,EPC marine ops
-314,85,Seacor Marine,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houma LA,OSV + liftboats
-315,86,Seadrill,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Stavanger,Rig ops weather
-316,87,Shell Prelude FLNG,1 - Existential,Offshore E&P,Operator/Driller/Marine,APAC,Perth,Cyclone season direct exposure
-317,88,Subsea 7,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,London,Vessel campaign scheduling
-318,89,Suncor (Offshore),1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,Calgary,Terra Nova / Hibernia iceberg management
-319,126,TC Energy,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US/Canada,Calgary,Keystone freeze/leak weather link
-320,127,Targa Resources,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Permian NGL + Gulf fractionation
-321,161,Tecpetrol,2 - Expensive,Shale/Onshore E&P,Operator,Argentina,Buenos Aires,Vaca Muerta gas
-322,162,Tourmaline,2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Deep basin winter
-323,22,TotalEnergies (LNG),1 - Existential,LNG,Producer/Operator,Global,Paris,Gulf + Qatar + Mozambique storm exposure
-324,222,TPAO,3 - International,International E&P/Refining,Operator,Turkey,Ankara,Black Sea discovery storms
-325,250,Teekay,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Vancouver,Shuttle tanker North Sea weather
-326,251,Torm,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Copenhagen,Product tankers
-327,252,Trafigura,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva/Singapore,Same; Gulf chartering
-328,253,Tsakos Energy Navigation,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Athens,Tanker routing
-329,90,Talos Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Pure-play GoM; every storm is P&L
-330,91,TechnipFMC,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Newcastle UK,Subsea install campaign windows
-331,92,Tidewater,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,New Orleans LA,OSV utilization vs weather
-332,93,Transocean,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Steinhausen,Rig move weather windows; day rates at risk
-333,163,Vista Energy,2 - Expensive,Shale/Onshore E&P,Operator,Argentina/US,Monterrey,Vaca Muerta wind/hail
-334,223,Vietnam Petroleum (PetroVietnam),3 - International,International E&P/Refining,Operator,SE Asia,Hanoi,Typhoon belt offshore
-335,23,Venture Global,1 - Existential,LNG,Producer/Operator,US Gulf,Arlington VA,Surge warnings at 4 terminals during Edouard; they ARE the demo case
-336,254,Vitol,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva/Rotterdam,Cargo routing weather; freight exposure
-337,54,Valero,1 - Existential,Refining,Refiner,US Gulf,San Antonio TX,12 plants; Corpus lightning + freeze
-338,94,Vaalco Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM/Gabon,Houston TX,GoM + Gabon ops
-339,95,Valaris,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Houston TX,Hurricane downtime on contracted rigs
-340,96,Var Energi,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea/Barents,Stavanger,Barents + Goliat Arctic ops
-341,128,Western Midstream,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Denver,Permian/DJ weather
-342,129,Williams Companies,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Tulsa OK,Southeast gas + freeze exposure
-343,181,Weatherford,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Ops downtime weather
-344,24,Woodside Energy,1 - Existential,LNG,Producer/Operator,APAC/US Gulf,Perth/Houston,Cyclone season NW Shelf + GoM assets
-345,97,W&T Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Shelf platforms = first evacuated
-346,98,Woodside (Offshore GoM),1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Acquired BP GoM assets 2024
-347,55,YPF (Refining),1 - Existential,Refining,Refiner,Argentina,Buenos Aires,Pampas storms; Vaca Muerta link
-348,25,bp (LNG),1 - Existential,LNG,Producer/Operator,Global,London,Gulf LNG + trading weather exposure
+1,ADNOC LNG,1 - Existential,LNG,Producer/Operator,Middle East,Abu Dhabi,Das Island summer heat + Gulf storms,Das Island LNG
+2,Argent LNG,1 - Existential,LNG,Producer/Operator,US Gulf,Baton Rouge LA,Louisiana surge corridor,Port Fourchon-area LNG project
+3,Berkshire Hathaway Energy,1 - Existential,LNG,Producer/Operator,US Atlantic,Des Moines IA,Chesapeake winter storm + LNG ops,Cove Point LNG
+4,Cheniere Energy,1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Surge + lightning halt loading at Sabine/Corpus,"Sabine Pass (6 trains), Corpus Christi (+Stage 3)"
+5,Chevron (LNG),1 - Existential,LNG,Producer/Operator,APAC/US,San Ramon CA,Cyclone exposure NW Shelf Australia,"Wheatstone, Gorgon"
+6,ConocoPhillips (LNG),1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Port Arthur ACP surge + Qatar JV,"Port Arthur ACP, QatarEnergy JVs"
+7,Delfin LNG,1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Deepwater port hurricane exposure,Delfin offshore LNG port (Gulf)
+8,Enbridge (LNG/midstream),1 - Existential,LNG,Producer/Operator,US Gulf,Calgary,Gulf import/export positions,US Gulf LNG assets
+9,Excelerate Energy,1 - Existential,LNG,Producer/Operator,Global,The Woodlands TX,FSRU berthing weather windows worldwide,"~10 FSRU terminals (Brazil, BD, Pak, VN)"
+10,Exmar,1 - Existential,LNG,Producer/Operator,Global,Antwerp,FLNG/tanker marine weather,"FLNG units, gas carriers"
+11,ExxonMobil (LNG),1 - Existential,LNG,Producer/Operator,Global,Spring TX,Golden Pass surge risk; Qatar partner ops,"Golden Pass (18 mtpa), Qatar JV"
+12,Global Infrastructure Partners,1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Rio Grande LNG Phase 1 investor; infrastructure weather risk,Rio Grande LNG JV
+13,Höegh Eviivo,1 - Existential,LNG,Producer/Operator,Global,Oslo,FSRU ops marine weather windows,Global FSRU fleet
+14,INPEX,1 - Existential,LNG,Producer/Operator,APAC,Tokyo,Ichthys cyclone exposure (NW Shelf),Ichthys LNG 8.9 mtpa
+15,Japan LNG Investment (Mitsubishi + NYK),1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Cameron LNG 16.6%; joint Japanese investment vehicle,Cameron LNG JV
+16,Kinder Morgan LNG,1 - Existential,LNG,Producer/Operator,US Gulf/Atlantic,Houston TX,Elba Island hurricane exposure,"Elba Island, Gulf LNG"
+17,Mitsui & Co.,1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Cameron LNG 16.6% + multiple US LNG stakes; Japanese trading house weather desks,Cameron LNG JV
+18,New Fortress Energy,1 - Existential,LNG,Producer/Operator,US/Caribbean,New York NY,Fast LNG FLNG hurricane exposure; PR operations,"Fast LNG, Puerto Rico terminals"
+19,NextDecade,1 - Existential,LNG,Producer/Operator,US Gulf,Houston TX,Hurricane exposure at Brownsville ship channel,Rio Grande LNG (5 trains)
+20,PETRONAS (MLNG),1 - Existential,LNG,Producer/Operator,APAC,Kuala Lumpur,Bintulu monsoon exposure,MLNG complex 30 mtpa
+21,QatarEnergy,1 - Existential,LNG,Producer/Operator,Middle East,Doha,Shamal wind/heat ops at Ras Laffan; US JV partner,"Ras Laffan 77 mtpa, Golden Pass JV"
+22,Santos,1 - Existential,LNG,Producer/Operator,APAC,Adelaide,Cyclone exposure Darwin + Gladstone,"Barossa, GLNG, Darwin"
+23,Sempra Infrastructure,1 - Existential,LNG,Producer/Operator,US Gulf/Atlantic/Mexico,Houston TX,Gulf + Pacific terminal exposure (ECA Baja),"Port Arthur LNG, Cameron LNG, ECA Mexico"
+24,Shell (LNG),1 - Existential,LNG,Producer/Operator,Global,London/The Hague,Global LNG weather logistics; GoM terminals,"US Gulf LNG positions, Prelude FLNG"
+25,Stonepeak,1 - Existential,LNG,JV Partner,US Gulf/Global,Investor office,Calcasieu Pass LNG infrastructure investor; Gulf surge exposure,Calcasieu Pass JV
+26,TotalEnergies (LNG),1 - Existential,LNG,Producer/Operator,Global,Paris,Gulf + Qatar + Mozambique storm exposure,"CP2 stake, Mozambique LNG, Qatar"
+27,Venture Global,1 - Existential,LNG,Producer/Operator,US Gulf,Arlington VA,Surge warnings at 4 terminals during Edouard; they ARE the demo case,"Calcasieu Pass, Plaquemines, CP2 (build)"
+28,Woodside Energy,1 - Existential,LNG,Producer/Operator,APAC/US Gulf,Perth/Houston,Cyclone season NW Shelf + GoM assets,"NWS, Scarborough, ex-BP GoM"
+29,bp (LNG),1 - Existential,LNG,Producer/Operator,Global,London,Gulf LNG + trading weather exposure,"Freeport capacity, global offtakes"
+30,CVR Energy,1 - Existential,Refining,Refiner,US Midcon,Sugar Land TX,Coffeyville flooding history,"Coffeyville 115, Wynnewood 70"
+31,CVR — Coffeyville KS,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Historic 2007 flood shutdown; tornadoes,~115 kbd
+32,CVR — Wynnewood OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms; tornadoes,~70 kbd
+33,Calumet,1 - Existential,Refining,Refiner,US Midcon,Indianapolis IN,Specialty ops freeze,"Montana Renewables, various"
+34,Chevron — El Segundo CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Coastal marine layer; heat,~290 kbd
+35,Chevron — Pascagoula MS,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Direct hurricane corridor,~360 kbd
+36,Chevron — Richmond CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Bay fog; heat events; wildfire smoke,~245 kbd
+37,Chevron — Salt Lake City UT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Inversion + snow,~45 kbd
+38,Citgo,1 - Existential,Refining,Refiner,US Gulf,Houston TX,Lake Charles direct hurricane path (Laura/Rita history),Lake Charles 425 kbd
+39,Citgo — Corpus Christi TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane corridor; lightning,~165 kbd
+40,Citgo — Lemont IL,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Chicago winters; barge ice,~167 kbd
+41,Deer Park Refining LP,1 - Existential,Refining,Refiner,US Gulf,Deer Park TX,Houston Ship Channel surge/lightning,Deer Park 340 kbd
+42,Delek US,1 - Existential,Refining,Refiner,US Gulf,Brentwood TN,Tyler/Big Spring tornado alley,"El Dorado, Tyler 60, Big Spring 73"
+43,Delek — Big Spring TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,West TX wind + hail,~73 kbd
+44,Delek — El Dorado AR,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms; tornadoes,~80 kbd
+45,Delek — Tyler TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,East TX storms,~60 kbd
+46,ENEOS (JXTG),1 - Existential,Refining,Refiner,Japan,Tokyo,Typhoon exposure nationwide system,~30 plants Japan-wide
+47,Ecopetrol (Refining),1 - Existential,Refining,Refiner,Colombia,Bogota,Caribbean hurricanes at Cartagena,"Barrancabermeja 250, Cartagena 165"
+48,ExxonMobil — Baton Rouge LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane corridor,~509 kbd
+49,ExxonMobil — Baytown TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Largest US refinery; surge + lightning,~564 kbd
+50,ExxonMobil — Beaumont TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane corridor; freeze,~409 kbd
+51,Flint Hills Resources,1 - Existential,Refining,Refiner,US Gulf/Midwest,Wichita KS,Corpus lightning; Pine Bend blizzards,"Corpus East/West ~600 combined, Pine Bend 375"
+52,Flint Hills — Corpus Christi (East+West) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Gulf heat; lightning; hurricanes,~600 kbd combined
+53,Flint Hills — Pine Bend (Rosemount) MN,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Blizzards; spring flooding; -30F ops,~375 kbd
+54,GS Caltex,1 - Existential,Refining,Refiner,Korea,Seoul,Typhoon exposure Yeosu,Yeosu 800 kbd
+55,HF Sinclair,1 - Existential,Refining,Refiner,US Midcon/Rockies,Dallas TX,Tulsa ice; Cheyenne blizzards,"Tulsa 125, El Dorado 135, Sinclair 95, Cheyenne 95"
+56,HF Sinclair — Cheyenne WY,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Converted renewable diesel; wind ops,RD facility
+57,HF Sinclair — El Dorado KS,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Winter storms,~135 kbd
+58,HF Sinclair — Sinclair WY,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Wind + high-altitude snow,~95 kbd
+59,HF Sinclair — Tulsa East OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms,~125 kbd
+60,HF Sinclair — Tulsa West OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms,~125 kbd
+61,Hellenic Petroleum,1 - Existential,Refining,Refiner,Greece,Athens,Thessaloniki/N Med weather,Multiple
+62,Hyundai Oilbank,1 - Existential,Refining,Refiner,Korea,Seoul,Daesan typhoon exposure,Daesan ~650 kbd
+63,Idemitsu Kosan,1 - Existential,Refining,Refiner,Japan,Tokyo,Typhoons; Hokkaido snow,Multiple plants
+64,LyondellBasell,1 - Existential,Refining,Refiner,US Gulf,Houston TX,Houston corridor lightning/heat,Houston Refinery 268
+65,MOL Group,1 - Existential,Refining,Refiner,Europe/CE,Budapest,Danube flooding risk,"Bratislava, Rijeka"
+66,Marathon Petroleum,1 - Existential,Refining,Refiner,US Gulf/Midwest,Findlay OH,13 refineries = 13 plant accounts,"Galveston Bay 593, Garyville 597, +11 more"
+67,Marathon — Anacortes WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog for tanker berthing,~119 kbd
+68,Marathon — Canton OH,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Winter storms; barge logistics,~100 kbd
+69,Marathon — Catlettsburg KY,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ohio River flooding; winter ice,~280 kbd
+70,Marathon — Detroit MI,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Great Lakes freeze/thaw logistics,~140 kbd
+71,Marathon — El Paso TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Desert heat + dust; monsoon surges,~134 kbd
+72,Marathon — Galveston Bay (Texas City) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane Ike lineage; lightning + surge,593 kbd
+73,Marathon — Garyville LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Direct hurricane path; levy-side location,597 kbd
+74,Marathon — Kenai AK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Cook Inlet ice + volcanics + winter ops,~68 kbd
+75,Marathon — Los Angeles CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Santa Ana + heat; emissions constraints,~363 kbd
+76,Marathon — Mandan ND,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Bakken blizzards; river ice,~124 kbd
+77,Marathon — Robinson IL,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Midwest storms; tornado proximity,~253 kbd
+78,Marathon — Salt Lake City UT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Inversion season + snow ops,~61 kbd
+79,Motiva,1 - Existential,Refining,Refiner,US Gulf,Houston TX,Port Arthur lightning + surge,Port Arthur Refinery 630 kbd (largest US)
+80,Motor Oil Hellas,1 - Existential,Refining,Refiner,Greece,Athens,Med storms; Corinth refinery,Corinth 185
+81,OMV,1 - Existential,Refining,Refiner,Europe,Vienna,Burghausen/Schwechat floods,Schwechat 160+
+82,Orlen,1 - Existential,Refining,Refiner,Poland/Baltic,Plock,Baltic storms; Mazeikiai,"Plock 320, Mazeikiai 200"
+83,PBF Energy,1 - Existential,Refining,Refiner,US Gulf/East,Parsippany NJ,Delaware City nor'easters + hurricanes,"Delaware City 190, Paulsboro 160, Chalmette 190, Torrance 165"
+84,PBF — Chalmette LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Katrina-lineage exposure; surge,~190 kbd
+85,PBF — Delaware City DE,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Nor'easters; harbor ice,~190 kbd
+86,PBF — Paulsboro NJ,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,River ice; coastal storms,~160 kbd
+87,PBF — Torrance CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Santa Ana; earthquake-adjacent; fog,~165 kbd
+88,Par Pacific,1 - Existential,Refining,Refiner,US West/HI,Houston TX,Hawaii hurricanes; Billings blizzards,"Hawaii 94, Anacortes, Billings 60"
+89,Par Pacific — Anacortes WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog,~149 kbd
+90,Par Pacific — Billings MT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Blizzards; flooding,~60 kbd
+91,Par Pacific — Hawaii (Kapolei),1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific hurricanes; tsunami; remote logistics,~94 kbd
+92,Pemex (International),1 - Existential,Refining,Refiner,Mexico,Mexico City,Gulf cyclones both coasts,"Salina Cruz, Cadereyta, Minatitlan system"
+93,Petrobras (Refining),1 - Existential,Refining,Refiner,Brazil,Rio de Janeiro,Sao Paulo state flooding history,"RAP, RNEST system"
+94,Phillips 66,1 - Existential,Refining,Refiner,US Gulf/West,Houston TX,Sweeny freeze; Bayway hurricanes,"Sweeny 265, Bayway 130, Wood River 356, +8"
+95,Phillips 66 — Bayway (Linden) NJ,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Nor'easters; Sandy lineage,~130 kbd
+96,Phillips 66 — Billings MT,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Blizzards; Yellowstone flooding,~60 kbd
+97,Phillips 66 — Borger TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Panhandle wind/ice,~150 kbd
+98,Phillips 66 — Ferndale WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog berthing,~105 kbd
+99,Phillips 66 — Lake Charles LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane direct-hit corridor,~264 kbd
+100,Phillips 66 — Los Angeles CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Heat + marine layer ops,~139 kbd
+101,Phillips 66 — Ponca City OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Tornado alley; ice storms,~200 kbd
+102,Phillips 66 — Sweeny (Old Ocean) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Freeze events (Uri lineage); lightning,~265 kbd
+103,Phillips 66 — Wood River IL (Roxana),1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Mississippi flooding; winter ice,~356 kbd
+104,Reliance Jamnagar,1 - Existential,Refining,Refiner,India,Mumbai,Monsoon shutdown planning,Jamnagar 1240 kbd (world's largest)
+105,S-Oil,1 - Existential,Refining,Refiner,Korea,Seoul,Ulsan typhoons; Saudi JV,Ulsan ~670 kbd
+106,SK Energy,1 - Existential,Refining,Refiner,Korea,Seoul,Typhoon exposure Ulsan,Ulsan 840 kbd
+107,Valero,1 - Existential,Refining,Refiner,US Gulf,San Antonio TX,12 plants; Corpus lightning + freeze,"Port Arthur 335, Texas City 475, Corpus 290, +9"
+108,Valero — Ardmore OK,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ice storms; tornadoes,~90 kbd
+109,Valero — Benicia CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Bay fog for tanker ops; wildfire smoke,~170 kbd
+110,Valero — Corpus Christi (East+West) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Lightning; hurricane approach; 95F heat ops,~290 kbd
+111,Valero — Houston TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Ship Channel fog/surge,~205 kbd
+112,Valero — McKee (Sunray) TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Panhandle blizzards; tornado alley,~200 kbd
+113,Valero — Memphis TN,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Mississippi River flooding; tornadoes,~195 kbd
+114,Valero — Meraux LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Surge-vulnerable parish ops,~135 kbd
+115,Valero — Port Arthur TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Surge + lightning corridor,~335 kbd
+116,Valero — St. Charles (Norco) LA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Direct hurricane path; lightning,~340 kbd
+117,Valero — Texas City TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Hurricane hyper-corridor,~475 kbd (combined)
+118,Valero — Three Rivers TX,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Eagle Ford storm corridor,~89 kbd
+119,Valero — Wilmington (Los Angeles) CA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Port congestion + heat + marine layer,~135 kbd
+120,YPF (Refining),1 - Existential,Refining,Refiner,Argentina,Buenos Aires,Pampas storms; Vaca Muerta link,"La Plata, Lujan de Cuyo"
+121,bp — Cherry Point WA,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Pacific storms; fog berthing,~230 kbd
+122,bp — Toledo OH,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Lake-effect; ice,~160 kbd
+123,bp — Whiting IN,1 - Existential,Refining,Plant-Level Account,US,Plant ops team,Lake-effect snow; Uri-lineage freeze,~430 kbd
+124,Aker BP,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea,Lysaker,Edvard Grieg/Johan Sverdrup partner,Extensive NS portfolio
+125,Allseas,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Geneva,Pioneering Spirit weather windows,Pioneering Spirit
+126,Arena Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,The Woodlands TX,GoM shelf,GoM assets
+127,Aries Marine,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,Morgan City OSV fleet; storm-bound ops,Gulf OSV operator
+128,Beacon Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Dallas TX,GoM producer,GoM assets
+129,Bordelon Marine,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,Fourchon OSV + liftboats,Family Gulf operator
+130,Boskalis,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Papendrecht,Marine works weather,Dredging + heavy transport
+131,CNOOC International,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea/GoM,Calgary,Buzzard North Sea storms,"Buzzard, Golden Eagle"
+132,Cenovus (Offshore),1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,Calgary,Newfoundland icebergs + North Atlantic,"SeaRose FPSO, Hebron stake"
+133,Cox Oil,1 - Existential,Offshore E&P,Operator (Private),US Gulf,Private,GoM shelf operator (Ch.11 2023 restructuring); storm-exposed shelf assets,Restructuring = cost focus
+134,Crescent Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM/Eagle Ford,Fort Worth TX,GoM shelf storms,GoM portfolio
+135,Diamond Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Houston TX,GoM storm history,Semisub fleet
+136,Edison Chouest,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Galliano LA,THE GoM OSV fleet; Fourchon home port,Largest US OSV operator
+137,EnVen Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,New Orleans LA,GoM producer,GoM assets
+138,Eni (Offshore),1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Milan,West Africa squalls + Norway,Multiple hubs
+139,Equinor,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea,Stavanger,Sverdrup/Castberg Arctic + North Sea storms,"Sverdrup 500+, Castberg, Troll"
+140,Equinor Canada,1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,St. John's,Bay du Nord; N Atlantic storms,Bay du Nord project
+141,ExxonMobil Canada (Hibernia),1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,St. John's,Iceberg season ops,"Hibernia, Hebron"
+142,Harbour Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea/SE Asia,London,Premier+Chrysaor; NS storms,"Catcher, Tolmount"
+143,Harvey Gulf,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,New Orleans LA,OSV + subsea support,OSV fleet
+144,Heerema,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Leiden,Heavy-lift windows,Semi-sub cranes
+145,Hess,1 - Existential,Offshore E&P,Operator/Driller/Marine,Guyana,Houston TX,Guyana co-owner; Atlantic tropical belt,Stabroek JV 30%
+146,Hornbeck Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Covington LA,OSV ops,OSV fleet
+147,Ithaca Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea,Aberdeen,NS portfolio,Multiple hubs
+148,Jackson Offshore Operators,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,New Orleans deepwater OSVs; MSV fleet,Gulf OSV operator
+149,Kosmos Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM/Africa,Dallas TX,Ghana/GoM operations,"Jubilee, GTA"
+150,LLOG Exploration,1 - Existential,Offshore E&P,Operator (Private),US Gulf,Private,Major private GoM deepwater operator; Who Dat + Buckskin; every storm is P&L,Verified active GoM operator
+151,McDermott,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,GoM marine construction history,Derrick barges
+152,Murphy Oil,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM,El Dorado AR,GoM + Tupper Montney freeze,GoM assets
+153,Noble Corporation,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Houston TX,Contract weather downtime,DS + jackups
+154,Oceaneering,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,ROV/inspection windows,Global subsea fleet
+155,Otto Candies,1 - Existential,Offshore E&P,Marine Support,US Gulf,Gulf Coast,Gulf OSV/supply + subsea support; Fourchon-based,Family-owned Gulf fleet
+156,Petrobras America,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Pre-salt FPSO experience in GoM,GoM assets
+157,QuarterNorth Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,GoM producer,GoM assets
+158,Ridgewood Energy,1 - Existential,Offshore E&P,Operator (Private),US Gulf,Private,GoM deepwater investor-operator; severe weather exposure,PE-backed GoM portfolio
+159,Saipem,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Milan,EPC marine ops,Global fleet
+160,Seacor Marine,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houma LA,OSV + liftboats,US + int'l fleet
+161,Seadrill,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Stavanger,Rig ops weather,Managed fleet
+162,Shell Prelude FLNG,1 - Existential,Offshore E&P,Operator/Driller/Marine,APAC,Perth,Cyclone season direct exposure,Prelude FLNG
+163,Subsea 7,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,London,Vessel campaign scheduling,Global fleet
+164,Suncor (Offshore),1 - Existential,Offshore E&P,Operator/Driller/Marine,Atlantic Canada,Calgary,Terra Nova / Hibernia iceberg management,"Terra Nova, Hibernia, White Rose"
+165,Talos Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Pure-play GoM; every storm is P&L,Gulf platforms + CCS
+166,TechnipFMC,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Newcastle UK,Subsea install campaign windows,Global
+167,Tidewater,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,New Orleans LA,OSV utilization vs weather,Global OSV fleet
+168,Transocean,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Steinhausen,Rig move weather windows; day rates at risk,Global drillship/ssemi fleet
+169,Vaalco Energy,1 - Existential,Offshore E&P,Operator/Driller/Marine,GoM/Gabon,Houston TX,GoM + Gabon ops,Multiple hubs
+170,Valaris,1 - Existential,Offshore E&P,Operator/Driller/Marine,Global,Houston TX,Hurricane downtime on contracted rigs,Global jackup/DS fleet
+171,Var Energi,1 - Existential,Offshore E&P,Operator/Driller/Marine,North Sea/Barents,Stavanger,Barents + Goliat Arctic ops,"Goliat, Johan Castberg stake"
+172,W&T Offshore,1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Shelf platforms = first evacuated,GoM shelf portfolio
+173,Woodside (Offshore GoM),1 - Existential,Offshore E&P,Operator/Driller/Marine,US Gulf,Houston TX,Acquired BP GoM assets 2024,"Angel, Argos, Mad Dog stake"
+174,AltaGas,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada/Asia,Calgary,PNG LNG export + utilities, Ridley + PNG
+175,Buckeye Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US (private),Houston TX,Bahamas/Caribbean terminal hurricanes,NY Harbor + Caribbean
+176,Colonial Pipeline,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Southeast,Alpharetta GA,Southeast hurricanes (history) + freeze,Refined products spine
+177,DT Midstream,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Detroit,Haynesville/Appalachia freeze,Gas pipelines
+178,EnLink Midstream,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Houston TX,North Texas freeze exposure,NOW ONEOK-owned
+179,Energy Transfer,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Dallas TX,Bakken pipeline freeze; Gulf export,"DAPL, Permian corridors, NGL exports"
+180,Enterprise Products Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Mont Belvieu lightning; offshore ports,Largest US NGL/petrol midstream
+181,Explorer Pipeline,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Midcon,Tulsa OK,Tornado corridor,Gulf-Coast midcon products
+182,Genesis Energy,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Offshore pipelines + soda ash,Gulf deepwater lines
+183,Gibson Energy,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada,Calgary,Hardisty terminal weather,Canadian terminals
+184,Global Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US NE,Waltham MA,New England winter fuel logistics,Terminals NE
+185,Greater Lafourche Port Comm.,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Galliano LA,Port Fourchon = GoM service hub; every storm,Fourchon port ops
+186,Howard Energy Partners,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US (private),San Antonio,Eagle Ford + Gulf,Private midstream
+187,Keyera,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada,Calgary,Alberta deep freeze ops,NGL/gas
+188,Kinder Morgan,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Houston TX,Texas intrastate freeze exposure (Uri),"Largest gas network, terminals"
+189,LOOP LLC,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Covington LA,Offshore port wave/surge exposure,Only US deepwater oil port
+190,MPLX,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Findlay OH,Permian/Gulf gathering storms,Marathon midstream arm
+191,ONEOK,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Tulsa OK,NGL freeze corridor (Rockies),NGL + gas
+192,Pembina Pipeline,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada,Calgary,NGL + coast export weather,Canadian midstream
+193,Plains All American,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Houston TX,Permian crude gathering + Cushing,Crude midstream leader
+194,Plantation Pipe Line,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Southeast,Atlanta GA,Same corridor,KinderMorgan/ExxonMobil JV
+195,Plaquemines Port Harbor,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Belle Chasse LA,Fresh surge exposure; LNG growth,Plaquemines corridor
+196,Port of Corpus Christi,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Corpus Christi TX,Crude export dock weather; LNG buildout,Largest US crude export port
+197,Port of Houston,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Ship Channel fog/surge/lightning,Largest Gulf tonnage
+198,Port of Lake Charles,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Lake Charles LA,Direct hurricane path history,Calcasieu Ship Channel
+199,South Bow,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,Canada/US,Calgary,Keystone ops post-split,"Keystone, Cochin"
+200,Sunoco LP,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Dallas TX,Refined products terminals,7-11 fuels arm
+201,TC Energy,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US/Canada,Calgary,Keystone freeze/leak weather link,"Keystone, NGTL, coastal gas"
+202,Targa Resources,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US Gulf,Houston TX,Permian NGL + Gulf fractionation,Mont Belvieu region
+203,Western Midstream,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Denver,Permian/DJ weather,Oxy-affiliated
+204,Williams Companies,2 - Expensive,Midstream/Ports,Pipeline/Terminal/Port,US,Tulsa OK,Southeast gas + freeze exposure,"Transco, gathering"
+205,APA Corp,2 - Expensive,Shale/Onshore E&P,Operator,US/Egypt,Houston TX,Permian + Egypt desert ops,Apache legacy
+206,ARC Resources,2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Montney weather + LNG link,Montney + LNG Canada
+207,Aethon Energy,2 - Expensive,Shale/Onshore E&P,Operator,US (private),Greenwich CT,Haynesville storms,Haynesville
+208,Antero Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Denver CO,Freeze + midstream dependency,Marcellus/Utica
+209,Ascent Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Ohio,Oklahoma City,Utica freeze,Utica largest
+210,CNX Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Pittsburgh PA,Freeze events,Appalachia
+211,Canadian Natural (thermal oil),2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Mild lake bitumen freeze/thaw,"Thermal in situ, mining"
+212,Cantium,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Gulf Coast producer; hurricane + freeze exposure,Former Fieldwood assets
+213,Chord Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Bakken,Williston ND,Bakken freeze exposure,Bakken pure-play
+214,Civitas Resources,2 - Expensive,Shale/Onshore E&P,Operator,US DJ/Permian,Denver CO,DJ blizzards; Permian heat,"DJ, Permian"
+215,Comstock Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Haynesville,Frisco TX,Hurricane corridor gas ops (Jerry Jones-owned),Haynesville
+216,Continental Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Bakken,Oklahoma City,Bakken freeze (-30F events),Bakken dominant
+217,Coterra Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Houston TX,Permian + Marcellus freeze,"Permian, Marcellus, Anadarko"
+218,Devon Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Oklahoma City,Permian/Bakken/Anadarko,Multi-basin
+219,Diamondback Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Midland TX,Permian heat + lightning,Permian pure-play
+220,EOG Resources,2 - Expensive,Shale/Onshore E&P,Operator,US,Denver CO,Permian/EF/DJ heat + freeze; Trinidad,Extensive US portfolio
+221,EQT,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Pittsburgh PA,Appalachian winter storms (Uri history),Marcellus/Utica
+222,Expand Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Haynesville,Oklahoma City,Haynesville hurricane corridor,Largest US gas producer
+223,Gulfport Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Oklahoma City,Utica/Scoop weather,"Utica, SCOOP"
+224,Hibernia Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Gulf Coast gas,Hurricane corridor
+225,HighPeak Energy,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Midland TX,Howard County heat,Permian
+226,Hilcorp,2 - Expensive,Shale/Onshore E&P,Operator,US (private),Houston TX,GoM + Cook Inlet extreme ops,Largest private
+227,Imperial Oil,2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Kearl/Cold Lake -40 ops,Oil sands
+228,Magnolia Oil & Gas,2 - Expensive,Shale/Onshore E&P,Operator,US Eagle Ford,Houston TX,EF lightning/tornado,Giddings/Violin Pitch
+229,Matador Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Dallas TX,Delaware Basin ops,San Juan + Delaware
+230,Mewbourne Oil,2 - Expensive,Shale/Onshore E&P,Operator,US (private),Amarillo TX,Permian/Anadarko freeze,Major private
+231,Occidental,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Houston TX,Permian heat (water/crews); Denver freeze,"Permian, Rockies"
+232,Ovintiv,2 - Expensive,Shale/Onshore E&P,Operator,US/Canada,Denver,Permian + Montney freeze,Multi-basin
+233,Pampa Energía,2 - Expensive,Shale/Onshore E&P,Operator,Argentina,Buenos Aires,Vaca Muerta stake + power,VM + renewables
+234,Pan American Energy,2 - Expensive,Shale/Onshore E&P,Operator,Argentina,Buenos Aires,Vaca Muerta partner,Argentina/Chile/BO
+235,Permian Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Permian,Midland TX,Permian pure-play,Delaware Basin
+236,Range Resources,2 - Expensive,Shale/Onshore E&P,Operator,US Appalachia,Fort Worth TX,Winter freeze; pipeline nominations,Marcellus
+237,Rockcliff Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Haynesville private,Hurricane corridor gas
+238,SM Energy,2 - Expensive,Shale/Onshore E&P,Operator,US,Denver CO,Permian/EF/Bakken,Multi-basin
+239,Tap Rock (NGP),2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,New Mexico Delaware; private NGP portfolio,Water + ops weather
+240,Tecpetrol,2 - Expensive,Shale/Onshore E&P,Operator,Argentina,Buenos Aires,Vaca Muerta gas,Fortín de Piedra
+241,Tourmaline,2 - Expensive,Shale/Onshore E&P,Operator,Canada,Calgary,Deep basin winter,Largest Canadian gas
+242,Validus Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Eagle Ford; private,Storm corridor ops
+243,Vista Energy,2 - Expensive,Shale/Onshore E&P,Operator,Argentina/US,Monterrey,Vaca Muerta wind/hail,Vaca Muerta
+244,Vital Energy,2 - Expensive,Shale/Onshore E&P,Operator (Private),US Gulf/Permian,Private,Permian pure-play public; heat + lightning exposure,Multiple Delaware assets
+245,Archer Limited,2 - Expensive,Field Services,Services/Equipment,Global,Aberdeen,Platform drilling weather,Platform services
+246,Baker Hughes,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,LNG equipment + services weather,Turbines + services
+247,Calfrac Well Services,2 - Expensive,Field Services,Services/Equipment,US/Canada,Calgary,Canadian frac freeze; US heat,Pressure pumping
+248,Core Laboratories,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Lab ops less weather-bound (low priority),Analysis
+249,Distribution Now,2 - Expensive,Field Services,Services/Equipment,US,Houston TX,Supply chain weather,MRC merged
+250,Expro Group,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Well services weather,Well flowback
+251,Halliburton,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Frack crew weather downtime; Permian heat,Largest frack services
+252,Helmerich & Payne,2 - Expensive,Field Services,Services/Equipment,US,Tulsa OK,Rig move weather,US land drilling
+253,KLX Energy Services,2 - Expensive,Field Services,Services/Equipment,US,Wellington FL,US basins services,Completion services
+254,Liberty Energy,2 - Expensive,Field Services,Services/Equipment,US,Denver CO,Frack fleets heat/lightning,US frack leader
+255,Nabors Industries,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Rig downtime weather,Int'l land rigs
+256,Nine Energy Service,2 - Expensive,Field Services,Services/Equipment,US,Houston TX,Completion weather,Cementing etc
+257,Oil States International,2 - Expensive,Field Services,Services/Equipment,US Gulf,Houston TX,GoM offshore equipment,Offshore products
+258,Patterson-UTI,2 - Expensive,Field Services,Services/Equipment,US,Houston TX,Rigs + frac weather,Drilling + completion
+259,ProPetro,2 - Expensive,Field Services,Services/Equipment,US Permian,Midland TX,Permian-only frac exposure,Permian frack
+260,RPC Inc,2 - Expensive,Field Services,Services/Equipment,US,Atlanta GA,Pressure pumping weather,Services
+261,SLB,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Global ops weather,Largest oilfield services
+262,Weatherford,2 - Expensive,Field Services,Services/Equipment,Global,Houston TX,Ops downtime weather,Services
+263,ADNOC (group),3 - International,International E&P/Refining,Operator,Middle East,Abu Dhabi,Summer heat 50C; Gulf shamals; Das Island,UAE NOC
+264,Bapco,3 - International,International E&P/Refining,Operator,Middle East,Manama,Bahrain refinery weather,Sitra refinery
+265,Bharat Oman Refineries (BORL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,Bina; central India heat + monsoon,~156 kbd
+266,Bharat Petroleum,3 - International,International E&P/Refining,Operator,India,Mumbai,Monsoon refining ops,"Kochi, Mumbai refineries"
+267,CNOOC Ltd,3 - International,International E&P/Refining,Operator,China,Beijing,Same check,China NOC
+268,CPC Corporation (Taiwan),3 - International,International E&P/Refining,Refiner,Taiwan,Regional HQ,Kaohsiung + Taoyuan; typhoon exposure,~470 kbd
+269,Cairn India (Vedanta),3 - International,International E&P/Refining,Operator,India,New Delhi,Rajasthan heat + monsoon,Mangala field
+270,Cepsa,3 - International,International E&P/Refining,Operator,Spain,Madrid,Canary Islands + Gibraltar strait ops,Refiner + chems
+271,EGPC/EGAS,3 - International,International E&P/Refining,Operator,Egypt,Cairo,Suez wind; Zohr ops,Egypt NOCs
+272,ENH Mozambique,3 - International,International E&P/Refining,Operator,East Africa,Maputo,Cyclone belt (Idai!),Coral FLNG state stake
+273,Engen (Vivo Energy),3 - International,International E&P/Refining,Refiner,South Africa,Regional HQ,Durban refinery; Indian Ocean cyclones; coastal storms,~135 kbd
+274,GNPC,3 - International,International E&P/Refining,Operator,West Africa,Accra,Jubilee weather,Ghana NOC
+275,Galp,3 - International,International E&P/Refining,Operator,Portugal,Lisbon,Sines refinery Atlantic storms,Sines 220 kbd
+276,HPCL-Mittal Energy (HMEL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,Bathinda; north India fog + heat,~229 kbd
+277,Heritage Petroleum,3 - International,International E&P/Refining,Operator,Caribbean,Port of Spain,Trinidad hurricanes,Trinidad refining
+278,Hilcorp Alaska,3 - International,International E&P/Refining,Operator,US Alaska,Anchorage,Arctic + Cook Inlet ice,"Private, huge AK"
+279,Hindustan Petroleum (HPCL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,Mumbai + Visakhapatnam + Mangalore stake; monsoon ops,~500 kbd gross
+280,Indian Oil Corp,3 - International,International E&P/Refining,Operator,India,New Delhi,Refining + product logistics monsoon,Largest Indian refiner
+281,JX Nippon Oil & Gas,3 - International,International E&P/Refining,Operator,Japan,Tokyo,Ichthys stake + Japan ops,E&P arm
+282,Japan Petroleum Exploration (JAPEX),3 - International,International E&P/Refining,Operator,Japan,Tokyo,Hokkaido winter ops,JAPEX
+283,KazMunayGas,3 - International,International E&P/Refining,Operator,Caspian,Astana,Kashagan ICE risk (unique!) + Caspian storms,Kazakhstan NOC
+284,Kuwait Petroleum,3 - International,International E&P/Refining,Operator,Middle East,Kuwait City,Dust storms + heat,KPC group
+285,Mangalore Refinery & Petrochemicals (MRPL),3 - International,International E&P/Refining,Refiner,India,Regional HQ,West coast monsoon; cyclone belt,~199 kbd
+286,MedcoEnergi,3 - International,International E&P/Refining,Operator,SE Asia,Jakarta,Indonesian monsoon ops,Indonesian E&P
+287,Mubadala Energy,3 - International,International E&P/Refining,Operator,Middle East/Asia,Abu Dhabi,SE Asia + NL gas weather,Int'l portfolio
+288,NNPC,3 - International,International E&P/Refining,Operator,West Africa,Abuja,Niger Delta squalls + offshore,Nigeria NOC
+289,Nayara Energy,3 - International,International E&P/Refining,Operator,India,Mumbai,Vadinar monsoon exposure,Vadinar 400 kbd
+290,Neste,3 - International,International E&P/Refining,Operator,Finland,Espoo,Porvoo Arctic-Baltic ops + renewables,Refiner + renewables
+291,OMV Petrom,3 - International,International E&P/Refining,Operator,Romania,Bucharest,Black Sea Neptun Deep + Petrobrazi,Romania
+292,ONGC,3 - International,International E&P/Refining,Operator,India,New Delhi,Monsoon offshore ops (Bombay High cyclones),India's biggest producer
+293,ONGC Videsh / overseas arm,3 - International,International E&P/Refining,Operator,Global,New Delhi,Overseas assets weather,OVL
+294,OQ,3 - International,International E&P/Refining,Operator,Middle East,Muscat,Duqm terminal cyclone belt (recent Gonu history),Oman group
+295,Oil India,3 - International,International E&P/Refining,Operator,India,Noida,NE India monsoon flooding,Assam fields
+296,PTT,3 - International,International E&P/Refining,Operator,SE Asia,Bangkok,Terminal monsoon,Thailand energy
+297,PTT Global Chemical,3 - International,International E&P/Refining,Refiner,Thailand,Regional HQ,Map Ta Phut; Gulf of Thailand monsoon,~280 kbd
+298,PTTEP,3 - International,International E&P/Refining,Operator,SE Asia,Bangkok,Gulf of Thailand monsoon,Thailand E&P
+299,Pertamina,3 - International,International E&P/Refining,Operator,SE Asia,Jakarta,Monsoon + archipelago marine ops,Indonesia NOC
+300,PetroChina,3 - International,International E&P/Refining,Operator,China,Beijing,Same check,China NOC
+301,PetroVietnam,3 - International,International E&P/Refining,Refiner,Vietnam,Regional HQ,Dung Quat + Nghi Son stake; typhoon belt,~200 kbd
+302,Petron Corporation,3 - International,International E&P/Refining,Refiner,Philippines,Regional HQ,Batangas + Bataan; 20 typhoons/year,~440 kbd group
+303,Petrosen,3 - International,International E&P/Refining,Operator,West Africa,Dakar,Sangomar offshore,Senegal
+304,Preem,3 - International,International E&P/Refining,Operator,Sweden,Stockholm,Baltic winter; Lysekil,Scandinavia's largest
+305,Repsol,3 - International,International E&P/Refining,Operator,Spain/LatAm,Madrid,La Refinería + Peru ops,Global integrated
+306,SOCAR,3 - International,International E&P/Refining,Operator,Caspian,Baku,Caspian storms; Shah Deniz partner,Azerbaijan NOC
+307,SOCAR Turkey / Petkim,3 - International,International E&P/Refining,Operator,Turkey,Izmir,Aegean storms,Petkim refinery
+308,Sasol,3 - International,International E&P/Refining,Refiner,South Africa,Regional HQ,Natref JV + Secunda synthfuels; Highveld winter + storms,Natref ~100 kbd + Secunda
+309,Saudi Aramco,3 - International,International E&P/Refining,Operator,Middle East,Dhahran,Shamal dust storms; Ras Tanura marine ops,World's largest oil co
+310,Sinopec (US-sanctions check),3 - International,International E&P/Refining,Operator,China,Beijing,Global refining; consider export controls,China NOC
+311,Sonangol,3 - International,International E&P/Refining,Operator,West Africa,Luanda,Atlantic swell windows,Angola NOC
+312,Sonatrach,3 - International,International E&P/Refining,Operator,North Africa,Algiers,Sahara heat + flash floods history,Algeria NOC
+313,TPAO,3 - International,International E&P/Refining,Operator,Turkey,Ankara,Black Sea discovery storms,Sakarya field
+314,Tüpraş,3 - International,International E&P/Refining,Refiner,Turkey,Regional HQ,"Izmit + Izmir + Kırıkkale + Batman refineries; Marmara storms, Black Sea winter",~540 kbd total (4 plants)
+315,Vietnam Petroleum (PetroVietnam),3 - International,International E&P/Refining,Operator,SE Asia,Hanoi,Typhoon belt offshore,Block operations
+316,AET Tankers,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Kuala Lumpur,FPSO + tankers (MISC group),MISC subsidiary
+317,BW Group,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Singapore,LNG + tankers + offshore,Major private group
+318,Berge Bulk,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Singapore,Dry bulk cape routing,Private
+319,Bisso Towboat,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Gulf,New Orleans LA,Harbor tugs storms,Private
+320,Castleton Commodities,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US,Stamford CT,Chartering weather,CCI
+321,Cool Company,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,LNG carriers,CoolCo
+322,Crosby Tugs,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Gulf,Houma LA,Gulf tug/barge storms,Private
+323,DHT Holdings,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,Crude tankers storm routing,VLCC fleet
+324,Dynagas,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Athens,LNG carriers ice-class,Ice-class LNG
+325,Flex LNG,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,LNG carrier scheduling,LNG carriers
+326,Freepoint Commodities,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US,Stamford CT,Gas/power weather books,Freepoint
+327,Frontline,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Hamilton BM,Tanker weather routing + storm delays,Large crude fleet
+328,GasLog,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Piraeus,LNG carrier weather windows,LNG carriers
+329,Gunvor,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva,Rotterdam assets + routing,Major trader
+330,Hartree Partners,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US/UK,New York,Weather-driven trading books,Energy trader
+331,International Seaways,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,New York NY,Product + crude routing,Diverse fleet
+332,Knot Offshore Partners,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,North Sea,Aberdeen,Shuttle tankers NS storms,Shuttle fleet
+333,Koch Supply & Trading,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Global,Wichita KS,Pine Bend ops + global trading,Koch Industries arm
+334,Maran Gas (Angelicoussis),4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Athens,World's largest private LNG fleet,Private Greek
+335,McAllister Towing,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US East,New York NY,NY Harbor tugs + hurricanes,Private
+336,Mercuria,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva,Same,Major trader
+337,Moran Towing,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US East/Gulf,New Canaan CT,Harbor + offshore towing,Private
+338,Norden,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Copenhagen,Dry/cargo routing,Baltic major
+339,Scorpio Tankers,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Monaco,Product tanker routing,Large product fleet
+340,Signet Maritime,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,US Gulf,Texas City TX,Tug weather windows,Private Gulf tug
+341,Stena Bulk,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Gothenburg,Tanker + weather routing tech user,Stena Sphere
+342,Teekay,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Vancouver,Shuttle tanker North Sea weather,Shuttle tankers
+343,Torm,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Copenhagen,Product tankers,Large fleet
+344,Trafigura,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva/Singapore,Same; Gulf chartering,Top-3 trader
+345,Tsakos Energy Navigation,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Athens,Tanker routing,Tankers
+346,Vitol,4 - Trading/Marine,Traders/Tankers/Tugs,Trading/Marine,Global,Geneva/Rotterdam,Cargo routing weather; freight exposure,Largest independent trader
