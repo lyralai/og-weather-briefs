@@ -115,6 +115,8 @@ map.on('load', async () => {
   const span=Math.max(Math.max(...lons)-Math.min(...lons),Math.max(...lats)-Math.min(...lats));
   if(span>0.5){map.fitBounds([[Math.min(...lons),Math.min(...lats)],[Math.max(...lons),Math.max(...lats)]],{padding:70,duration:0});}
   else{map.setCenter(c0);map.setZoom(8);}
+  // insert overlays beneath the first symbol (label) layer, whatever the style calls it
+  const firstSymbolId=(map.getStyle().layers.find(l=>l.type==='symbol')||{}).id;
   // asset markers (risk colored)
   d.assets.forEach(a=>{const el=document.createElement('div');
     el.style.cssText=`width:16px;height:16px;border-radius:50%;background:${rc[a.risk]||'#888'};border:3px solid #fff;box-shadow:0 0 0 2px ${rc[a.risk]||'#888'}40, 0 2px 6px rgba(0,0,0,.5);cursor:pointer`;
@@ -133,7 +135,7 @@ map.on('load', async () => {
     fvHost=rv.host; frames=[...rv.radar.past.slice(-8),...rv.radar.nowcast.slice(0,4)];
     frames.forEach((f,i)=>{const id='radar'+i;
       map.addSource(id,{type:'raster',tiles:[`${rv.host}${f.path}/512/{z}/{x}/{y}/6/1_1.png`],tileSize:512});
-      map.addLayer({id:id,type:'raster',source:id,paint:{'raster-opacity':0}} ,'place-city-lg-n');});
+      map.addLayer({id:id,type:'raster',source:id,paint:{'raster-opacity':0}} ,firstSymbolId);});
     let cur=frames.length-5>=0?frames.length-5:0;
     const show=i=>{frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',j===i?0.75:0));
       const t=new Date(frames[i].time*1000);document.getElementById('rtime').textContent=' radar '+t.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})+(i>=8?' (nowcast)':'');};
@@ -146,7 +148,7 @@ map.on('load', async () => {
   // NASA GIBS satellite (yesterday, VIIRS true color)
   const yd=new Date(Date.now()-864e5).toISOString().slice(0,10);
   if(!map.getSource('gibs')){map.addSource('gibs',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${yd}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`],tileSize:256});
-    map.addLayer({id:'gibs-sat',type:'raster',source:'gibs',paint:{'raster-opacity':0.85,'raster-fade-duration':0}},'place-city-lg-n');
+    map.addLayer({id:'gibs-sat',type:'raster',source:'gibs',paint:{'raster-opacity':0.85,'raster-fade-duration':0}},firstSymbolId);
     map.setLayoutProperty('gibs-sat','visibility','none');}
   document.getElementById('b-sat').onclick=()=>{setBtns('b-sat');activeLayer='sat';hideBase();
     map.setLayoutProperty('gibs-sat','visibility','visible');
@@ -155,9 +157,9 @@ map.on('load', async () => {
   // HEAT — NASA GIBS: land surface temp (MODIS) + sea surface temp (MUR), keyless
   const hd=new Date(Date.now()-864e5).toISOString().slice(0,10);
   map.addSource('gibs-lst',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Land_Surface_Temp_Day/default/${hd}/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png`],tileSize:256,maxzoom:7});
-  map.addLayer({id:'heat-lst',type:'raster',source:'gibs-lst',paint:{'raster-opacity':0.78}},'place-city-lg-n');
+  map.addLayer({id:'heat-lst',type:'raster',source:'gibs-lst',paint:{'raster-opacity':0.78}},firstSymbolId);
   map.addSource('gibs-sst',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/GHRSST_L4_MUR_Sea_Surface_Temperature/default/${hd}/GoogleMapsCompatible_Level7/{z}/{y}/{x}.png`],tileSize:256,maxzoom:7});
-  map.addLayer({id:'heat-sst',type:'raster',source:'gibs-sst',paint:{'raster-opacity':0.65}},'place-city-lg-n');
+  map.addLayer({id:'heat-sst',type:'raster',source:'gibs-sst',paint:{'raster-opacity':0.65}},firstSymbolId);
   ['heat-lst','heat-sst'].forEach(l=>map.setLayoutProperty(l,'visibility','none'));
   document.getElementById('b-heat').onclick=()=>{setBtns('b-heat');activeLayer='heat';hideBase();
     ['heat-lst','heat-sst'].forEach(l=>map.setLayoutProperty(l,'visibility','visible'));
