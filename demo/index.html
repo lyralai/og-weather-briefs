@@ -87,7 +87,7 @@ footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 <div class="card" style="background:#0b3d62;color:#fff;border:none"><h2 style="color:#fff;margin-top:0">Want this for every site, every day?</h2><div style="font-size:.92rem">This brief was prepared manually as a sample. AccuWeather for Business delivers this continuously: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Ask about a live demo for your assets</b></div></div>
 <footer>Prepared with AccuWeather forecast data. Radar overlay: RainViewer. Sample brief for evaluation — not an official AccuWeather publication.</footer>
 </div></div>
-<script src="data.js?v=6"></script>
+<script src="data.js?v=7"></script>
 <script>
 mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
 const d=DEMO_DATA;
@@ -105,7 +105,7 @@ const c0=[d.assets[0].lon,d.assets[0].lat];
 const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/dark-v11',center:c0,zoom:7.6});
 const rc={ELEVATED:'#c05621',HIGH:'#b3261e',MODERATE:'#9a7b0c',CLEAR:'#1e8449'};
 let activeLayer='radar';
-let windOn=false,windAnim=null,windGrid=null;
+let windOn=false,windAnim=null,windGrid=null,windSrc='';
 
 function setBtns(id){['b-radar','b-sat','b-heat','b-storm','b-clear'].forEach(b=>document.getElementById(b).classList.toggle('on',b===id));}
 
@@ -176,11 +176,18 @@ map.on('load', async () => {
   sizeCanvas();map.on('resize',sizeCanvas);
   const speedColor=kn=>kn<6?'rgba(170,205,235,.9)':kn<12?'rgba(140,205,140,.9)':kn<20?'rgba(250,220,100,.95)':kn<30?'rgba(250,150,60,.95)':'rgba(240,70,60,1)';
   async function fetchWindGrid(){
+    if(typeof AWX_WIND_GRID!=='undefined'&&AWX_WIND_GRID&&AWX_WIND_GRID.fetched>Date.now()-43200e3&&AWX_WIND_GRID.U&&AWX_WIND_GRID.U.length){
+      const g=AWX_WIND_GRID;windSrc='AccuWeather (observed)';
+      document.getElementById('rtime').textContent=' wind 10m · '+windSrc;
+      return {w:g.w,e:g.e,s:g.s,n:g.n,cols:g.cols,rows:g.rows,U:g.U,V:g.V};
+    }
     const b=map.getBounds(),cols=7,rows=5,lats=[],lons=[];
     for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){lats.push((b.getSouth()+(b.getNorth()-b.getSouth())*r/(rows-1)).toFixed(2));lons.push((b.getWest()+(b.getEast()-b.getWest())*c/(cols-1)).toFixed(2));}
     const res=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lats.join(',')}&longitude=${lons.join(',')}&current=wind_speed_10m,wind_direction_10m&wind_speed_unit=kn`).then(r=>r.json());
     const arr=Array.isArray(res)?res:[res],U=[],V=[];
     for(const a of arr){const sp=a.current.wind_speed_10m,dr=a.current.wind_direction_10m*Math.PI/180;U.push(-sp*Math.sin(dr));V.push(-sp*Math.cos(dr));}
+    windSrc='live (OpenMeteo)';
+    document.getElementById('rtime').textContent=' wind 10m · '+windSrc;
     return {w:b.getWest(),e:b.getEast(),s:b.getSouth(),n:b.getNorth(),cols,rows,U,V};
   }
   function windAt(g,lon,lat){
@@ -230,8 +237,7 @@ map.on('load', async () => {
     const btn=document.getElementById('b-wind');
     if(windOn){stopWind();btn.classList.remove('on');document.getElementById('rtime').textContent='';return;}
     btn.classList.add('on');
-    document.getElementById('rtime').textContent=' wind 10m · live (OpenMeteo)';
-    if(windGrid)runWind();
+    if(windGrid){document.getElementById('rtime').textContent=' wind 10m · '+windSrc;runWind();}
     else fetchWindGrid().then(g=>{windGrid=g;runWind();}).catch(()=>{btn.classList.remove('on');document.getElementById('rtime').textContent=' wind unavailable';});
   };
   map.on('move',()=>{for(const p of parts)p.hist=[];});
