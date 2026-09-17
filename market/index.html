@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weather × Markets — Energy Prices × Weather Impact</title>
+<meta name="description" content="WTI, Brent, and Henry Hub prices with a sourced case-study library of what weather events actually did to energy markets.">
+<style>
+:root{--navy:#0b3d62;--red:#b3261e;--ink:#161e28;--mut:#5a6875;--bg:#f2f4f7;--card:#fff;--line:#dde3ea;--green:#1e8449}
+*{box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);margin:0;padding:0;line-height:1.5}
+.topline{background:var(--navy);color:#fff;padding:.9rem 1.2rem;font-weight:700;font-size:1rem;letter-spacing:.3px}
+.topline a{color:#cfe3f5;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.2rem 3rem}
+h1{font-size:1.5rem;margin:1.3rem 0 .2rem}
+.sub{color:var(--mut);font-size:.95rem;margin:0 0 .3rem}
+.vintage{font-size:.8rem;color:var(--mut);margin:0 0 1.1rem}
+.vintage b{color:#3d4a57}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem;margin:1.05rem 0;box-shadow:0 1px 3px rgba(20,40,60,.06)}
+.card h2{margin:.1rem 0 .7rem;font-size:1.06rem}
+.prices{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin:1.1rem 0}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem 1.05rem;box-shadow:0 1px 3px rgba(20,40,60,.06);display:flex;flex-direction:column}
+.pcard .plabel{font-size:.74rem;text-transform:uppercase;letter-spacing:.6px;color:var(--mut);font-weight:700}
+.pcard .pval{font-size:1.9rem;font-weight:800;line-height:1.15;margin:.1rem 0 .05rem}
+.pcard .punit{font-size:.78rem;color:var(--mut);margin:0 0 .4rem}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:.15rem 0 .55rem}
+.chip{display:inline-block;font-size:.7rem;font-weight:700;padding:.14rem .5rem;border-radius:9px;letter-spacing:.3px;white-space:nowrap}
+.chip.neutral{background:#e8edf2;color:#4a5a68}
+.chip.up{background:#e8f5ec;color:var(--green)}
+.chip.down{background:#fde8e8;color:var(--red)}
+.pcard svg{width:100%;height:auto;display:block}
+.pcard .psrc{font-size:.7rem;color:var(--mut);margin-top:.4rem}
+.pcard .psrc a{color:var(--navy)}
+.evtstrip{font-size:.75rem;color:var(--mut);margin:.45rem 0 0;border-top:1px dashed var(--line);padding-top:.45rem}
+.evtstrip b{color:var(--navy)}
+.case{border-left:6px solid var(--red)}
+.case .chead{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.3rem}
+.case h2{margin:0;font-size:1.06rem}
+.case .cdates{font-size:.72rem;font-weight:800;color:var(--red);letter-spacing:.4px;white-space:nowrap}
+.case .creg{font-size:.85rem;color:var(--mut);margin:0 0 .6rem}
+.kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin:.6rem 0}
+.kpi{background:#fbfcfd;border:1px solid var(--line);border-radius:8px;padding:.6rem .7rem;text-align:center}
+.kpi .kv{font-size:1.25rem;font-weight:800;line-height:1.1}
+.kpi .kl{font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);font-weight:700;margin-top:.15rem}
+.mkt{font-size:.88rem;margin:.55rem 0 .45rem}
+.mkt a{color:var(--navy)}
+.forecast{font-size:.85rem;background:#eaf3f8;border:1px solid #bcd6e4;border-radius:8px;padding:.55rem .75rem;margin-top:.5rem}
+.forecast b{color:var(--navy)}
+.notes{font-size:.78rem;color:var(--mut)}
+.foot{font-size:.78rem;color:var(--mut);margin-top:1.6rem;border-top:1px solid var(--line);padding-top:.9rem}
+.foot a{color:var(--navy)}
+.err{background:#fde8e8;color:var(--red);border:1px solid #e3b8b4;border-radius:10px;padding:1rem;margin:1rem 0;font-weight:600}
+@media(max-width:720px){.prices,.kpis{grid-template-columns:1fr}.case .chead{flex-direction:column;gap:.1rem}}
+</style></head>
+<body>
+<div class="topline">Weather × Markets · <a href="https://lyralai.github.io/og-weather-briefs/">Brief Index</a> · <a href="https://accuweather.taborlin.co">Live Radar</a></div>
+<div class="wrap">
+<h1>Weather × Markets</h1>
+<p class="sub">Energy prices × weather impact — updated daily.</p>
+<p class="vintage" id="vintage"></p>
+
+<noscript><div class="err">This page renders live price data with JavaScript — enable JavaScript to see the charts.</div></noscript>
+<div id="priceerr"></div>
+
+<div class="card">
+<h2>Benchmark prices — last 90 observations, hand-drawn</h2>
+<p class="notes" style="margin-top:0">Sparklines show the last 90 published observations of each FRED daily series (business days only — weekends and holidays are skipped, so the window spans roughly four and a half months). Vertical navy flags mark weather events from the case-study library that fall inside the live window.</p>
+<div class="prices" id="prices"></div>
+</div>
+
+<div class="card">
+<h2>Case-study library — what weather actually did to the money</h2>
+<p class="notes" style="margin-top:0">Six researched events. Every shut-in figure and price move below comes from a named, linked source (EIA, BSEE, Reuters, CNBC/Reuters). Where attribution is mixed or counterintuitive, we say so — that honesty is the product.</p>
+</div>
+
+<div id="cases"></div>
+
+<div class="card" style="border-left:6px solid #9a7b0c">
+<h2>How to read this page</h2>
+<ul class="notes" style="margin:.2rem 0 0;padding-left:1.2rem">
+<li><b>Correlation, not causation.</b> Weather events co-move with geopolitics, demand destruction, and storage seasonality. Example: oil <i>fell</i> ~1% the day Beryl hit Texas because refineries and ports (demand) shut harder than supply. Example: Milton's +4% oil day was explicitly co-driven by Middle East supply fears, per Reuters.</li>
+<li><b>Marked events are annotated, not predicted.</b> Event flags on sparklines only appear when a library event falls inside the live price window. If the current window shows no flags, you are looking at clean (weather-quiet) market noise — and the page says so.</li>
+<li><b>Every number is sourced.</b> Shut-in percentages and volumes: BSEE via EIA. Price moves: Reuters (or CNBC carrying Reuters). We do not print a number we cannot link.</li>
+<li><b>Data vintage:</b> FRED daily series publish end-of-day, so the newest observation typically trails today by 1–3 business days. The vintage line above states the exact newest date. No keys, no paid feeds — this whole page runs on free public data plus forecasting insight.</li>
+<li><b>Why it matters:</b> the market reprices a storm in hours, but the operational decisions that protect production — crew sequencing, shut-in timing, cargo re-timing, port windows — are made on hour-level forecasts. That gap is the business case.</li>
+</ul>
+</div>
+
+<div class="card" style="background:#0b3d62;color:#fff;border:none">
+<h2 style="color:#fff;margin-top:0">Ask AccuWeather for Business about hour-level forecasting for your assets</h2>
+<div style="font-size:.92rem">Markets price a storm in hours. Your decisions — shut-in sequencing, crew moves, cargo and port windows, freeze-off preparation — deserve forecasts at the same resolution: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Weather × Markets is the why. Hour-level forecasting is the how.</b></div>
+</div>
+
+<div class="foot">
+<b>Methodology &amp; disclaimer:</b> Prices from <a href="https://fred.stlouisfed.org/">FRED</a> (St. Louis Fed), series EIA — <a href="https://fred.stlouisfed.org/series/DCOILWTICO">DCOILWTICO</a>, <a href="https://fred.stlouisfed.org/series/DCOILBRENTEU">DCOILBRENTEU</a>, <a href="https://fred.stlouisfed.org/series/DHHNGSP">DHHNGSP</a> — free daily series, no API key, refreshed by script with provenance recorded in <a href="data.js">data.js</a>. Case-study impact figures: EIA and BSEE publications, linked inline. Market reactions: Reuters and CNBC (carrying Reuters), linked inline. Nothing here is investment advice, and no claim is made that weather <i>caused</i> any price move. Independent demonstration prepared with AccuWeather enterprise data — not an official AccuWeather publication. All briefs: <a href="https://lyralai.github.io/og-weather-briefs/">lyralai.github.io/og-weather-briefs</a>.
+</div>
+</div>
+
+<script src="data.js"></script>
+<script>
+// Weather events flagged on sparklines — a flag renders only when its date
+// falls inside the current live price window. Case details live below.
+const EVENTS=[
+ {name:"Winter Storm Uri", date:"2021-02-15"},
+ {name:"Hurricane Beryl", date:"2024-07-08"},
+ {name:"Hurricane Francine", date:"2024-09-11"},
+ {name:"Hurricane Helene", date:"2024-09-26"},
+ {name:"Hurricane Milton", date:"2024-10-09"},
+ {name:"January 2025 freeze", date:"2025-01-21"},
+];
+
+const CASES=[
+{
+ name:"Hurricane Beryl", dates:"Jul 5–9, 2024 · Cat 1 landfall Jul 8, Matagorda, TX",
+ region:"Texas Gulf Coast — refining corridor (Port Arthur–Houston), shipping ports, CenterPoint grid, western Gulf of Mexico platforms.",
+ kpis:[["2.7M","TX customers lost power"],["$1.2–1.3B","CenterPoint damage (EIA)"],["<10%","GoM oil & gas shut in at peak"]],
+ mkt:'Jul 8: oil <b>fell</b> ~1% — Brent −0.9% to $85.75, WTI −1.0% to $82.33 — as Beryl shut refineries and ports (demand) harder than supply; Gelber &amp; Associates: hedges "unwound due to crude oil facilities sustaining relatively little damage." <a href="https://www.cnbc.com/2024/07/09/oil-settles-lower-on-worries-hurricane-beryl-could-hit-us-demand.html">CNBC (Reuters)</a> · <a href="https://www.eia.gov/todayinenergy/detail.php?id=63104">EIA</a>',
+ forecast:"Landfall intensity timing decides whether a refinery outage is a 12-hour blip or a multi-day event — hour-level corridor timing tells you which, and when restart crews roll."
+},
+{
+ name:"Hurricane Francine", dates:"Sep 10–13, 2024 · Cat 2 landfall Sep 11, Terrebonne Parish, LA",
+ region:"Louisiana coast — Baton Rouge / Lake Charles / New Orleans refineries (~3M b/d capacity ran at reduced rates), Exxon Baton Rouge (523k b/d) cut rates; Cameron LNG feedgas −60%; ports handling >95% of U.S. crude exports closed or restricted.",
+ kpis:[["42%","GoM crude shut in (Sep 12)"],["53%","GoM natural gas shut in"],["169","platforms evacuated"]],
+ mkt:'Sep 11: both benchmarks rose over $1, more than 2%, on "fears of lengthy production shutdowns in the U.S. offshore oil patch" (Reuters); gains faded within days as the storm dissipated. <a href="https://www.reuters.com/business/energy/oil-prices-rebound-fears-supply-disruption-tropical-storm-2024-09-11/">Reuters</a> · <a href="https://www.eia.gov/todayinenergy/detail.php?id=63104">EIA</a>',
+ forecast:"Shut-ins are sequenced hours before the weather window, and cargoes re-time around port-closure hours — the value is in the hour-by-hour landfall corridor, not the cone."
+},
+{
+ name:"Hurricane Helene", dates:"Sep 24–27, 2024 · Cat 3 landfall Sep 26, Florida Big Bend",
+ region:"Florida Big Bend → Appalachia. Gulf shut-ins precautionary (bp, Chevron, Equinor, Shell evacuated); Port Tampa Bay (17M+ tons of petroleum & gas products per year) closed; ~4M customers lost power across FL/GA/SC/NC/VA.",
+ kpis:[["29%","GoM oil shut in = 511k b/d"],["17%","GoM gas shut in = 313 MMcf/d"],["+13%","front-month gas, week of Sep 27"]],
+ mkt:'Front-month natural gas finished the Sep 27 week up ~13% — a fifth straight weekly gain (~36% over five weeks) — as producers cut output while the storm <i>missed</i> the LNG export plants, keeping feedgas demand alive. Reuters reported the Friday session up ~5% at a 14-week high. <a href="https://www.reuters.com/business/energy/us-natgas-prices-jump-5-14-week-high-helene-batters-us-southeast-2024-09-27/">Reuters</a> · <a href="https://www.eia.gov/todayinenergy/detail.php?id=63264">EIA</a>',
+ forecast:"A storm missing your asset is worth as much as one hitting it — hour-level track timing decides whether LNG feedgas keeps flowing and whether Florida fuel ports reopen in days or weeks."
+},
+{
+ name:"Hurricane Milton", dates:"Oct 5–10, 2024 · Cat 3 landfall Oct 9, Siesta Key, FL",
+ region:"Florida fuel supply chain — a state with no refineries and no pipelines in: ~half its petroleum arrives through Port Tampa Bay; hundreds of retail stations ran dry before and after landfall.",
+ kpis:[["~½","of FL fuel supply via Port Tampa Bay"],["100s","stations out of fuel"],["$3.04/gal","FL retail gas, flat Oct 7→14"]],
+ mkt:'Oct 10: oil jumped ~4% on a spike in U.S. fuel use ahead of Milton — Reuters explicitly attributed the move to the storm <i>and</i> Middle East supply fears together. Retail held at $3.04/gal as chains recovered. Mixed attribution, stated as such. <a href="https://www.reuters.com/business/energy/oil-prices-rise-israel-iran-conflict-fears-us-storm-2024-10-10/">Reuters</a> · <a href="https://www.eia.gov/todayinenergy/detail.php?id=63466">EIA</a>',
+ forecast:"With no refinery buffer, Florida runs on trucking hours: terminal dispatch, port reopening windows, and post-eye surge timing are all hour-level calls."
+},
+{
+ name:"January 2025 U.S. winter freeze", dates:"Jan 4–24, 2025 · Winter Storms Blair, Cora, Enzo",
+ region:"Lower 48 — wellhead freeze-offs and record heating demand; spot spikes concentrated in Northeast and power markets.",
+ kpis:[["−3.3 Bcf/d","Lower-48 gas output in 6 days (LSEG)"],["$43/MMBtu","NY Citygate spot (highest since Jan 2018)"],["$275/MWh","record next-day power, PJM West"]],
+ mkt:'The freeze split the market: spot gas and power hit multi-year and record highs (NYC $43, Algonquin $24, PJM West $275), while front-month <i>futures fell</i> 3.6% to $3.805 on Jan 21 as forecasts turned milder for February — timing, not temperature alone, was the trade. <a href="https://boereport.com/2025/01/21/us-natgas-futures-fall-4-while-extreme-cold-boosts-spot-prices-to-multi-year-highs/">Reuters via BOE Report</a>',
+ forecast:"Freeze-offs bind by the hour, basin by basin; the spot-vs-futures divergence is pure forecast-timing information — exactly what hour-level temperature and wind-chill timing monetizes."
+},
+{
+ name:"Winter Storm Uri (retrospective)", dates:"Feb 13–18, 2021 · Texas & Central U.S.",
+ region:"Texas gas and power infrastructure — non-winterized wellheads and gathering lines froze exactly when demand peaked.",
+ kpis:[["−8.1 Bcf/d","US gas output m/m — largest on record"],["−10 Bcf/d","Texas output, Feb 8–17"],["$23.86","Henry Hub spot, Feb 17"]],
+ mkt:'February 2021 delivered the largest monthly decline in U.S. natural gas production on record (−7%); Texas output fell 15%. Henry Hub spot hit $23.86/MMBtu on Feb 17. Industrial gas consumption posted its largest monthly decline on record while residential set a record high — the supply stack failed hour by hour. <a href="https://www.eia.gov/todayinenergy/detail.php?id=47896">EIA</a>',
+ forecast:"Uri is the reference case: the difference between managed and unmanaged was knowing the cold hours before they arrived — freeze-off prep, storage draw planning, and flow re-routing are all hour-level decisions."
+},
+];
+
+function el(id){return document.getElementById(id)}
+function fmt(v,dec){return v.toFixed(dec)}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function d2(s){return (s instanceof Date)?s:new Date(s+"T00:00:00Z")}
+function dayDiff(a,b){return (d2(b)-d2(a))/86400000}
+
+function spark(s){
+ const w=340,h=96,pl=6,pr=46,pt=16,pb=18;
+ const pts=s.points, vals=pts.map(p=>p[1]);
+ const t0=d2(pts[0][0]).getTime(), t1=d2(pts[pts.length-1][0]).getTime();
+ const vmin=Math.min(...vals), vmax=Math.max(...vals), span=(vmax-vmin)||1;
+ const X=d=>pl+(d-t0)/(t1-t0||1)*(w-pl-pr);
+ const Y=v=>h-pb-(v-vmin)/span*(h-pt-pb);
+ let out=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(s.short)} ${s.window.from} to ${s.window.to} sparkline">`;
+ out+=`<line x1="${pl}" y1="${Y(vmin)}" x2="${w-pr}" y2="${Y(vmin)}" stroke="#eef1f5" stroke-width="1"/>`;
+ out+=`<line x1="${pl}" y1="${Y(vmax)}" x2="${w-pr}" y2="${Y(vmax)}" stroke="#eef1f5" stroke-width="1"/>`;
+ const flags=[];
+ for(const ev of EVENTS){
+   const t=d2(ev.date).getTime();
+   if(t>=t0&&t<=t1){const x=X(t).toFixed(1);
+     out+=`<line x1="${x}" y1="${pt-6}" x2="${x}" y2="${h-pb}" stroke="#0b3d62" stroke-width="1" stroke-dasharray="3,2"><title>${esc(ev.name)} · ${ev.date}</title></line>`;
+     out+=`<rect x="${x-2.5}" y="${pt-9}" width="5" height="5" fill="#0b3d62"><title>${esc(ev.name)} · ${ev.date}</title></rect>`;
+     flags.push(ev);}
+ }
+ out+=`<polyline points="${pts.map(p=>X(d2(p[0]).getTime()).toFixed(1)+","+Y(p[1]).toFixed(1)).join(" ")}" fill="none" stroke="#b3261e" stroke-width="1.8" stroke-linejoin="round"/>`;
+ const last=pts[pts.length-1];
+ out+=`<circle cx="${X(d2(last[0]).getTime()).toFixed(1)}" cy="${Y(last[1]).toFixed(1)}" r="3" fill="#b3261e"/>`;
+ out+=`<text x="${w-pr+4}" y="${Math.max(pt+2,Math.min(h-pb,Y(last[1])+3)).toFixed(1)}" font-size="10" font-weight="700" fill="#b3261e">${fmt(last[1],s.decimals)}</text>`;
+ out+=`<text x="${pl}" y="${h-5}" font-size="8.5" fill="#8a97a4">${s.window.from.slice(5)}</text>`;
+ out+=`<text x="${w-pr}" y="${h-5}" font-size="8.5" fill="#8a97a4" text-anchor="end">${s.window.to.slice(0,10)}</text>`;
+ out+=`</svg>`;
+ return {svg:out, flags};
+}
+
+function renderPrices(){
+ if(typeof MARKET_DATA==="undefined"){el("priceerr").innerHTML='<div class="err">Price data failed to load (data.js missing or invalid).</div>';return}
+ const d=MARKET_DATA, host=el("prices"); let allFlags=[];
+ let vh=`<b>Data vintage:</b> price observations through <b>${d.series.wti.window.to}</b> (fetched ${d.fetchedAt.slice(0,10)}). ${d.updatedNote}`;
+ el("vintage").innerHTML=vh;
+ for(const key of ["wti","brent","hh"]){
+   const s=d.series[key], pts=s.points, n=pts.length;
+   const latest=pts[n-1][1], prev=pts[n-2][1];
+   const tgt=d2(pts[n-1][0]); tgt.setUTCDate(tgt.getUTCDate()-30);
+   let ref=pts[0]; for(const p of pts){if(d2(p[0])<=tgt)ref=p;}
+   const d30=latest-ref[1];
+   const chip1=(v,base,lab)=>{const cls=v>0?"up":v<0?"down":"neutral";const sg=v>0?"+":v<0?"−":"";const pct=base?sg+(100*Math.abs(v)/base).toFixed(1)+"%":"";return `<span class="chip ${cls}">${lab} ${sg}${fmt(Math.abs(v),s.decimals)} ${pct}</span>`};
+   const sp=spark(s); allFlags=allFlags.concat(sp.flags.map(f=>f.name));
+   host.insertAdjacentHTML("beforeend",
+    `<div class="pcard">
+      <div class="plabel">${esc(s.short)}</div>
+      <div class="pval">$${fmt(latest,s.decimals)}</div>
+      <div class="punit">${esc(s.unit)} · ${esc(s.label)}</div>
+      <div class="chips">${chip1(latest-prev,prev,"1D")}${chip1(d30,ref[1],"30D")}</div>
+      ${sp.svg}
+      <div class="psrc"><a href="https://fred.stlouisfed.org/series/${s.id}" rel="noopener">Source: FRED (St. Louis Fed), series EIA · ${s.id}</a></div>
+     </div>`);
+ }
+ const strip=el("evtstrip");
+ const uniq=[...new Set(allFlags)];
+ strip.innerHTML = uniq.length
+   ? `⚑ Flagged in window: <b>${esc(uniq.join(", "))}</b>`
+   : `⚑ <b>No flagged weather events inside the current price window</b> (${d.series.wti.window.from} → ${d.series.wti.window.to}). The case-study library below covers 2021–2025; flags appear automatically when a library event falls inside the live window.`;
+}
+
+function renderCases(){
+ el("cases").innerHTML=CASES.map(c=>`<div class="card case">
+  <div class="chead"><h2>${c.name}</h2><span class="cdates">${c.dates}</span></div>
+  <p class="creg">${c.region}</p>
+  <div class="kpis">${c.kpis.map(k=>`<div class="kpi"><div class="kv">${k[0]}</div><div class="kl">${k[1]}</div></div>`).join("")}</div>
+  <p class="mkt"><b>Market reaction:</b> ${c.mkt}</p>
+  <div class="forecast"><b>What hour-level forecasting changes:</b> ${c.forecast}</div>
+ </div>`).join("");
+}
+
+renderPrices();
+renderCases();
+</script>
+</body></html>
