@@ -1164,26 +1164,30 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 const NOTE = {
  "date": "2026-09-18",
- "asOf": "2026-09-18T00:34:35.000Z",
+ "asOf": "2026-09-18T14:51:36.000Z (delayed quotes, yahoo)",
  "board": [
-  { "sym": "WTI",   "price": 100.92, "chg": -0.46, "src": "delayed" },
-  { "sym": "Brent", "price": 103.75, "chg": -1.83, "src": "delayed" },
-  { "sym": "HH",    "price": 2.854,  "chg": -1.45, "src": "delayed" }
+  { "sym": "WTI",   "price": 97.07, "chg": -4.26, "src": "delayed" },
+  { "sym": "Brent", "price": 99.56, "chg": -5.79, "src": "delayed" },
+  { "sym": "HH",    "price": 2.932, "chg": 1.24,  "src": "delayed" }
  ],
  "ctx": [
-  "CAT BONDS — cat-bond market size + latest issuance/spread headline lands here daily (Artemis, as-of dated) — illustrative",
-  "DEGREE DAYS US — CDD/HDD vs normal, week-ahead (EIA storage tables + NOAA CPC) — illustrative",
-  "DEGREE DAYS EUR/ASIA — HDD/CDD vs normal (Copernicus/ECMWF) → TTF/JKM demand read — illustrative"
+  "CAT BONDS — Q2 2026 set records: 48 transactions / 80 tranches brought a record $11.3bn of new cat-bond risk capital to market (Artemis Q2 2026 report, as of Jul 2026; monthly index, not a daily quote)",
+  "DEGREE DAYS US — CDDs running above normal across the Midcon/South heat dome (heat advisories IL/MO/AL + 99°F Kansas/Oklahoma refining belt); NOAA CPC flags heavy-precipitation risk Four Corners into next week",
+  "DEGREE DAYS EUR/ASIA — European HDDs below normal week-ahead, TTF demand soft; NE Asia seasonal. TTF/JKM dailies paywalled - degree-day deviation is our demand proxy"
  ],
  "why": [
-  { "tag": "SUPPLY",       "text": "Gulf Coast lightning stand-downs pause two crude loading berths — prompt barrels tighten.", "src": "example" },
-  { "tag": "RISK PREMIUM", "text": "Watched central-Atlantic tropical wave keeps a weather floor under prompt crude.", "src": "example" }
+  { "tag": "SUPPLY", "text": "Fell a third session - Saudi pipeline recovery and alternative routes ease US-Iran war disruption fears.", "src": "https://www.kotakneo.com/news/commodities/oil-prices-fall-third-day-supply-disruption-fears-ease-crude-oil-falling-september-18-2026/" },
+  { "tag": "RISK PREMIUM", "text": "WTI slipped under $100 as supply-disruption premium bled out; Brent still ~$100 on Middle East tension.", "src": "https://www.markets.com/news/oil-price-today-september-18-2026" },
+  { "tag": "DEMAND", "text": "Henry Hub bucked the slide (+1.2%) - Midwest/South heat lifting power-burn demand. Weather tie: heat advisories live from St. Louis to Alabama.", "src": "https://www.ebc.com/forex/2-90-mmbtu-vs-78-mwh-why-u-s-and-european-natural-gas-prices-are-so-different" }
  ],
  "trade": [
-  { "region": "US Gulf", "text": "Afternoon t-storm windows over the Sabine-Neches and Calcasieu corridors → dock and crane stand-downs tighten prompt physical.", "mkt": "crude prompt", "src": "example" },
-  { "region": "ERCOT",   "text": "96°F Texas heat lifts evening power burn → gas demand ticks higher into the peak.", "mkt": "nat gas demand", "src": "example" }
+  { "region": "US Gulf (Mississippi)", "text": "51% t-storm windows 2-4 PM three straight afternoons at the Pascagoula refining corridor -> dock/crane stand-down risk -> prompt product ops squeezed.", "mkt": "refined products", "src": "atlas" },
+  { "region": "Permian (NM)", "text": "AccuWeather severe flash-flood threats live on Bone Spring/Avalon operators -> pad lightning stand-downs -> weather-driven production friction in tight crude.", "mkt": "crude supply", "src": "atlas" },
+  { "region": "US Midcon", "text": "97-99°F heat dome over KS/OK refining belt -> cooling + power-burn lift -> gas finds a bid while crude slides.", "mkt": "nat gas demand", "src": "atlas" }
  ],
  "watch": [
+  "NHC AL99 (SW of Azores): 60% formation chance - not a Gulf threat; any Gulf-Caribbean development would reprice the weather premium fast.",
+  "Atlantic peak-season window (cat bonds): NHC activity vs ILS risk premium - quiet tropics keep a lid on spread widening.",
   "EIA crude inventories Wednesday 15:30 UTC; nat gas storage Thursday 14:30 UTC."
  ]
 };
