@@ -63,6 +63,8 @@ ul.nwatch li{margin:.3rem 0}
 .ql .qc{font-size:.78rem;font-weight:700}
 .qup{color:var(--green)}.qdn{color:var(--red)}.qfl{color:var(--mut)}
 .ql .qv{font-size:.68rem;color:var(--mut);margin-top:.15rem}
+.ctxlines{margin:.6rem 0 0}
+.ctxl{font-size:.85rem;font-weight:600;padding:.32rem .55rem;border-left:3px solid #c05621;background:#fdf7f2;color:#3d4a57;margin:.28rem 0;border-radius:0 8px 8px 0}
 ul.nlist{margin:.1rem 0 0;padding:0;list-style:none}
 ul.nlist li{margin:.4rem 0;font-size:.92rem}
 .ntag{display:inline-block;font-size:.66rem;font-weight:800;padding:.14rem .5rem;border-radius:9px;letter-spacing:.4px;white-space:nowrap;vertical-align:1px;margin-right:.35rem}
@@ -282,6 +284,9 @@ function renderNote(){
    h+=`<div class="ql"><div class="qs">${esc(q.sym)}</div><div class="qp">$${fx(q.price,Number.isFinite(q.price)&&q.price<10?3:2)}</div><div class="qc ${cls}">${Number.isFinite(chg)?sg+fx(Math.abs(chg),2)+"%":"chg n/a"}</div><div class="qv">${esc(hm)}</div></div>`;
   }
   h+=`</div>`;
+ }
+ if(Array.isArray(NOTE.ctx)&&NOTE.ctx.length){
+  h+=`<div class="ctxlines">`+NOTE.ctx.map(l=>`<div class="ctxl">${esc(l)}</div>`).join("")+`</div>`;
  }
  if(Array.isArray(NOTE.why)&&NOTE.why.length){
   h+=`<div class="nsec"><h3>Why it moved</h3><ul class="nlist">`;

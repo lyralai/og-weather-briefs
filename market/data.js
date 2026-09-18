@@ -1170,6 +1170,11 @@ const NOTE = {
   { "sym": "Brent", "price": 103.75, "chg": -1.83, "src": "delayed" },
   { "sym": "HH",    "price": 2.854,  "chg": -1.45, "src": "delayed" }
  ],
+ "ctx": [
+  "CAT BONDS — cat-bond market size + latest issuance/spread headline lands here daily (Artemis, as-of dated) — illustrative",
+  "DEGREE DAYS US — CDD/HDD vs normal, week-ahead (EIA storage tables + NOAA CPC) — illustrative",
+  "DEGREE DAYS EUR/ASIA — HDD/CDD vs normal (Copernicus/ECMWF) → TTF/JKM demand read — illustrative"
+ ],
  "why": [
   { "tag": "SUPPLY",       "text": "Gulf Coast lightning stand-downs pause two crude loading berths — prompt barrels tighten.", "src": "example" },
   { "tag": "RISK PREMIUM", "text": "Watched central-Atlantic tropical wave keeps a weather floor under prompt crude.", "src": "example" }
