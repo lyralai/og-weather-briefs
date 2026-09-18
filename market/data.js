@@ -1156,3 +1156,30 @@ const MARKET_DATA = {
   }
  ]
 };
+
+// --- NOTE (daily markets note) — schema: og-intel/docs/weather-markets-brief-format.md ---
+// SAMPLE NOTE seeded 2026-09-18 for render verification — replaced daily by the 15:00 UTC run.
+// board prices/chgs are real delayed quotes (tools/fetch_market_quotes.mjs · quotes.json, source yahoo).
+// why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
+// When NOTE.date is not today's UTC date the page hides this whole section.
+const NOTE = {
+ "date": "2026-09-18",
+ "asOf": "2026-09-18T00:34:35.000Z",
+ "board": [
+  { "sym": "WTI",   "price": 100.92, "chg": -0.46, "src": "delayed" },
+  { "sym": "Brent", "price": 103.75, "chg": -1.83, "src": "delayed" },
+  { "sym": "HH",    "price": 2.854,  "chg": -1.45, "src": "delayed" }
+ ],
+ "why": [
+  { "tag": "SUPPLY",       "text": "Gulf Coast lightning stand-downs pause two crude loading berths — prompt barrels tighten.", "src": "example" },
+  { "tag": "RISK PREMIUM", "text": "Watched central-Atlantic tropical wave keeps a weather floor under prompt crude.", "src": "example" }
+ ],
+ "trade": [
+  { "region": "US Gulf", "text": "Afternoon t-storm windows over the Sabine-Neches and Calcasieu corridors → dock and crane stand-downs tighten prompt physical.", "mkt": "crude prompt", "src": "example" },
+  { "region": "ERCOT",   "text": "96°F Texas heat lifts evening power burn → gas demand ticks higher into the peak.", "mkt": "nat gas demand", "src": "example" }
+ ],
+ "watch": [
+  "EIA crude inventories Wednesday 15:30 UTC; nat gas storage Thursday 14:30 UTC."
+ ]
+};
+// --- END NOTE ---

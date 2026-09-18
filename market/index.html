@@ -48,7 +48,35 @@ h1{font-size:1.5rem;margin:1.3rem 0 .2rem}
 .foot{font-size:.78rem;color:var(--mut);margin-top:1.6rem;border-top:1px solid var(--line);padding-top:.9rem}
 .foot a{color:var(--navy)}
 .err{background:#fde8e8;color:var(--red);border:1px solid #e3b8b4;border-radius:10px;padding:1rem;margin:1rem 0;font-weight:600}
-@media(max-width:720px){.prices,.kpis{grid-template-columns:1fr}.case .chead{flex-direction:column;gap:.1rem}}
+ul.nwatch{margin:.1rem 0 0;padding-left:1.25rem;font-size:.9rem}
+ul.nwatch li{margin:.3rem 0}
+.note{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--navy);border-radius:10px;padding:1.1rem 1.3rem;margin:1.05rem 0;box-shadow:0 1px 3px rgba(20,40,60,.06)}
+.note .ndate{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;flex-wrap:wrap;font-size:.72rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--line);padding-bottom:.5rem}
+.note .ndate b{color:var(--navy)}
+.note h2{margin:.7rem 0 .1rem;font-size:1.06rem}
+.note .nsec{margin-top:.85rem}
+.note .nsec h3{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--mut);margin:0 0 .4rem;font-weight:700}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+.ql{background:#fbfcfd;border:1px solid var(--line);border-radius:8px;padding:.5rem .65rem}
+.ql .qs{font-size:.7rem;font-weight:800;letter-spacing:.5px;color:var(--mut);text-transform:uppercase}
+.ql .qp{font-size:1.12rem;font-weight:800;line-height:1.2}
+.ql .qc{font-size:.78rem;font-weight:700}
+.qup{color:var(--green)}.qdn{color:var(--red)}.qfl{color:var(--mut)}
+.ql .qv{font-size:.68rem;color:var(--mut);margin-top:.15rem}
+ul.nlist{margin:.1rem 0 0;padding:0;list-style:none}
+ul.nlist li{margin:.4rem 0;font-size:.92rem}
+.ntag{display:inline-block;font-size:.66rem;font-weight:800;padding:.14rem .5rem;border-radius:9px;letter-spacing:.4px;white-space:nowrap;vertical-align:1px;margin-right:.35rem}
+.ntag.supply{background:#e8f5ec;color:var(--green)}
+.ntag.demand{background:#eaf3f8;color:var(--navy)}
+.ntag.risk{background:#fdf0e6;color:#c05621}
+.ntag.reg{background:#e8edf2;color:#3d4a57}
+.ntag.mkt{background:#eaf3f8;color:var(--navy)}
+.ntag.ex{background:#f4ead2;color:#7c630a}
+.nsrc{font-size:.78rem;white-space:nowrap}
+.nsrc a{color:var(--navy)}
+.titem{margin:.4rem 0;font-size:.92rem;background:#fbfcfd;border:1px solid var(--line);border-radius:8px;padding:.5rem .65rem}
+li.ex,.titem.ex{border:1px dashed #c9b458;background:#fdfbf3}
+@media(max-width:720px){.prices,.kpis,.board{grid-template-columns:1fr}.case .chead{flex-direction:column;gap:.1rem}}
 </style></head>
 <body>
 <div class="topline">Weather × Markets · <a href="https://lyralai.github.io/og-weather-briefs/">Brief Index</a> · <a href="https://accuweather.taborlin.co">Live Radar</a></div>
@@ -56,6 +84,9 @@ h1{font-size:1.5rem;margin:1.3rem 0 .2rem}
 <h1>Weather × Markets</h1>
 <p class="sub">Energy prices × weather impact — updated daily.</p>
 <p class="vintage" id="vintage"></p>
+
+<!-- TODAY'S NOTE — rendered only when NOTE.date (market/data.js) equals today's UTC date; stale = hidden. -->
+<div class="note" id="todaynote" style="display:none"></div>
 
 <noscript><div class="err">This page renders live price data with JavaScript — enable JavaScript to see the charts.</div></noscript>
 <div id="priceerr"></div>
@@ -155,7 +186,7 @@ const CASES=[
 
 function el(id){return document.getElementById(id)}
 function fmt(v,dec){return v.toFixed(dec)}
-function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 function d2(s){return (s instanceof Date)?s:new Date(s+"T00:00:00Z")}
 function dayDiff(a,b){return (d2(b)-d2(a))/86400000}
 
@@ -227,6 +258,56 @@ function renderCases(){
  </div>`).join("");
 }
 
+// TODAY'S NOTE — CNBC-style daily note from market/data.js NOTE object.
+// Schema: og-intel/docs/weather-markets-brief-format.md.
+// Board quotes come from tools/fetch_market_quotes.mjs (quotes.json) — delayed,
+// never live; the "as of" label is mandatory. WHY bullets tagged illustrative
+// (src:"example") render muted with no link. Stale NOTE.date hides the section.
+function renderNote(){
+ const host=el("todaynote");
+ if(!host)return;
+ if(typeof NOTE==="undefined"||!NOTE||!NOTE.date)return; // stays hidden — no NOTE, no section
+ const today=new Date().toISOString().slice(0,10); // UTC date
+ if(NOTE.date!==today)return; // stale note = no note (section stays hidden)
+ const asOf=NOTE.asOf?new Date(NOTE.asOf):null;
+ const hm=(asOf&&!isNaN(asOf))?("delayed · as of "+String(asOf.getUTCHours()).padStart(2,"0")+":"+String(asOf.getUTCMinutes()).padStart(2,"0")+" UTC"):"delayed";
+ const fx=(v,d)=>Number.isFinite(v)?v.toFixed(d):"n/a";
+ let h=`<div class="ndate"><span><b>Today's note</b> · ${esc(NOTE.date)} UTC</span><span>delayed market data · reads in 60 seconds</span></div>`;
+ if(Array.isArray(NOTE.board)&&NOTE.board.length){
+  h+=`<h2>The overnight board</h2><div class="board">`;
+  for(const q of NOTE.board){
+   const chg=Number(q.chg);
+   const cls=Number.isFinite(chg)?(chg>0?"qup":chg<0?"qdn":"qfl"):"qfl";
+   const sg=chg>0?"+":chg<0?"−":"";
+   h+=`<div class="ql"><div class="qs">${esc(q.sym)}</div><div class="qp">$${fx(q.price,Number.isFinite(q.price)&&q.price<10?3:2)}</div><div class="qc ${cls}">${Number.isFinite(chg)?sg+fx(Math.abs(chg),2)+"%":"chg n/a"}</div><div class="qv">${esc(hm)}</div></div>`;
+  }
+  h+=`</div>`;
+ }
+ if(Array.isArray(NOTE.why)&&NOTE.why.length){
+  h+=`<div class="nsec"><h3>Why it moved</h3><ul class="nlist">`;
+  for(const b of NOTE.why){
+   const cls={"SUPPLY":"supply","DEMAND":"demand","RISK PREMIUM":"risk"}[b.tag]||"risk";
+   const ex=b.src==="example";
+   h+=`<li${ex?` class="ex"`:``}><span class="ntag ${ex?"ex":cls}">${esc(b.tag)}</span>${esc(b.text)} ${ex?`<span class="ntag ex">illustrative</span>`:(b.src?`<span class="nsrc">· <a href="${esc(b.src)}" rel="noopener">source</a></span>`:``)}</li>`;
+  }
+  h+=`</ul></div>`;
+ }
+ if(Array.isArray(NOTE.trade)&&NOTE.trade.length){
+  h+=`<div class="nsec"><h3>The weather trade</h3>`;
+  for(const t of NOTE.trade){
+   const ex=t.src==="example"||t.ex===true;
+   h+=`<div class="titem${ex?" ex":""}">${t.region?`<span class="ntag reg">${esc(t.region)}</span>`:``}${esc(t.text)}${t.mkt?` <span class="ntag mkt">${esc(t.mkt)}</span>`:``}${ex?` <span class="ntag ex">illustrative</span>`:``}</div>`;
+  }
+  h+=`</div>`;
+ }
+ if(Array.isArray(NOTE.watch)&&NOTE.watch.length){
+  h+=`<div class="nsec"><h3>What to watch</h3><ul class="nwatch">${NOTE.watch.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>`;
+ }
+ host.innerHTML=h;
+ host.style.display=""; // fresh note → show
+}
+
+try{renderNote()}catch(e){console.error("renderNote failed (note stays hidden):",e)}
 renderPrices();
 renderCases();
 </script>
