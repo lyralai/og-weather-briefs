@@ -1163,73 +1163,73 @@ const MARKET_DATA = {
 // why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
 // When NOTE.date is not today's UTC date the page hides this whole section.
 const NOTE = {
- "date": "2026-09-19",
- "asOf": "2026-09-18T21:00:00.000Z (delayed quotes, yahoo)",
+ "date": "2026-09-20",
+ "asOf": "2026-09-18T21:00:00.000Z (delayed quotes, yahoo; Sunday — no NYMEX/ICE session)",
  "board": [
   {
    "sym": "WTI",
    "price": 96.08,
-   "chg": -5.24,
+   "chg": -9.21,
    "src": "delayed"
   },
   {
    "sym": "Brent",
    "price": 99.29,
-   "chg": -6.05,
+   "chg": -8.7,
    "src": "delayed"
   },
   {
    "sym": "HH",
    "price": 2.912,
-   "chg": 0.55,
+   "chg": -0.24,
    "src": "delayed"
   }
  ],
  "ctx": [
-  "CAT BONDS \u2014 Q2 2026 set records: 48 transactions / 80 tranches brought a record $11.3bn of new cat-bond risk capital to market (Artemis Q2 2026 report, as of Jul 2026; monthly index, not a daily quote)",
-  "DEGREE DAYS US \u2014 CDDs still above normal over the Midcon/South (final heat surge before autumn cooldown); Midwest flood regime this weekend trims HDD-side gas demand while power burn holds; NOAA CPC heavy-precipitation axis Upper Midwest",
-  "DEGREE DAYS EUR/ASIA \u2014 European HDDs below normal week-ahead, TTF demand soft; NE Asia seasonal. TTF/JKM dailies paywalled - degree-day deviation is our demand proxy"
+  "CAT BONDS — outstanding cat-bond/ILS risk capital hit a record $69.9bn entering the 2026 hurricane season, on ~$15.5bn YTD issuance by end-May (Artemis, as of May 2026; monthly index, not a daily quote)",
+  "DEGREE DAYS US — final heat surge now done: Midcon CDDs fall back to normal as the heat dome breaks; week-ahead focus flips to the Midwest/Appalachia heavy-rain axis — cooler + wetter trims late-season gas power burn while flood-risk counties stack across IL/OH/WV/PA",
+  "DEGREE DAYS EUR/ASIA — European HDDs below normal week-ahead — TTF heating demand soft into late September; NE Asia CDDs easing, JKM demand quiet ahead of Q4 winter tendering"
  ],
  "why": [
   {
    "tag": "SUPPLY",
-   "text": "Fell hard again - Saudi ship-to-ship transfers near Sohar and East-West pipeline restart talk keep cutting the disruption premium.",
-   "src": "https://www.cnbctv18.com/market/commodities/oil-slides-as-saudi-arabias-alternate-export-routes-ease-supply-fears-wti-drops-below-100-brent-under-102-19993025.htm"
+   "text": "Crude collapsed ~9% Friday as China, on a Saudi request, pressed Iran to rein in Houthi attacks — supply-disruption fear unwound fast. Weather not the driver; quiet tropics let the premium deflate.",
+   "src": "https://www.reuters.com/business/energy/oil-prices-fall-1-hopes-limited-supply-disruptions-2026-09-18/"
   },
   {
-   "tag": "SUPPLY",
-   "text": "Larger-than-expected US crude inventory build added to the slide.",
-   "src": "https://thetechmarketer.com/oil-prices-brent-wti-fall-us-inventories-saudi/"
+   "tag": "RISK PREMIUM",
+   "text": "Brent slid toward $99 with WTI near $96 as traders repriced prolonged Saudi-export disruption risk downward — a three-session retreat, weekly loss in the double digits.",
+   "src": "https://gulfnews.com/business/energy/oil-prices-fall-brent-at-103-per-barrel-wti-at-100-1.500677544"
   },
   {
    "tag": "DEMAND",
-   "text": "Henry Hub bucked the drop (+0.6%) - late-season Midwest/South heat still lifting power burn. Weather tie: heat advisories persisted over the Midcon refining belt.",
-   "src": "https://www.ebc.com/forex/2-90-mmbtu-vs-78-mwh-why-u-s-and-european-natural-gas-prices-are-so-different"
+   "text": "Henry Hub held ~$2.91 as the final Midcon heat surge lifted power burn one last time; the dome breaks this weekend — weather tie: Midcon CDDs return to normal, cooling-demand bid fades.",
+   "src": "https://www.accuweather.com/en/severe-weather/severe-thunderstorms-flash-flooding-to-threaten-plains-midwest/1920852"
   }
  ],
  "trade": [
   {
-   "region": "US Midwest (Lake Michigan)",
-   "text": "73-85% thunderstorm windows live at Whiting and East Dubuque under multi-county flood watches -> dock/rail loading stand-downs at the Midwest refining hub -> prompt product ops friction, not a price print.",
-   "mkt": "refined products",
+   "region": "Midwest flood corridor (IL/IA/WI)",
+   "text": "Day-3 flash-flood flags on Chicagoland refining + Illinois riverfront chemical docks -> barge/rail transfer delays -> refined-product basis wobbles while crude itself sells off — downstream friction in a down-crude tape.",
+   "mkt": "product basis",
    "src": "atlas"
   },
   {
-   "region": "Permian (NM)",
-   "text": "AccuWeather flash-flood threats live on Bone Spring/Avalon operators for a second day -> pad lightning stand-downs -> weather-driven friction in tight-crude supply as the geopolitical premium deflates.",
-   "mkt": "crude supply",
+   "region": "Central Appalachia (OH/WV/PA)",
+   "text": "'Dangerous Weather Imminent' flash-flood flags live on Marcellus/Utica producing counties tonight -> pad access + flowback disruption risk -> a modest intraday wet-gas supply wobble if totals verify heavy.",
+   "mkt": "natural gas supply",
    "src": "atlas"
   },
   {
-   "region": "Central Pacific (EP98)",
-   "text": "80% formation chance SW of Baja -> LNG west-coast port and Pacific marine ops watching, no US Gulf exposure -> a watch item, not a mover.",
-   "mkt": "LNG ports",
+   "region": "Tropics",
+   "text": "TS Fay stays mid-Atlantic fish-food, Hurricane Odalys (Cat 1) heads out to sea -> zero shut-in risk -> the deflating weather premium is part of crude's Friday air pocket — weather tie: quiet NHC board.",
+   "mkt": "crude risk premium",
    "src": "atlas"
   }
  ],
  "watch": [
-  "NHC: TD6 crossing the central tropical Atlantic (no Gulf threat yet); Cape Verde watch through the weekend - any Caribbean turn reprices the weather premium fast.",
-  "Atlantic peak season (cat bonds): NHC activity vs ILS risk premium - quiet tropics keep a lid on spread widening.",
+  "NHC: TS Fay (SW of Azores) no land threat; peak-season window means any new Cape Verde wave development reprices the weather premium fast.",
+  "Atlantic peak season (cat bonds): NHC activity vs ILS risk premium — quiet tropics keep a lid on spread widening.",
   "EIA crude inventories Wednesday 15:30 UTC; nat gas storage Thursday 14:30 UTC."
  ]
 };
