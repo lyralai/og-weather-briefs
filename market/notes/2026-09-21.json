@@ -1,0 +1,71 @@
+{
+ "date": "2026-09-21",
+ "asOf": "2026-09-21T14:52Z (delayed quotes, yahoo)",
+ "board": [
+  {
+   "sym": "WTI",
+   "price": 92.18,
+   "chg": -10.01,
+   "src": "delayed"
+  },
+  {
+   "sym": "Brent",
+   "price": 100.07,
+   "chg": -5.44,
+   "src": "delayed"
+  },
+  {
+   "sym": "HH",
+   "price": 2.845,
+   "chg": -1.59,
+   "src": "delayed"
+  }
+ ],
+ "ctx": [
+  "CAT BONDS / PERIL WATCH \u2014 ILS outstanding near record (~$50bn+ market); Artemis weekly digest notes property-aggregate XOL traded limits up 50% (Marsh RE) \u2014 as of 20 Sept. NHC: TS Fay mid-Atlantic (no land threat), Hurricane Polo (Cat 4) and TS Odalys open Pacific \u2014 quiet US-landfall board keeps a lid on ILS spread widening.",
+  "DEGREE DAYS US \u2014 WPC flash-flood regime exits the Ohio Valley/Midwest this week; CPC leans cooler-than-normal 6-10-day for the northern Plains/Midwest \u2014 first HDD nudges of the season, modest gas-demand support.",
+  "DEGREE DAYS EUR/ASIA \u2014 European HDDs below normal week-ahead \u2014 TTF demand soft; NE Asia mixed, JKM steady with shoulder-season cargoes."
+ ],
+ "why": [
+  {
+   "tag": "RISK PREMIUM",
+   "text": "WTI slides ~10% as Saudi supply-disruption premium deflates; quiet US tropics keep the weather premium out of crude \u2014 weather tie: no NHC US-Gulf threat.",
+   "src": "https://economictimes.indiatimes.com/topic/why-crude-oil-prices-are-falling-today"
+  },
+  {
+   "tag": "SUPPLY",
+   "text": "Brent falls 4th straight session below $101 as Middle East outage fear fades faster than barrels return; JPMorgan sees prices staying pinned.",
+   "src": "https://srpske.rs/en/news/ekonomija/2026/09/21/brent-oil-falls-102-dollars-wti-under-100"
+  },
+  {
+   "tag": "DEMAND",
+   "text": "Henry Hub slips to ~$2.85 \u2014 weather-neutral power burn; Southeast cold-snap lift (FL Zone 3 +$1.42) already faded \u2014 weather tie: shoulder season, no grid stress.",
+   "src": "https://www.eia.gov/naturalgas/weekly/"
+  }
+ ],
+ "trade": [
+  {
+   "region": "Central Appalachia (OH/WV)",
+   "text": "'Dangerous Weather Imminent' AWX flash-flood flags live on Marcellus/Utica producing counties -> pad access + tank-battery disruption -> modest wet-gas supply wobble if 1-3\" totals verify.",
+   "mkt": "natural gas supply",
+   "src": "atlas"
+  },
+  {
+   "region": "Midwest exit / Mid-Atlantic (VA)",
+   "text": "Storm band tail brings two Hopewell-area t-storm windows (51%/64%) while free feeds read 1-8% -> rack/rail standdowns misplanned on free data -> product logistics friction in a down-crude tape.",
+   "mkt": "product logistics",
+   "src": "atlas"
+  },
+  {
+   "region": "Tropics",
+   "text": "Fay fish-food, Polo/Odalys open Pacific -> zero Gulf shut-in risk -> weather premium keeps leaking out of crude \u2014 the quiet-board tape.",
+   "mkt": "crude risk premium",
+   "src": "atlas"
+  }
+ ],
+ "watch": [
+  "NHC peak-season window: any new Cape Verde wave development reprices the weather premium fast.",
+  "Atlantic cat bonds: quiet NHC board vs ILS spreads \u2014 watch for re-widening on any Gulf development.",
+  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC."
+ ]
+}
