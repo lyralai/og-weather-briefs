@@ -78,10 +78,10 @@ footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 <div class="card"><h2>Asset risk — current assessment</h2><div id="assets"></div></div>
 <div class="card timeline-card"><h2>Next 72 hours</h2><div class="timeline" id="timeline"></div></div>
 <div class="card nearmiss" id="nearmiss"></div>
-<div class="card" id="livecmp-card"><h2>Same coordinates. Same hour. Live data.</h2>
-<div class="sub" style="margin-bottom:.7rem">Lemont Refinery 41.67°N 88.08°W · pulled today from both APIs</div>
+<div class="card" id="livecmp-card"><h2>Same coordinates. Same moment. Live data.</h2>
+<div class="sub" style="margin-bottom:.7rem">Lemont Refinery 41.67°N 88.08°W · both APIs pulled at brief generation</div>
 <div id="livecmp"></div>
-<div class="sub" style="margin-top:.7rem">Gray: OpenMeteo (free, NOAA/GFS-based). Blue: AccuWeather. Both queried at the same moment for the same coordinates.</div></div>
+<div class="sub" style="margin-top:.7rem">Gray: OpenMeteo (free, NOAA/GFS-based). Blue: AccuWeather. Both queried at the same moment for the same coordinates; each column advances on its own clock.</div></div>
 <div class="card"><h2>Free weather APIs vs AccuWeather — this exact event</h2><div class="sub" id="cmp-intro" style="margin-bottom:.7rem"></div><div id="cmp"></div><div id="cmp-closer" style="margin-top:.8rem;font-weight:600;color:#b3261e"></div></div>
 <div class="card"><h2>What AccuWeather for Business delivers at your sites</h2><div id="caps"></div></div>
 <div class="card" style="background:#0b3d62;color:#fff;border:none"><h2 style="color:#fff;margin-top:0">Want this for every site, every day?</h2><div style="font-size:.92rem">This brief was prepared manually as a sample. AccuWeather for Business delivers this continuously: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Ask about a live demo for your assets</b></div></div>
@@ -277,7 +277,7 @@ document.getElementById('assets').innerHTML=d.assets.map(a=>{
   <div class="chart"><div class="ct">Next 12h — AccuWeather hourly: temperature (red) + precip probability (blue bars)</div>${spark(series)}</div></div>`;}).join('');
 document.getElementById('timeline').innerHTML=d.next_72h.map(t=>`<div class="tl"><b>${t.when}</b> — ${t.what}<br><span class="sub">Impact: ${t.impact}</span></div>`).join('');
 document.getElementById('cmp-intro').textContent=d.comparison.intro;
-document.getElementById('cmp').innerHTML=d.comparison.rows.map(r=>`<div class="cmprow"><div class="cmpfeat">${r.feature}</div><div class="cmpfree"><span class="cmptag free">FREE (OpenMeteo/NOAA)</span><br>${r.free}</div><div class="cmpawx"><span class="cmptag awx">ACCUBEATHER</span><br>${r.awx}</div></div>`).join('');
+document.getElementById('cmp').innerHTML=d.comparison.rows.map(r=>`<div class="cmprow"><div class="cmpfeat">${r.feature}</div><div class="cmpfree"><span class="cmptag free">FREE (OpenMeteo/NOAA)</span><br>${r.free}</div><div class="cmpawx"><span class="cmptag awx">ACCUWEATHER</span><br>${r.awx}</div></div>`).join('');
 document.getElementById('cmp-closer').textContent=d.comparison.closer;
 document.getElementById('caps').innerHTML=d.capabilities.map(c=>`<div class="cap"><b>${c[0]}</b><span>${c[1]}</span></div>`).join('');
 if(typeof LIVE_COMPARISON!=='undefined'){
@@ -285,7 +285,7 @@ if(typeof LIVE_COMPARISON!=='undefined'){
   const danger=r=>(r.awx.pop||0)>=50&&/t-?storm|thunder/i.test(r.awx.wx||'');
   document.getElementById('livecmp').innerHTML=rows.map(r=>{const dg=danger(r);
     return `<div class="lr ${dg?'lrd':''}"><div class="lrt">${r.t}</div>
-    <div class="lrc lrom"><span class="cmptag free">FREE</span><br>${r.om?('code '+r.om.code+' · '+r.om.tp+'°F · '+r.om.pop+'% rain'):'—'}</div>
+    <div class="lrc lrom"><span class="cmptag free">FREE</span><br>${r.om?((r.om.code!=null?('code '+r.om.code+' · '):'')+r.om.tp+'°F · '+r.om.pop+'% rain'):'—'}</div>
     <div class="lrc lraw"><span class="cmptag awx">AWX</span><br>${r.awx.wx} · ${r.awx.tp}°F · ${r.awx.pop}% rain</div></div>`;}).join('');
 }
 </script></body></html>

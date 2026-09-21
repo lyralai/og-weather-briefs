@@ -31,7 +31,7 @@ const DEMO_DATA = {
     intro: "Your ops team can already pull free weather data (OpenMeteo, NOAA/GFS feeds, NWS alerts). Here's what each would have told you about this exact event — and what AccuWeather adds.",
     rows: [
  {feature:"Lightning strike tracking",free:"Not available — no free weather API serves real-time strike data",awx:"Real-time strikes + 30-min history, alerts pinned to each site"},
-      {"feature":"Thunderstorm arrival time at your dock","free":"\"Scattered storms tonight\" — 40×40 mi grid, 3-hr steps","awx":"Minute-by-minute nowcast: first strikes 11:04 PM, 30-min advance lightning warning"},
+      {"feature":"Thunderstorm arrival time at your dock","free":"\"Scattered storms tonight\" — ~17-mi model grid, hourly steps, county-wide granularity","awx":"Minute-by-minute nowcast: first strikes 11:04 PM, 30-min advance lightning warning"},
       {"feature":"Storm intensity at asset coordinates","free":"Parish-level probability of precipitation","awx":"Hourly rain rate, wind gust, lightning density at 29.75°N 93.32°W — your berth, not the parish"},
       {"feature":"Official alerts","free":"NWS warnings — issued after threshold met","awx":"Proprietary alerts 30-120 min earlier; pre-threshold escalation on your ops triggers"},
       {"feature":"Marine conditions for loading/berthing","free":"Coastal zone forecast, 6-hr granularity","awx":"Hour-by-hour wave height, period & wind at the berth; loading-window recommendations"},
