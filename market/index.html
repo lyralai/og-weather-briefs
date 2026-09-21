@@ -90,6 +90,9 @@ li.ex,.titem.ex{border:1px dashed #c9b458;background:#fdfbf3}
 <!-- TODAY'S NOTE — rendered only when NOTE.date (market/data.js) equals today's UTC date; stale = hidden. -->
 <div class="note" id="todaynote" style="display:none"></div>
 
+<!-- FRIDAY SCORECARD — self-grades the previous week's calls. Reads market/scorecards.json (written by the Friday run); hidden until the first scorecard exists. -->
+<div class="card" id="scorecard" style="display:none;border-left:6px solid #9a7b0c"></div>
+
 <noscript><div class="err">This page renders live price data with JavaScript — enable JavaScript to see the charts.</div></noscript>
 <div id="priceerr"></div>
 
@@ -124,6 +127,7 @@ li.ex,.titem.ex{border:1px dashed #c9b458;background:#fdfbf3}
 </div>
 
 <div class="foot">
+<div style="font-weight:700;color:#3d4a57;margin-bottom:.4rem">Free · AI-written (disclosed) · every number sourced · delayed quotes labeled · not investment advice.</div>
 <b>Methodology &amp; disclaimer:</b> Prices from <a href="https://fred.stlouisfed.org/">FRED</a> (St. Louis Fed), series EIA — <a href="https://fred.stlouisfed.org/series/DCOILWTICO">DCOILWTICO</a>, <a href="https://fred.stlouisfed.org/series/DCOILBRENTEU">DCOILBRENTEU</a>, <a href="https://fred.stlouisfed.org/series/DHHNGSP">DHHNGSP</a> — free daily series, no API key, refreshed by script with provenance recorded in <a href="data.js">data.js</a>. Case-study impact figures: EIA and BSEE publications, linked inline. Market reactions: Reuters and CNBC (carrying Reuters), linked inline. Nothing here is investment advice, and no claim is made that weather <i>caused</i> any price move. Independent demonstration prepared with AccuWeather enterprise data — not an official AccuWeather publication. All briefs: <a href="https://lyralai.github.io/og-weather-briefs/">lyralai.github.io/og-weather-briefs</a>.
 </div>
 </div>
@@ -312,7 +316,25 @@ function renderNote(){
  host.style.display=""; // fresh note → show
 }
 
+// FRIDAY SCORECARD — we grade our own calls, misses included. Nobody else in
+// this market does. Panel stays hidden until scorecards.json exists.
+async function renderScorecard(){
+ const host=el("scorecard"); if(!host)return;
+ let sc; try{const r=await fetch("scorecards.json",{cache:"no-store"});if(!r.ok)return;sc=await r.json()}catch(e){return}
+ if(!sc||!Array.isArray(sc)||!sc.length)return;
+ const s=sc[sc.length-1];
+ const hits=(s.items||[]).filter(i=>i.verdict==="HIT").length, graded=(s.items||[]).filter(i=>i.verdict!=="PENDING").length;
+ const rate=graded?Math.round(100*hits/graded)+"%":"—";
+ const vc={HIT:"up",MISS:"down",PENDING:"neutral"};
+ host.innerHTML=`<div class="ndate" style="border-bottom:1px solid var(--line);padding-bottom:.5rem;margin-bottom:.6rem"><span><b>Scorecard</b> · ${esc(s.date)}</span><span>we grade our own calls</span></div>
+ <div class="kpi" style="max-width:190px;margin:.2rem 0 .7rem"><div class="kv">${rate}</div><div class="kl">hit rate (${hits}/${graded} graded)</div></div>
+ <ul class="nlist">${(s.items||[]).map(i=>`<li style="margin:.35rem 0;font-size:.9rem"><span class="chip ${vc[i.verdict]||"neutral"}">${esc(i.verdict||"PENDING")}</span>${esc(i.item)} <span style="color:var(--mut)">→ ${esc(i.actual||"")}</span></li>`).join("")}</ul>
+ <p class="notes" style="margin:.6rem 0 0">Every Friday the previous week's calls are graded against what actually happened — misses get equal billing. Nobody else in this market self-scores.</p>`;
+ host.style.display="";
+}
+
 try{renderNote()}catch(e){console.error("renderNote failed (note stays hidden):",e)}
+try{renderScorecard()}catch(e){console.error("renderScorecard failed (stays hidden):",e)}
 renderPrices();
 renderCases();
 </script>
