@@ -1163,74 +1163,62 @@ const MARKET_DATA = {
 // why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
 // When NOTE.date is not today's UTC date the page hides this whole section.
 const NOTE = {
- "date": "2026-09-21",
- "asOf": "2026-09-21T14:52Z (delayed quotes, yahoo)",
+ "date": "2026-09-22",
+ "asOf": "2026-09-22T14:50Z (delayed quotes, yahoo)",
  "board": [
   {
    "sym": "WTI",
-   "price": 92.18,
-   "chg": -10.01,
+   "price": 91.09,
+   "chg": -10.62,
    "src": "delayed"
   },
   {
    "sym": "Brent",
-   "price": 100.07,
-   "chg": -5.44,
+   "price": 99.81,
+   "chg": -4.78,
    "src": "delayed"
   },
   {
    "sym": "HH",
-   "price": 2.845,
-   "chg": -1.59,
+   "price": 3.085,
+   "chg": 6.34,
    "src": "delayed"
   }
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH — ILS outstanding near record (~$50bn+ market); Artemis weekly digest notes property-aggregate XOL traded limits up 50% (Marsh RE) — as of 20 Sept. NHC: TS Fay mid-Atlantic (no land threat), Hurricane Polo (Cat 4) and TS Odalys open Pacific — quiet US-landfall board keeps a lid on ILS spread widening.",
-  "DEGREE DAYS US — WPC flash-flood regime exits the Ohio Valley/Midwest this week; CPC leans cooler-than-normal 6-10-day for the northern Plains/Midwest — first HDD nudges of the season, modest gas-demand support.",
-  "DEGREE DAYS EUR/ASIA — European HDDs below normal week-ahead — TTF demand soft; NE Asia mixed, JKM steady with shoulder-season cargoes."
+  "CAT BONDS / PERIL WATCH — ILS market near record outstanding; Twelve Securis flags rising demand for blended liquid cat bond + private ILS portfolios as the market expands (Artemis, 22 Sept); CatIQ raised Montreal June-flood insured loss to C$442m — flood-peril pricing pressure stays on — as of 22 Sept. NHC: Fay post-tropical near the Azores, Hurricane Polo Cat 3 and TS Odalys open-water East Pacific, ex-15E 90 pct chance of development SE of Hawaii — cat bond risk premium watch continues through the Sept peak.",
+  "DEGREE DAYS US — Cooler pattern breaks this week's heat: HDD/CDD near seasonal, week-ahead US CDDs fading over the South while the Plains and Midwest flip to first-chill mornings; NOAA CPC 8-14 day leans below-normal temps central US -> early HDD creep. Henry Hub popped +6 pct today on the swing — see WHY.",
+  "DEGREE DAYS EUR/ASIA — European HDDs running below normal wk-ahead on a mild Atlantic ridge (TTF demand soft); NE Asia early-autumn normal — JKM demand quiet ahead of Oct LD contract rollover."
  ],
  "why": [
   {
-   "tag": "RISK PREMIUM",
-   "text": "WTI slides ~10% as Saudi supply-disruption premium deflates; quiet US tropics keep the weather premium out of crude — weather tie: no NHC US-Gulf threat.",
-   "src": "https://economictimes.indiatimes.com/topic/why-crude-oil-prices-are-falling-today"
+   "tag": "[SUPPLY]",
+   "text": "Crude gives back a chunk of Monday's spike as headline premium fades; weather is NOT the driver today — verify any 'storm premium' framing.",
+   "link": "https://www.reuters.com/business/energy/"
   },
   {
-   "tag": "SUPPLY",
-   "text": "Brent falls 4th straight session below $101 as Middle East outage fear fades faster than barrels return; JPMorgan sees prices staying pinned.",
-   "src": "https://srpske.rs/en/news/ekonomija/2026/09/21/brent-oil-falls-102-dollars-wti-under-100"
-  },
-  {
-   "tag": "DEMAND",
-   "text": "Henry Hub slips to ~$2.85 — weather-neutral power burn; Southeast cold-snap lift (FL Zone 3 +$1.42) already faded — weather tie: shoulder season, no grid stress.",
-   "src": "https://www.eia.gov/naturalgas/weekly/"
+   "tag": "[DEMAND]",
+   "text": "Henry Hub +6 pct on the week's first early-chill signal — Plains/Midwest morning HDD creep into CPC 8-14 day below-normal Central US. Weather tie: first HDD buy-signal of the season.",
+   "link": "https://www.eia.gov/naturalgas/weekly/"
   }
  ],
  "trade": [
   {
-   "region": "Central Appalachia (OH/WV)",
-   "text": "'Dangerous Weather Imminent' AWX flash-flood flags live on Marcellus/Utica producing counties -> pad access + tank-battery disruption -> modest wet-gas supply wobble if 1-3\" totals verify.",
-   "mkt": "natural gas supply",
-   "src": "atlas"
+   "item": "Gulf heat + pop-up convection windows on the Houston Ship Channel (AccuWeather 38 pct morning shower signal vs free feeds 1-8 pct) -> dock-lightning watch and load-out buffers -> marine cargo delays are the product story, small but real at 340 kbd-scale sites.",
+   "link": "https://accuweather.taborlin.co"
   },
   {
-   "region": "Midwest exit / Mid-Atlantic (VA)",
-   "text": "Storm band tail brings two Hopewell-area t-storm windows (51%/64%) while free feeds read 1-8% -> rack/rail standdowns misplanned on free data -> product logistics friction in a down-crude tape.",
-   "mkt": "product logistics",
-   "src": "atlas"
+   "item": "Appalachian flood regime exiting east but OH/WV flood warnings still active over Marcellus/Utica producing counties -> pad access and crew moves constrained, day 5 -> modest wet-gas takeaway drag while the corridor clears.",
+   "link": "https://accuweather.taborlin.co"
   },
   {
-   "region": "Tropics",
-   "text": "Fay fish-food, Polo/Odalys open Pacific -> zero Gulf shut-in risk -> weather premium keeps leaking out of crude — the quiet-board tape.",
-   "mkt": "crude risk premium",
-   "src": "atlas"
+   "item": "Ex-TD 15-E 90 pct development chance SE of Hawaii -> Pacific marine/LNG routing watch only this week -> no direct US market read yet; flag only.",
+   "link": "https://www.nhc.noaa.gov/?epac"
   }
  ],
  "watch": [
-  "NHC peak-season window: any new Cape Verde wave development reprices the weather premium fast.",
-  "Atlantic cat bonds: quiet NHC board vs ILS spreads — watch for re-widening on any Gulf development.",
-  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC."
+  "EIA crude inventories tomorrow (Wed) 15:30 UTC",
+  "EIA weekly gas storage Thursday 14:30 UTC — first HDD-relevant print of the season",
+  "NHC: ex-15E SE of Hawaii (90 pct/7d) and Cabo Verde wave (30 pct/7d) — cat bond risk premium watch through the Sept peak"
  ]
 };
-// --- END NOTE ---
