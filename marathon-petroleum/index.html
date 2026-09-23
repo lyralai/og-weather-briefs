@@ -55,8 +55,11 @@ h1{font-size:1.45rem;margin:1.2rem 0 .2rem}
 .cap:last-child{border:none}
 .cap b{color:#16697a;white-space:nowrap}
 footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
+.aw-brand{background:#fa6600;color:#fff;font-weight:800;letter-spacing:.14em;font-size:.78rem;padding:.5rem 1.2rem;display:flex;align-items:center;gap:.55rem}
+.aw-map-badge{position:absolute;top:10px;left:10px;z-index:6;background:#fa6600;color:#fff;font-weight:800;font-size:.66rem;letter-spacing:.09em;padding:.34rem .62rem;border-radius:6px;pointer-events:none;box-shadow:0 1px 5px rgba(0,0,0,.45)}
 </style></head>
 <body>
+<div class="aw-brand"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="#fff" stroke="none"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3M4.7 4.7l2.1 2.1M17.2 17.2l2.1 2.1M19.3 4.7l-2.1 2.1M6.8 17.2l-2.1 2.1"/></svg><span>ACCUWEATHER&nbsp;|&nbsp;FOR&nbsp;BUSINESS</span></div>
 <div class="topline" id="topline"></div>
 <div class="wrap"><div class="wrap-inner">
 <h1 id="ptitle">Weather Risk Brief</h1>
@@ -84,7 +87,7 @@ footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 <div class="sub" style="margin-top:.7rem">Gray: OpenMeteo (free, NOAA/GFS-based). Blue: AccuWeather. Both queried at the same moment for the same coordinates; each column advances on its own clock.</div></div>
 <div class="card"><h2>Free weather APIs vs AccuWeather — this exact event</h2><div class="sub" id="cmp-intro" style="margin-bottom:.7rem"></div><div id="cmp"></div><div id="cmp-closer" style="margin-top:.8rem;font-weight:600;color:#b3261e"></div></div>
 <div class="card"><h2>What AccuWeather for Business delivers at your sites</h2><div id="caps"></div></div>
-<div class="card" style="background:#0b3d62;color:#fff;border:none"><h2 style="color:#fff;margin-top:0">Want this for every site, every day?</h2><div style="font-size:.92rem">This brief was prepared manually as a sample. AccuWeather for Business delivers this continuously: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Ask about a live demo for your assets</b></div></div>
+<div class="card" style="background:#0b3d62;color:#fff;border:none"><h2 style="color:#fff;margin-top:0">Want this for every site, every day?</h2><div style="font-size:.92rem">This brief was prepared manually as a sample. AccuWeather for Business delivers this continuously: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Ask about a live demo for your assets · alex.deconde@accuweather.com</b></div></div>
 <footer>Prepared with AccuWeather forecast data. Radar overlay: RainViewer. Sample brief for evaluation — not an official AccuWeather publication.</footer>
 </div></div>
 <script src="data.js?v=2"></script>
@@ -102,7 +105,9 @@ document.getElementById('lvl').textContent=d.risk_level;
 document.getElementById('lvlsub').innerHTML='<b>Overall portfolio risk: '+d.risk_level+'</b><br>'+d.assets.length+' assets monitored · active weather threats within 72h';
 
 const c0=[d.assets[0].lon,d.assets[0].lat];
-const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/dark-v11',center:c0,zoom:7.6});
+const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/dark-v11',center:c0,zoom:7.6,maxZoom:10});
+const awBadge=document.createElement('div');awBadge.className='aw-map-badge';awBadge.textContent='ACCUWEATHER · WEATHER RISK BRIEF';document.getElementById('map').appendChild(awBadge);
+
 const rc={ELEVATED:'#c05621',HIGH:'#b3261e',MODERATE:'#9a7b0c',CLEAR:'#1e8449'};
 let activeLayer='radar';
 let windOn=false,windAnim=null,windGrid=null,windSrc='';
@@ -134,7 +139,7 @@ map.on('load', async () => {
   try{const rv=await fetch('https://api.rainviewer.com/public/weather-maps.json').then(r=>r.json());
     fvHost=rv.host; frames=[...rv.radar.past.slice(-8),...rv.radar.nowcast.slice(0,4)];
     frames.forEach((f,i)=>{const id='radar'+i;
-      map.addSource(id,{type:'raster',tiles:[`${rv.host}${f.path}/512/{z}/{x}/{y}/6/1_1.png`],tileSize:512});
+      map.addSource(id,{type:'raster',tiles:[`${rv.host}${f.path}/512/{z}/{x}/{y}/6/1_1.png`],tileSize:512,maxzoom:7});
       map.addLayer({id:id,type:'raster',source:id,paint:{'raster-opacity':0}} ,firstSymbolId);});
     let cur=frames.length-5>=0?frames.length-5:0;
     const show=i=>{frames.forEach((_,j)=>map.setPaintProperty('radar'+j,'raster-opacity',j===i?0.75:0));
@@ -145,9 +150,46 @@ map.on('load', async () => {
       if(!playing){playing=true;const step=()=>{if(!playing||activeLayer!=='radar')return;cur=(cur+1)%frames.length;show(cur);setTimeout(step,700);};step();}};
   }catch(e){document.getElementById('rtime').textContent=' radar unavailable';}
 
+  // NWS ACTIVE ALERTS (US assets) — polygons from api.weather.gov (keyless, CORS ok); zone-geometry fallback for null-geometry alerts
+  try{
+    const a0=d.assets[0];
+    if(a0.lat>24&&a0.lat<50&&a0.lon>-125&&a0.lon<-66){
+      const pts=[[a0.lon,a0.lat],[a0.lon+0.4,a0.lat],[a0.lon-0.4,a0.lat],[a0.lon,a0.lat+0.3],[a0.lon,a0.lat-0.3]];
+      const rs=await Promise.allSettled(pts.map(p=>fetch('https://api.weather.gov/alerts/active?point='+p[1].toFixed(3)+','+p[0].toFixed(3)).then(r=>r.json())));
+      const seen=new Map();
+      rs.forEach(r=>{if(r.status==='fulfilled'&&r.value&&Array.isArray(r.value.features))r.value.features.forEach(f=>seen.set(f.id,f));});
+      const sev=e=>/warning/i.test(e)?'Warning':/watch/i.test(e)?'Watch':'Advisory';
+      const zoneCache=new Map();
+      const zoneGeom=async u=>{
+        if(zoneCache.has(u))return zoneCache.get(u);
+        try{const z=await fetch(u).then(r=>r.json());zoneCache.set(u,z.geometry||null);}catch(e){zoneCache.set(u,null);}
+        return zoneCache.get(u);
+      };
+      const feats=[];
+      for(const f of [...seen.values()].slice(0,8)){
+        let geom=f.geometry;
+        if(!geom&&Array.isArray(f.properties.affectedZones)&&f.properties.affectedZones.length){
+          const zs=await Promise.all(f.properties.affectedZones.slice(0,4).map(zoneGeom));
+          const geoms=zs.filter(Boolean);
+          if(geoms.length)geom={type:'GeometryCollection',geometries:geoms};
+        }
+        if(geom)feats.push({type:'Feature',geometry:geom,properties:{event:f.properties.event,sev:sev(f.properties.event||'')}});
+      }
+      if(feats.length){
+        map.addSource('nws-alerts',{type:'geojson',data:{type:'FeatureCollection',features:feats.slice(0,6)}});
+        map.addLayer({id:'nws-fill',type:'fill',source:'nws-alerts',paint:{'fill-color':['match',['get','sev'],['Warning'],'#b3261e',['Watch'],'#c05621','#9a7b0c'],'fill-opacity':0.13}},firstSymbolId);
+        map.addLayer({id:'nws-line',type:'line',source:'nws-alerts',paint:{'line-color':['match',['get','sev'],['Warning'],'#b3261e',['Watch'],'#c05621','#9a7b0c'],'line-width':2}},firstSymbolId);
+        const chip=document.createElement('div');
+        chip.style.cssText='margin-top:.55rem;font-size:.8rem;font-weight:700;color:#b3261e';
+        chip.textContent='⚠ ACTIVE NWS ALERTS: '+feats.slice(0,6).map(f=>f.properties.event).join(' · ');
+        document.querySelector('.maptools').after(chip);
+      }
+    }
+  }catch(e){}
+
   // NASA GIBS satellite (yesterday, VIIRS true color)
   const yd=new Date(Date.now()-864e5).toISOString().slice(0,10);
-  if(!map.getSource('gibs')){map.addSource('gibs',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${yd}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`],tileSize:256});
+  if(!map.getSource('gibs')){map.addSource('gibs',{type:'raster',tiles:[`https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/${yd}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg`],tileSize:256,maxzoom:9});
     map.addLayer({id:'gibs-sat',type:'raster',source:'gibs',paint:{'raster-opacity':0.85,'raster-fade-duration':0}},firstSymbolId);
     map.setLayoutProperty('gibs-sat','visibility','none');}
   document.getElementById('b-sat').onclick=()=>{setBtns('b-sat');activeLayer='sat';hideBase();
