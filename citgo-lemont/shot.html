@@ -14,6 +14,8 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#fff;widt
 .hdr .right{text-align:right}
 .hdr .date{font-size:.8rem;color:#5a6875;margin-bottom:.3rem}
 .riskchip{display:inline-block;font-size:1.05rem;font-weight:800;letter-spacing:.06em;padding:.35rem 1rem;border-radius:9px}
+.scale{display:flex;gap:3px;margin-top:.45rem;width:340px}
+.scale .seg{flex:1;text-align:center;font-size:.6rem;font-weight:800;letter-spacing:.04em;padding:.22rem 0;border-radius:5px;background:#eef1f5;color:#98a3af;border:1px solid #e3e8ee}
 .main{flex:1 1 auto;min-height:0;display:flex;gap:14px;padding:12px 1.4rem 10px}
 #map{flex:0 0 812px;height:100%;border-radius:12px;border:1px solid #dde3ea;position:relative;min-height:0}
 .aw-map-badge{position:absolute;top:10px;left:10px;z-index:6;background:#fa6600;color:#fff;font-weight:800;font-size:.68rem;letter-spacing:.09em;padding:.32rem .6rem;border-radius:6px;pointer-events:none;box-shadow:0 1px 5px rgba(0,0,0,.45)}
@@ -24,6 +26,10 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#fff;widt
 .box h2{margin:0 0 .45rem;font-size:.76rem;font-weight:800;letter-spacing:.14em;color:#8a97a4}
 .alerts{border-left:5px solid #b3261e}
 .alerts .ev{font-weight:800;color:#b3261e;font-size:.95rem;margin:.18rem 0}
+.sevleg{margin-top:.55rem;font-size:.7rem;font-weight:700;color:#5a6875;display:flex;align-items:center;gap:.32rem;flex-wrap:wrap}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px}
+.sw.warn{background:#b3261e}.sw.watch{background:#c05621}.sw.adv{background:#9a7b0c}
+.arrow{color:#b6c0ca;font-weight:400}
 .why ul{margin:0;padding-left:1.05rem;font-size:.86rem}
 .why li{margin:.32rem 0;line-height:1.35}
 .tl{flex:1 1 auto;min-height:0}
@@ -40,12 +46,12 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#fff;widt
 <div class="aw-brand"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="#fff" stroke="none"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3M4.7 4.7l2.1 2.1M17.2 17.2l2.1 2.1M19.3 4.7l-2.1 2.1M6.8 17.2l-2.1 2.1"/></svg><span>ACCUWEATHER&nbsp;|&nbsp;FOR&nbsp;BUSINESS</span></div>
 <div class="hdr">
   <div><div class="kicker">WEATHER RISK BRIEF</div><h1 id="op"></h1></div>
-  <div class="right"><div class="date" id="dt"></div><span class="riskchip" id="rk"></span></div>
+  <div class="right"><div class="date" id="dt"></div><span class="riskchip" id="rk"></span><div class="scale" id="scale"></div></div>
 </div>
 <div class="main">
   <div id="map"><div class="aw-map-badge">ACCUWEATHER · WEATHER RISK BRIEF</div><div class="aw-attrib">© Mapbox · © OpenStreetMap</div></div>
   <div class="panel">
-    <div class="box alerts" id="abox" style="display:none"><h2>ACTIVE NWS ALERTS</h2><div id="alist"></div></div>
+    <div class="box alerts" id="abox" style="display:none"><h2>ACTIVE NWS ALERTS</h2><div id="alist"></div><div class="sevleg"><span class="sw warn"></span>Warning <span class="arrow">›</span> <span class="sw watch"></span>Watch <span class="arrow">›</span> <span class="sw adv"></span>Advisory <span class="arrow" style="margin-left:.15rem">— NWS severity order</span></div></div>
     <div class="box why"><h2 id="whyT"></h2><ul id="why"></ul></div>
     <div class="box tl"><h2>NEXT 72 HOURS — OPERATIONAL</h2><div id="tl"></div></div>
   </div>
@@ -60,6 +66,7 @@ document.getElementById('op').textContent=d.operator;
 document.title='AccuWeather Weather Risk Brief — '+d.operator;
 document.getElementById('dt').textContent=new Date(d.generated+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
 const rk=document.getElementById('rk');rk.textContent='RISK: '+d.risk_level;const c=rc[d.risk_level]||['#eee','#333'];rk.style.background=c[0];rk.style.color=c[1];
+document.getElementById('scale').innerHTML=['CLEAR','MODERATE','ELEVATED','HIGH'].map(l=>'<div class="seg"'+(l===d.risk_level?' style="background:'+c[0]+';color:'+c[1]+';border:1px solid '+c[1]+'"':'')+'>'+l+'</div>').join('');
 document.getElementById('whyT').textContent='WHY '+d.risk_level+' — '+d.assets.map(a=>a.name).join(' & ');
 document.getElementById('why').innerHTML=(d.assets[0].risk_why||[]).slice(0,4).map(w=>'<li>'+w+'</li>').join('');
 document.getElementById('tl').innerHTML=d.next_72h.map(t=>'<div class="row"><div class="w">'+t.when.replace(/ \(.*\)/,'')+'</div><div class="what">'+t.what+' — <span class="impact">'+(t.impact||'')+'</span></div></div>').join('');
