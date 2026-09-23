@@ -25,11 +25,14 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#fff;widt
 .box{border:1px solid #dde3ea;border-radius:12px;padding:.7rem .9rem;background:#fff}
 .box h2{margin:0 0 .45rem;font-size:.76rem;font-weight:800;letter-spacing:.14em;color:#8a97a4}
 .alerts{border-left:5px solid #b3261e}
-.alerts .ev{font-weight:800;color:#b3261e;font-size:.95rem;margin:.18rem 0}
-.sevleg{margin-top:.55rem;font-size:.7rem;font-weight:700;color:#5a6875;display:flex;align-items:center;gap:.32rem;flex-wrap:wrap}
-.sw{display:inline-block;width:10px;height:10px;border-radius:2px}
-.sw.warn{background:#b3261e}.sw.watch{background:#c05621}.sw.adv{background:#9a7b0c}
-.arrow{color:#b6c0ca;font-weight:400}
+.alerts .ev{font-weight:800;color:#161e28;font-size:.95rem;margin:.18rem 0;display:flex;align-items:center}
+.alerts .ev .sw2{display:inline-block;width:11px;height:11px;border-radius:2.5px;border:1px solid rgba(22,30,40,.28);margin-right:.4rem;flex:0 0 auto}
+.nwsscale{display:flex;align-items:center;gap:.45rem;justify-content:flex-end;font-size:.66rem;font-weight:800;color:#5a6875;margin-bottom:.4rem}
+.nwsscale .lab{letter-spacing:.12em;color:#8a97a4}
+.nwsscale .arw{color:#b6c0ca;font-weight:700}
+.nwsscale .tier{display:inline-flex;align-items:center}
+.nsw{display:inline-block;width:11px;height:11px;border-radius:2.5px;border:1px solid rgba(22,30,40,.28);margin-right:.24rem;background:#e3e8ee}
+.sevfall{margin-top:.45rem;font-size:.64rem;font-weight:700;color:#8a97a4}
 .why ul{margin:0;padding-left:1.05rem;font-size:.86rem}
 .why li{margin:.32rem 0;line-height:1.35}
 .tl{flex:1 1 auto;min-height:0}
@@ -46,12 +49,12 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#fff;widt
 <div class="aw-brand"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="#fff" stroke="none"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3M4.7 4.7l2.1 2.1M17.2 17.2l2.1 2.1M19.3 4.7l-2.1 2.1M6.8 17.2l-2.1 2.1"/></svg><span>ACCUWEATHER&nbsp;|&nbsp;FOR&nbsp;BUSINESS</span></div>
 <div class="hdr">
   <div><div class="kicker">WEATHER RISK BRIEF</div><h1 id="op"></h1></div>
-  <div class="right"><div class="date" id="dt"></div><span class="riskchip" id="rk"></span><div class="scale" id="scale"></div></div>
+  <div class="right"><div class="nwsscale" id="nwsscale"></div><div class="date" id="dt"></div><span class="riskchip" id="rk"></span><div class="scale" id="scale"></div></div>
 </div>
 <div class="main">
   <div id="map"><div class="aw-map-badge">ACCUWEATHER · WEATHER RISK BRIEF</div><div class="aw-attrib">© Mapbox · © OpenStreetMap</div></div>
   <div class="panel">
-    <div class="box alerts" id="abox" style="display:none"><h2>ACTIVE NWS ALERTS</h2><div id="alist"></div><div class="sevleg"><span class="sw warn"></span>Warning <span class="arrow">›</span> <span class="sw watch"></span>Watch <span class="arrow">›</span> <span class="sw adv"></span>Advisory <span class="arrow" style="margin-left:.15rem">— NWS severity order</span></div></div>
+    <div class="box alerts" id="abox" style="display:none"><h2>ACTIVE NWS ALERTS</h2><div id="alist"></div><div class="sevfall">Map &amp; swatch colors: official NWS hazard palette</div></div>
     <div class="box why"><h2 id="whyT"></h2><ul id="why"></ul></div>
     <div class="box tl"><h2>NEXT 72 HOURS — OPERATIONAL</h2><div id="tl"></div></div>
   </div>
@@ -60,6 +63,7 @@ body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#fff;widt
 <script src="data.js?v=1"></script>
 <script>
 mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
+const NWS_OFFICIAL={"911 Telephone Outage":"#C0C0C0","Administrative Message":"#C0C0C0","Air Quality Alert":"#808080","Air Stagnation Advisory":"#808080","Ashfall Advisory":"#696969","Ashfall Warning":"#A9A9A9","Avalanche Advisory":"#CD853F","Avalanche Warning":"#1E90FF","Avalanche Watch":"#F4A460","Beach Hazards Statement":"#40E0D0","Blizzard Warning":"#FF4500","Blowing Dust Advisory":"#BDB76B","Blowing Dust Warning":"#FFE4C4","Blue Alert":"#FFFFFF","Brisk Wind Advisory":"#D8BFD8","Child Abduction Emergency":"#FFFFFF","Civil Danger Warning":"#FFB6C1","Civil Emergency Message":"#FFB6C1","Coastal Flood Advisory":"#7CFC00","Coastal Flood Statement":"#6B8E23","Coastal Flood Warning":"#228B22","Coastal Flood Watch":"#66CDAA","Cold Weather Advisory":"#AFEEEE","Dense Fog Advisory":"#708090","Dense Smoke Advisory":"#F0E68C","Dust Advisory":"#BDB76B","Dust Storm Warning":"#FFE4C4","Earthquake Warning":"#8B4513","Evacuation Immediate":"#7FFF00","Extreme Cold Warning":"#0000FF","Extreme Cold Watch":"#5F9EA0","Extreme Fire Danger":"#E9967A","Extreme Heat Warning":"#C71585","Extreme Heat Watch":"#800000","Extreme Wind Warning":"#FF8C00","Fire Warning":"#A0522D","Fire Weather Watch":"#FFDEAD","Flash Flood Statement":"#8B0000","Flash Flood Warning":"#8B0000","Flash Flood Watch":"#2E8B57","Flood Advisory":"#00FF7F","Flood Statement":"#00FF00","Flood Warning":"#00FF00","Flood Watch":"#2E8B57","Freeze Warning":"#483D8B","Freeze Watch":"#00FFFF","Freezing Fog Advisory":"#008080","Freezing Spray Advisory":"#00BFFF","Frost Advisory":"#6495ED","Gale Warning":"#DDA0DD","Gale Watch":"#FFC0CB","Hazardous Materials Warning":"#4B0082","Hazardous Seas Warning":"#D8BFD8","Hazardous Seas Watch":"#483D8B","Hazardous Weather Outlook":"#EEE8AA","Heat Advisory":"#FF7F50","Heavy Freezing Spray Warning":"#00BFFF","Heavy Freezing Spray Watch":"#BC8F8F","High Surf Advisory":"#BA55D3","High Surf Warning":"#228B22","High Wind Warning":"#DAA520","High Wind Watch":"#B8860B","Hurricane Force Wind Warning":"#CD5C5C","Hurricane Force Wind Watch":"#9932CC","Hurricane Warning":"#DC143C","Hurricane Watch":"#FF00FF","Hydrologic Outlook":"#90EE90","Ice Storm Warning":"#8B008B","Lake Effect Snow Warning":"#008B8B","Lake Wind Advisory":"#D2B48C","Lakeshore Flood Advisory":"#7CFC00","Lakeshore Flood Statement":"#6B8E23","Lakeshore Flood Warning":"#228B22","Lakeshore Flood Watch":"#66CDAA","Law Enforcement Warning":"#C0C0C0","Local Area Emergency":"#C0C0C0","Low Water Advisory":"#A52A2A","Marine Weather Statement":"#FFDAB9","Nuclear Power Plant Warning":"#4B0082","Radiological Hazard Warning":"#4B0082","Red Flag Warning":"#FF1493","Rip Current Statement":"#40E0D0","Severe Thunderstorm Warning":"#FFA500","Severe Thunderstorm Watch":"#DB7093","Severe Weather Statement":"#00FFFF","Shelter In Place Warning":"#FA8072","Short Term Forecast":"#98FB98","Small Craft Advisory":"#D8BFD8","Snow Squall Warning":"#C71585","Special Marine Warning":"#FFA500","Special Weather Statement":"#FFE4B5","Storm Surge Warning":"#B524F7","Storm Surge Watch":"#DB7FF7","Storm Warning":"#9400D3","Storm Watch":"#FFE4B5","Test":"#F0FFFF","Tornado Warning":"#FF0000","Tornado Watch":"#FFFF00","Tropical Cyclone Local Statement":"#FFE4B5","Tropical Storm Warning":"#B22222","Tropical Storm Watch":"#F08080","Tsunami Advisory":"#D2691E","Tsunami Warning":"#FD6347","Tsunami Watch":"#FF00FF","Typhoon Warning":"#DC143C","Typhoon Watch":"#FF00FF","Volcano Warning":"#2F4F4F","Wind Advisory":"#D2B48C","Winter Storm Warning":"#FF69B4","Winter Storm Watch":"#4682B4","Winter Weather Advisory":"#7B68EE"};
 const d=DEMO_DATA;
 const rc={ELEVATED:['#fdf0e6','#c05621'],HIGH:['#fde8e8','#b3261e'],MODERATE:['#fef8e7','#9a7b0c'],CLEAR:['#e8f5ec','#1e8449']};
 document.getElementById('op').textContent=d.operator;
@@ -67,6 +71,10 @@ document.title='AccuWeather Weather Risk Brief — '+d.operator;
 document.getElementById('dt').textContent=new Date(d.generated+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
 const rk=document.getElementById('rk');rk.textContent='RISK: '+d.risk_level;const c=rc[d.risk_level]||['#eee','#333'];rk.style.background=c[0];rk.style.color=c[1];
 document.getElementById('scale').innerHTML=['CLEAR','MODERATE','ELEVATED','HIGH'].map(l=>'<div class="seg"'+(l===d.risk_level?' style="background:'+c[0]+';color:'+c[1]+';border:1px solid '+c[1]+'"':'')+'>'+l+'</div>').join('');
+const tiers=['Warning','Watch','Advisory'];const tierCol={};
+const nwsEl=document.getElementById('nwsscale');
+nwsEl.innerHTML='<span class="lab">NWS OFFICIAL SCALE</span>'+tiers.map(t=>'<span class="tier"><span class="nsw" id="nsw-'+t+'"></span>'+t.toUpperCase()+'</span>').join('<span class="arw">&nbsp;›&nbsp;</span>');
+const setTierCol=(t,col)=>{const el=document.getElementById('nsw-'+t);if(el)el.style.background=col;};
 document.getElementById('whyT').textContent='WHY '+d.risk_level+' — '+d.assets.map(a=>a.name).join(' & ');
 document.getElementById('why').innerHTML=(d.assets[0].risk_why||[]).slice(0,4).map(w=>'<li>'+w+'</li>').join('');
 document.getElementById('tl').innerHTML=d.next_72h.map(t=>'<div class="row"><div class="w">'+t.when.replace(/ \(.*\)/,'')+'</div><div class="what">'+t.what+' — <span class="impact">'+(t.impact||'')+'</span></div></div>').join('');
@@ -101,6 +109,7 @@ map.on('load',async()=>{
       const seen=new Map();
       rs.forEach(r=>{if(r.status==='fulfilled'&&r.value&&Array.isArray(r.value.features))r.value.features.forEach(f=>seen.set(f.id,f));});
       const sev=e=>/warning/i.test(e)?'Warning':/watch/i.test(e)?'Watch':'Advisory';
+      const evc=e=>NWS_OFFICIAL[e]||(sev(e)==='Warning'?'#b3261e':sev(e)==='Watch'?'#c05621':'#9a7b0c');
       const zoneCache=new Map();
       const zoneGeom=async u=>{if(zoneCache.has(u))return zoneCache.get(u);try{const z=await fetch(u).then(r=>r.json());zoneCache.set(u,z.geometry||null);}catch(e){zoneCache.set(u,null);}return zoneCache.get(u);};
       const feats=[];
@@ -111,15 +120,17 @@ map.on('load',async()=>{
           const geoms=zs.filter(Boolean);
           if(geoms.length)geom={type:'GeometryCollection',geometries:geoms};
         }
-        if(geom)feats.push({type:'Feature',geometry:geom,properties:{event:f.properties.event,sev:sev(f.properties.event||'')}});
+        if(geom)feats.push({type:'Feature',geometry:geom,properties:{event:f.properties.event,sev:sev(f.properties.event||''),evc:evc(f.properties.event||'')}});
       }
       if(feats.length){
         map.addSource('nws-alerts',{type:'geojson',data:{type:'FeatureCollection',features:feats.slice(0,6)}});
-        map.addLayer({id:'nws-fill',type:'fill',source:'nws-alerts',paint:{'fill-color':['match',['get','sev'],['Warning'],'#b3261e',['Watch'],'#c05621','#9a7b0c'],'fill-opacity':0.1}},firstSymbolId);
-        map.addLayer({id:'nws-line',type:'line',source:'nws-alerts',paint:{'line-color':['match',['get','sev'],['Warning'],'#b3261e',['Watch'],'#c05621','#9a7b0c'],'line-width':1.5}},firstSymbolId);
+        map.addLayer({id:'nws-fill',type:'fill',source:'nws-alerts',paint:{'fill-color':['get','evc'],'fill-opacity':0.17}},firstSymbolId);
+        map.addLayer({id:'nws-line',type:'line',source:'nws-alerts',paint:{'line-color':['get','evc'],'line-width':1.8}},firstSymbolId);
         const names=[...new Set(feats.map(f=>f.properties.event))].slice(0,3);
         document.getElementById('abox').style.display='block';
-        document.getElementById('alist').innerHTML=names.map(n=>'<div class="ev">'+n+'</div>').join('');
+        document.getElementById('alist').innerHTML=names.map(n=>'<div class="ev"><span class="sw2" style="background:'+evc(n)+'"></span>'+n+'</div>').join('');
+        document.getElementById('abox').style.borderLeftColor=evc(names[0]);
+        feats.slice(0,6).forEach(f=>{if(!tierCol[f.properties.sev]){tierCol[f.properties.sev]=f.properties.evc;setTierCol(f.properties.sev,f.properties.evc);}});
         nwsN=names.length;
       }
     }
