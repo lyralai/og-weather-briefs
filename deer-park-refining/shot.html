@@ -1,0 +1,122 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=1280">
+<title>AccuWeather Weather Risk Brief</title>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.9.0/mapbox-gl.js"></script>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#fff;width:1280px;height:860px;overflow:hidden;color:#161e28;display:flex;flex-direction:column}
+.aw-brand{flex:0 0 auto;background:#fa6600;color:#fff;font-weight:800;letter-spacing:.14em;font-size:.82rem;padding:.5rem 1.4rem;display:flex;align-items:center;gap:.55rem}
+.hdr{flex:0 0 auto;display:flex;align-items:flex-end;justify-content:space-between;padding:.8rem 1.4rem .55rem;border-bottom:3px solid #fa6600}
+.hdr .kicker{font-size:.74rem;font-weight:800;letter-spacing:.18em;color:#5a6875}
+.hdr h1{margin:.1rem 0 0;font-size:1.65rem;line-height:1.15}
+.hdr .right{text-align:right}
+.hdr .date{font-size:.8rem;color:#5a6875;margin-bottom:.3rem}
+.riskchip{display:inline-block;font-size:1.05rem;font-weight:800;letter-spacing:.06em;padding:.35rem 1rem;border-radius:9px}
+.main{flex:1 1 auto;min-height:0;display:flex;gap:14px;padding:12px 1.4rem 10px}
+#map{flex:0 0 812px;height:100%;border-radius:12px;border:1px solid #dde3ea;position:relative;min-height:0}
+.aw-map-badge{position:absolute;top:10px;left:10px;z-index:6;background:#fa6600;color:#fff;font-weight:800;font-size:.68rem;letter-spacing:.09em;padding:.32rem .6rem;border-radius:6px;pointer-events:none;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+.aw-attrib{position:absolute;bottom:4px;right:8px;z-index:6;font-size:10px;color:rgba(255,255,255,.5);pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.8)}
+.pinlbl{margin-top:4px;font-size:11px;font-weight:700;color:#fff;background:rgba(11,61,98,.88);padding:2px 7px;border-radius:6px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.5)}
+.panel{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:10px}
+.box{border:1px solid #dde3ea;border-radius:12px;padding:.7rem .9rem;background:#fff}
+.box h2{margin:0 0 .45rem;font-size:.76rem;font-weight:800;letter-spacing:.14em;color:#8a97a4}
+.alerts{border-left:5px solid #b3261e}
+.alerts .ev{font-weight:800;color:#b3261e;font-size:.95rem;margin:.18rem 0}
+.why ul{margin:0;padding-left:1.05rem;font-size:.86rem}
+.why li{margin:.32rem 0;line-height:1.35}
+.tl{flex:1 1 auto;min-height:0}
+.tl .row{padding:.34rem 0;border-bottom:1px solid #eef1f5;font-size:.84rem}
+.tl .row:last-child{border:none}
+.tl .w{font-weight:800;color:#0b3d62}
+.tl .what{line-height:1.3;margin-top:.05rem}
+.tl .impact{color:#b3261e;font-weight:700}
+.footer{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;background:#0b3d62;color:#fff;padding:.5rem 1.4rem;font-size:.78rem}
+.footer b{color:#ffb27a}
+.footer .src{color:#9fb8cc;font-size:.68rem}
+</style></head>
+<body>
+<div class="aw-brand"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="#fff" stroke="none"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3M4.7 4.7l2.1 2.1M17.2 17.2l2.1 2.1M19.3 4.7l-2.1 2.1M6.8 17.2l-2.1 2.1"/></svg><span>ACCUWEATHER&nbsp;|&nbsp;FOR&nbsp;BUSINESS</span></div>
+<div class="hdr">
+  <div><div class="kicker">WEATHER RISK BRIEF</div><h1 id="op"></h1></div>
+  <div class="right"><div class="date" id="dt"></div><span class="riskchip" id="rk"></span></div>
+</div>
+<div class="main">
+  <div id="map"><div class="aw-map-badge">ACCUWEATHER · WEATHER RISK BRIEF</div><div class="aw-attrib">© Mapbox · © OpenStreetMap</div></div>
+  <div class="panel">
+    <div class="box alerts" id="abox" style="display:none"><h2>ACTIVE NWS ALERTS</h2><div id="alist"></div></div>
+    <div class="box why"><h2 id="whyT"></h2><ul id="why"></ul></div>
+    <div class="box tl"><h2>NEXT 72 HOURS — OPERATIONAL</h2><div id="tl"></div></div>
+  </div>
+</div>
+<div class="footer"><div>Prepared by <b>Alex DeConde</b> · AccuWeather for Business · <b>alex.deconde@accuweather.com</b></div><div class="src" id="src"></div></div>
+<script src="data.js?v=1"></script>
+<script>
+mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
+const d=DEMO_DATA;
+const rc={ELEVATED:['#fdf0e6','#c05621'],HIGH:['#fde8e8','#b3261e'],MODERATE:['#fef8e7','#9a7b0c'],CLEAR:['#e8f5ec','#1e8449']};
+document.getElementById('op').textContent=d.operator;
+document.title='AccuWeather Weather Risk Brief — '+d.operator;
+document.getElementById('dt').textContent=new Date(d.generated+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+const rk=document.getElementById('rk');rk.textContent='RISK: '+d.risk_level;const c=rc[d.risk_level]||['#eee','#333'];rk.style.background=c[0];rk.style.color=c[1];
+document.getElementById('whyT').textContent='WHY '+d.risk_level+' — '+d.assets.map(a=>a.name).join(' & ');
+document.getElementById('why').innerHTML=(d.assets[0].risk_why||[]).slice(0,4).map(w=>'<li>'+w+'</li>').join('');
+document.getElementById('tl').innerHTML=d.next_72h.map(t=>'<div class="row"><div class="w">'+t.when.replace(/ \(.*\)/,'')+'</div><div class="what">'+t.what+' — <span class="impact">'+(t.impact||'')+'</span></div></div>').join('');
+const c0=[d.assets[0].lon,d.assets[0].lat];
+const map=new mapboxgl.Map({container:'map',style:'mapbox://styles/mapbox/dark-v11',center:c0,zoom:7.6,maxZoom:10,attributionControl:false,interactive:false});
+map.on('load',async()=>{
+  const lons=d.assets.map(a=>a.lon),lats=d.assets.map(a=>a.lat);
+  const span=Math.max(Math.max(...lons)-Math.min(...lons),Math.max(...lats)-Math.min(...lats));
+  if(span>0.5){map.fitBounds([[Math.min(...lons),Math.min(...lats)],[Math.max(...lons),Math.max(...lats)]],{padding:70,duration:0});}
+  else{map.setCenter(c0);map.setZoom(8.6);}
+  const firstSymbolId=(map.getStyle().layers.find(l=>l.type==='symbol')||{}).id;
+  const rcx={ELEVATED:'#c05621',HIGH:'#b3261e',MODERATE:'#9a7b0c',CLEAR:'#1e8449'};
+  d.assets.forEach(a=>{const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center';
+    const el=document.createElement('div');
+    el.style.cssText='width:20px;height:20px;border-radius:50%;background:'+(rcx[a.risk]||'#888')+';border:4px solid #fff;box-shadow:0 0 0 2px '+(rcx[a.risk]||'#888')+'55,0 2px 8px rgba(0,0,0,.6)';
+    const lbl=document.createElement('div');lbl.className='pinlbl';lbl.textContent=a.name.split(' (')[0];
+    wrap.appendChild(el);wrap.appendChild(lbl);
+    new mapboxgl.Marker({element:wrap}).setLngLat([a.lon,a.lat]).addTo(map);});
+  let radarT='';
+  try{const rv=await fetch('https://api.rainviewer.com/public/weather-maps.json').then(r=>r.json());
+    const f=rv.radar.past[rv.radar.past.length-1];
+    map.addSource('radar',{type:'raster',tiles:[`${rv.host}${f.path}/512/{z}/{x}/{y}/6/1_1.png`],tileSize:512,maxzoom:7});
+    map.addLayer({id:'radar',type:'raster',source:'radar',paint:{'raster-opacity':0.8}},firstSymbolId);
+    radarT=new Date(f.time*1000).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  }catch(e){}
+  let nwsN=0;
+  try{
+    const a0=d.assets[0];
+    if(a0.lat>24&&a0.lat<50&&a0.lon>-125&&a0.lon<-66){
+      const pts=[[a0.lon,a0.lat],[a0.lon+0.4,a0.lat],[a0.lon-0.4,a0.lat],[a0.lon,a0.lat+0.3],[a0.lon,a0.lat-0.3]];
+      const rs=await Promise.allSettled(pts.map(p=>fetch('https://api.weather.gov/alerts/active?point='+p[1].toFixed(3)+','+p[0].toFixed(3)).then(r=>r.json())));
+      const seen=new Map();
+      rs.forEach(r=>{if(r.status==='fulfilled'&&r.value&&Array.isArray(r.value.features))r.value.features.forEach(f=>seen.set(f.id,f));});
+      const sev=e=>/warning/i.test(e)?'Warning':/watch/i.test(e)?'Watch':'Advisory';
+      const zoneCache=new Map();
+      const zoneGeom=async u=>{if(zoneCache.has(u))return zoneCache.get(u);try{const z=await fetch(u).then(r=>r.json());zoneCache.set(u,z.geometry||null);}catch(e){zoneCache.set(u,null);}return zoneCache.get(u);};
+      const feats=[];
+      for(const f of [...seen.values()].slice(0,8)){
+        let geom=f.geometry;
+        if(!geom&&Array.isArray(f.properties.affectedZones)&&f.properties.affectedZones.length){
+          const zs=await Promise.all(f.properties.affectedZones.slice(0,4).map(zoneGeom));
+          const geoms=zs.filter(Boolean);
+          if(geoms.length)geom={type:'GeometryCollection',geometries:geoms};
+        }
+        if(geom)feats.push({type:'Feature',geometry:geom,properties:{event:f.properties.event,sev:sev(f.properties.event||'')}});
+      }
+      if(feats.length){
+        map.addSource('nws-alerts',{type:'geojson',data:{type:'FeatureCollection',features:feats.slice(0,6)}});
+        map.addLayer({id:'nws-fill',type:'fill',source:'nws-alerts',paint:{'fill-color':['match',['get','sev'],['Warning'],'#b3261e',['Watch'],'#c05621','#9a7b0c'],'fill-opacity':0.1}},firstSymbolId);
+        map.addLayer({id:'nws-line',type:'line',source:'nws-alerts',paint:{'line-color':['match',['get','sev'],['Warning'],'#b3261e',['Watch'],'#c05621','#9a7b0c'],'line-width':1.5}},firstSymbolId);
+        const names=[...new Set(feats.map(f=>f.properties.event))].slice(0,3);
+        document.getElementById('abox').style.display='block';
+        document.getElementById('alist').innerHTML=names.map(n=>'<div class="ev">'+n+'</div>').join('');
+        nwsN=names.length;
+      }
+    }
+  }catch(e){}
+  document.getElementById('src').textContent='Forecast: AccuWeather · Radar: RainViewer'+(radarT?' ('+radarT+' local)':'')+' · Alerts: NWS'+(nwsN?' ('+nwsN+' active)':'');
+});
+</script></body></html>
