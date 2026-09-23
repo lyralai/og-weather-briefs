@@ -1163,62 +1163,70 @@ const MARKET_DATA = {
 // why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
 // When NOTE.date is not today's UTC date the page hides this whole section.
 const NOTE = {
- "date": "2026-09-22",
- "asOf": "2026-09-22T14:50Z (delayed quotes, yahoo)",
+ "date": "2026-09-23",
+ "asOf": "2026-09-23T14:51Z (delayed quotes, yahoo)",
  "board": [
   {
    "sym": "WTI",
-   "price": 91.09,
-   "chg": -10.62,
+   "price": 92.09,
+   "chg": -8.19,
    "src": "delayed"
   },
   {
    "sym": "Brent",
-   "price": 99.81,
-   "chg": -4.78,
+   "price": 97.59,
+   "chg": -6.05,
    "src": "delayed"
   },
   {
    "sym": "HH",
-   "price": 3.085,
-   "chg": 6.34,
+   "price": 3.133,
+   "chg": 7.59,
    "src": "delayed"
   }
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH — ILS market near record outstanding; Twelve Securis flags rising demand for blended liquid cat bond + private ILS portfolios as the market expands (Artemis, 22 Sept); CatIQ raised Montreal June-flood insured loss to C$442m — flood-peril pricing pressure stays on — as of 22 Sept. NHC: Fay post-tropical near the Azores, Hurricane Polo Cat 3 and TS Odalys open-water East Pacific, ex-15E 90 pct chance of development SE of Hawaii — cat bond risk premium watch continues through the Sept peak.",
-  "DEGREE DAYS US — Cooler pattern breaks this week's heat: HDD/CDD near seasonal, week-ahead US CDDs fading over the South while the Plains and Midwest flip to first-chill mornings; NOAA CPC 8-14 day leans below-normal temps central US -> early HDD creep. Henry Hub popped +6 pct today on the swing — see WHY.",
-  "DEGREE DAYS EUR/ASIA — European HDDs running below normal wk-ahead on a mild Atlantic ridge (TTF demand soft); NE Asia early-autumn normal — JKM demand quiet ahead of Oct LD contract rollover."
+  "CAT BONDS / PERIL WATCH — ILS market near record outstanding; first-fall nor'easter (70 mph gusts, coastal flooding forecast NY-Boston Thu-Sat) is a live cat-peril watch item, though primary ILS risk remains Atlantic hurricane season (NHC: Fay post-tropical, EPac storms over open water). NHC activity <-> cat bond risk premium stays the standing watch item (Artemis monthly index, as of Sept).",
+  "DEGREE DAYS US — NOAA CPC week-ahead: much of the East Coast cooler than normal behind the developing nor'easter while the southern tier stays warm; expect HDD support in the Northeast and continued CDDs South through late Sept (EIA weekly NG storage HDD/CDD tables, Thu).",
+  "DEGREE DAYS EUR/ASIA — ECMWF/C3S medium-range: European HDDs near-to-below normal week-ahead; TTF demand soft. NE Asia cooling demand fading post-typhoon week; JKM heat premium easing. (Qualitative, tied to TTF/JKM demand coverage.)"
  ],
  "why": [
   {
-   "tag": "[SUPPLY]",
-   "text": "Crude gives back a chunk of Monday's spike as headline premium fades; weather is NOT the driver today — verify any 'storm premium' framing.",
-   "link": "https://www.reuters.com/business/energy/"
+   "tag": "SUPPLY",
+   "txt": "Crude extends its slide as OPEC+ output headlines outweigh geopolitical bid (session driver: supply narrative, not weather).",
+   "src": "https://www.cnbc.com/oil/"
   },
   {
-   "tag": "[DEMAND]",
-   "text": "Henry Hub +6 pct on the week's first early-chill signal — Plains/Midwest morning HDD creep into CPC 8-14 day below-normal Central US. Weather tie: first HDD buy-signal of the season.",
-   "link": "https://www.eia.gov/naturalgas/weekly/"
+   "tag": "RISK PREMIUM",
+   "txt": "Natural gas climbs 7.6% on demand + positioning; Northeast cold-shot demand next week as nor'easter exits. Weather tie: gale warnings on East Coast LNG terminal waters today.",
+   "src": "https://www.cmegroup.com/markets/energy/natural-gas/natural-gas.html"
+  },
+  {
+   "tag": "RISK PREMIUM",
+   "txt": "Nor'easter risk premium builds: 70 mph gusts + coastal flooding forecast Thu-Sat from NY to Boston; power-outage and LNG-terminal disruption scenarios priced into gas.",
+   "src": "https://www.accuweather.com/en/weather-forecasts/significant-september-noreaster-upcoming-storm-surge-beach-erosion-and-power-outages/1936105"
   }
  ],
  "trade": [
   {
-   "item": "Gulf heat + pop-up convection windows on the Houston Ship Channel (AccuWeather 38 pct morning shower signal vs free feeds 1-8 pct) -> dock-lightning watch and load-out buffers -> marine cargo delays are the product story, small but real at 340 kbd-scale sites.",
-   "link": "https://accuweather.taborlin.co"
+   "txt": "Gale Warnings live from Chesapeake to Massachusetts Bay around 6 LNG terminals/marine berths -> defer/anchor decisions on inbound tankers today -> Northeast LNG sendout + gas basis strength into the weekend."
   },
   {
-   "item": "Appalachian flood regime exiting east but OH/WV flood warnings still active over Marcellus/Utica producing counties -> pad access and crew moves constrained, day 5 -> modest wet-gas takeaway drag while the corridor clears.",
-   "link": "https://accuweather.taborlin.co"
+   "txt": "New Mexico flood watch day 6 on Delaware Basin producers (Devon, Hilcorp, Mewbourne acreage) -> pad lightning stand-downs and haul-road washouts -> minor Permian oil/gas flow risk, watch EIA weekly prints."
   },
   {
-   "item": "Ex-TD 15-E 90 pct development chance SE of Hawaii -> Pacific marine/LNG routing watch only this week -> no direct US market read yet; flag only.",
-   "link": "https://www.nhc.noaa.gov/?epac"
+   "txt": "First-fall nor'easter = first real HDD demand signal of the season for the Northeast -> power-burn and sendout surge Fri-Sat -> front-month HH bid weather-driven, unlike crude."
   }
  ],
  "watch": [
-  "EIA crude inventories tomorrow (Wed) 15:30 UTC",
-  "EIA weekly gas storage Thursday 14:30 UTC — first HDD-relevant print of the season",
-  "NHC: ex-15E SE of Hawaii (90 pct/7d) and Cabo Verde wave (30 pct/7d) — cat bond risk premium watch through the Sept peak"
+  {
+   "txt": "EIA crude inventories Wed 15:30 UTC — post-holiday positioning."
+  },
+  {
+   "txt": "EIA weekly NG storage Thu 14:30 UTC + HDD/CDD tables — first cold-shot injection math."
+  },
+  {
+   "txt": "NHC: peak-season Atlantic windows (Fay post-tropical; systems Polo/Odalys/TD15E over open water); first-fall nor'easter Thu-Sat: gale windows at NY/Boston LNG berths, freeze/frost setups behind it for Appalachian gas."
+  }
  ]
-};
+}
