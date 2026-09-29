@@ -1163,31 +1163,64 @@ const MARKET_DATA = {
 // why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
 // When NOTE.date is not today's UTC date the page hides this whole section.
 const NOTE = {
- "date": "2026-09-28",
- "asOf": "2026-09-28T14:52Z delayed intraday (quotes.json, source yahoo)",
+ "date": "2026-09-29",
+ "asOf": "2026-09-29T14:52:03.000Z \u00b7 delayed Yahoo quotes",
  "board": [
-  { "sym": "WTI", "price": 95.15, "chg": 3.24, "src": "delayed" },
-  { "sym": "Brent", "price": 99.89, "chg": -3.09, "src": "delayed" },
-  { "sym": "HH", "price": 3.144, "chg": 4.00, "src": "delayed" }
+  {
+   "sym": "WTI",
+   "label": "WTI crude (NYMEX front month)",
+   "price": 91.33,
+   "chgPct": -3.47
+  },
+  {
+   "sym": "Brent",
+   "label": "Brent crude (ICE front month)",
+   "price": 96.81,
+   "chgPct": -9.18
+  },
+  {
+   "sym": "HH",
+   "label": "Henry Hub nat gas (NYMEX front month)",
+   "price": 3.043,
+   "chgPct": -7.7
+  }
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH - ILS outstanding at record ~$69.9B entering the 2026 hurricane season with ~$18B H1 issuance (Artemis, as of Q2-2026 report); standing hurricane-season watch item: NHC activity <-> cat bond risk premium. Monday's systems: Fay (weak TD, far Atlantic), E Pacific cluster Nolo/Odalys/Polo weak + Rachel Cat 2 over open water - no US land threat; nor'easter exited - no live non-tropical peril watch.",
-  "DEGREE DAYS US - NOAA CPC week-ahead: Northeast cooler than normal behind the exited nor'easter (early-season HDD support) while the southern tier stays warm (CDDs, ERCOT power burn); EIA weekly NG storage HDD/CDD tables Thu 14:30 UTC.",
-  "DEGREE DAYS EUR/ASIA - ECMWF/C3S medium-range: European HDDs near-to-below normal week-ahead - TTF demand soft; NE Asia cooling demand fading - JKM heat premium easing (qualitative, tied to TTF/JKM demand coverage)."
+  "CAT BONDS (ILS): record outstanding ~$69.9B (Artemis, as of Sep 2026) \u2014 hurricane-season issuance tight while Fay/Hanna stay Atlantic-open-water; any Gulf track shift reprices risk premium.",
+  "DEGREE DAYS US: CPC 6-10/8-14-day favors above-normal temps southern tier, below-normal northern plains \u2014 CDD tail in ERCOT/Gulf, early HDD nibble northern racks; EIA storage HDD/CDD tables due Thu.",
+  "DEGREE DAYS EUR/ASIA: ECMWF/C3S medium-range keeps European and NE Asia HDDs below normal week-ahead \u2014 TTF/JKM demand soft; no freeze signal."
  ],
  "why": [
-  { "tag": "RISK PREMIUM", "txt": "Rallies after Trump rejects an Iranian peace proposal, keeping the Strait of Hormuz closure and Persian Gulf supply risk priced in; ~$95 WTI is war risk premium, not weather. Weather tie: none on crude - Gulf ops fully open.", "src": "https://www.cnbc.com/2026/09/28/oil-price-today-wti-brent-trump-iran.html" },
-  { "tag": "DEMAND", "txt": "Gains ~4% on the first real Northeast cold-shot HDD support of the season behind the exiting nor'easter. Weather tie: Gale Warnings ringed East Coast LNG berths into Monday's cargo queue.", "src": "https://lyralai.github.io/og-weather-briefs/daily/2026-09-28/" },
-  { "tag": "SUPPLY", "txt": "Brent off ~3% on the delayed board as US-Iran headline risk whipsaws both benchmarks; divergent WTI/Brent moves flag headline-driven, not fundamentals-driven, trade - we say so plainly.", "src": "https://www.thenationalnews.com/business/energy/2026/09/28/oil-prices-rise-as-us-iran-peace-talks-hit-stalemate/" }
+  {
+   "txt": "[SUPPLY] Fell for a second session as Middle East crude export recovery signs outweighed disruption fear (Reuters) \u2014 weather not the driver today."
+  },
+  {
+   "txt": "[RISK PREMIUM] Iran-tension premium remains the dominant crude spread factor; Gulf weather windows fully open, no shut-in support."
+  },
+  {
+   "txt": "[DEMAND] Henry Hub slipped with soft seasonable demand; below-normal European HDDs week-ahead keep TTF/JKM demand quiet (C3S/ECMWF)."
+  }
  ],
  "trade": [
-  { "txt": "Puget Sound Gale Warning live on Anacortes-area refinery marine approaches -> night crude-dock moves held, compressed berthing schedule midweek -> watch USWC product logistics margins." },
-  { "txt": "Day 8 of AccuWeather flash-flood flags on Midcon fertilizer/refinery sites while NWS stays silent at several (Coffeyville-class corridor) -> rail and barge product moves at risk -> watch Midwest product cracks into EIA week." },
-  { "txt": "Gulf corridors fully open post-storm - hot, mostly dry loading weather -> LNG backlog clearing continues apace -> bearish near-term feedgas volatility as cargo schedules normalize." }
+  {
+   "txt": "Flash-flood alert corridor (KS/OK/NE/IA) live on 700+ energy assets incl. refineries & fertilizer plants -> rail/barge product logistics at risk -> watch Midwest product cracks into EIA week."
+  },
+  {
+   "txt": "Puget Sound Gale Warning gates Anacortes-area crude docks tonight -> West Coast cargo timing slips -> minor WTI West Coast basis noise."
+  },
+  {
+   "txt": "Gulf hot/dry loading weather continues -> LNG backlog clearing proceeds -> bearish near-term feedgas volatility."
+  }
  ],
  "watch": [
-  { "txt": "EIA crude inventories Wed 15:30 UTC - positioning around the Iran premium." },
-  { "txt": "EIA weekly NG storage Thu 14:30 UTC + HDD/CDD tables - first cold-shot injection math." },
-  { "txt": "NHC peak-season windows: Fay weak far-Atlantic, EPac cluster open water; any late-season Gulf system would collide with record cat bond outstanding at ~$69.9B (Artemis) - watch risk premium on any track shift toward the Gulf." }
+  {
+   "txt": "EIA crude inventories Wed 15:30 UTC around the Iran premium."
+  },
+  {
+   "txt": "EIA weekly NG storage Thu 14:30 UTC + HDD/CDD tables."
+  },
+  {
+   "txt": "NHC peak-season windows: Fay/Hanna far Atlantic, EPac cluster open water \u2014 any Gulf-track system vs record cat bond outstanding is the premium event."
+  }
  ]
 }
