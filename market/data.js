@@ -1163,64 +1163,65 @@ const MARKET_DATA = {
 // why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
 // When NOTE.date is not today's UTC date the page hides this whole section.
 const NOTE = {
- "date": "2026-09-29",
- "asOf": "2026-09-29T14:52:03.000Z \u00b7 delayed Yahoo quotes",
+ "date": "2026-10-01",
+ "asOf": "2026-10-01T14:54:01Z",
  "board": [
   {
    "sym": "WTI",
-   "label": "WTI crude (NYMEX front month)",
-   "price": 91.33,
-   "chgPct": -3.47
+   "price": 92.18,
+   "chg": -0.45,
+   "src": "delayed"
   },
   {
    "sym": "Brent",
-   "label": "Brent crude (ICE front month)",
-   "price": 96.81,
-   "chgPct": -9.18
+   "price": 101.12,
+   "chg": -3.95,
+   "src": "delayed"
   },
   {
    "sym": "HH",
-   "label": "Henry Hub nat gas (NYMEX front month)",
-   "price": 3.043,
-   "chgPct": -7.7
+   "price": 2.991,
+   "chg": -0.3,
+   "src": "delayed"
   }
  ],
  "ctx": [
-  "CAT BONDS (ILS): record outstanding ~$69.9B (Artemis, as of Sep 2026) \u2014 hurricane-season issuance tight while Fay/Hanna stay Atlantic-open-water; any Gulf track shift reprices risk premium.",
-  "DEGREE DAYS US: CPC 6-10/8-14-day favors above-normal temps southern tier, below-normal northern plains \u2014 CDD tail in ERCOT/Gulf, early HDD nibble northern racks; EIA storage HDD/CDD tables due Thu.",
-  "DEGREE DAYS EUR/ASIA: ECMWF/C3S medium-range keeps European and NE Asia HDDs below normal week-ahead \u2014 TTF/JKM demand soft; no freeze signal."
+  "CAT BONDS / PERIL WATCH \u2014 cat bond/ILS outstanding ~$50bn range entering Oct (Artemis monthly index, as of Sep) | NHC: Atlantic quiet for US coast (TD Hanna open water); E Pac Rachel (Cat 1) + Nolo (Cat 2) offshore \u2014 no landfall on energy infrastructure; ILS spreads steady (artemis.bm, as of Sep)",
+  "DEGREE DAYS US \u2014 Oct opens with a Midcontinent/North-Texas rain-and-cool corridor and heat exiting the West Coast; early-Oct HDDs near-to-above normal north, CDDs fading \u2014 week-ahead gas demand leaning heating-side (EIA/CPC outlooks, as of Oct 1)",
+  "DEGREE DAYS EUR/ASIA \u2014 European HDDs near normal wk-ahead, no cold outbreak signal \u2014 TTF demand neutral; NE Asia mild start to Oct \u2014 JKM demand soft (Copernicus C3S/ECMWF medium-range, as of Oct 1)"
  ],
  "why": [
   {
-   "txt": "[SUPPLY] Fell for a second session as Middle East crude export recovery signs outweighed disruption fear (Reuters) \u2014 weather not the driver today."
+   "tag": "DEMAND",
+   "text": "Jump 2%+ as Chinese refiners reportedly suspend October fuel exports to protect domestic supply \u2014 Brent back above $100",
+   "src": "https://www.cnbc.com/2026/10/01/oil-prices-today-wti-brent.html"
   },
   {
-   "txt": "[RISK PREMIUM] Iran-tension premium remains the dominant crude spread factor; Gulf weather windows fully open, no shut-in support."
+   "tag": "SUPPLY",
+   "text": "Middle East crude flows stay elevated; traders weigh ample physical supply against fuel-market uncertainty \u2014 weather not the driver",
+   "src": "https://www.bloomberg.com/news/articles/2026-09-30/latest-oil-market-news-and-analysis-for-oct-1"
   },
   {
-   "txt": "[DEMAND] Henry Hub slipped with soft seasonable demand; below-normal European HDDs week-ahead keep TTF/JKM demand quiet (C3S/ECMWF)."
+   "tag": "WEATHER-NEUTRAL",
+   "text": "US session weather-neutral for prices: North Texas flash-flood corridor hits gas-field logistics, not shut-ins; Henry Hub eases 0.3%",
+   "src": "https://lyralai.github.io/og-weather-briefs/market/"
   }
  ],
  "trade": [
   {
-   "txt": "Flash-flood alert corridor (KS/OK/NE/IA) live on 700+ energy assets incl. refineries & fertilizer plants -> rail/barge product logistics at risk -> watch Midwest product cracks into EIA week."
+   "region": "North Texas (Barnett Shale)",
+   "text": "Three thunderstorm windows today + Flash Flood Warnings over Tarrant/Dallas/Denton \u2192 repeated lightning standdowns and muddy-lease logistics across the basin's biggest producer footprint \u2192 local gas flows fine, watch compression uptime if cells train overnight",
+   "mkt": "Henry Hub / Waha basis"
   },
   {
-   "txt": "Puget Sound Gale Warning gates Anacortes-area crude docks tonight -> West Coast cargo timing slips -> minor WTI West Coast basis noise."
-  },
-  {
-   "txt": "Gulf hot/dry loading weather continues -> LNG backlog clearing proceeds -> bearish near-term feedgas volatility."
+   "region": "Missouri Valley",
+   "text": "Flood warnings across Nebraska fertilizer/ammonia plants \u2192 rail delay risk on ammonia and UAN moves \u2192 nitrogen basis tightens if corridor stays wet into next week",
+   "mkt": "NOLA urea/NH3"
   }
  ],
  "watch": [
-  {
-   "txt": "EIA crude inventories Wed 15:30 UTC around the Iran premium."
-  },
-  {
-   "txt": "EIA weekly NG storage Thu 14:30 UTC + HDD/CDD tables."
-  },
-  {
-   "txt": "NHC peak-season windows: Fay/Hanna far Atlantic, EPac cluster open water \u2014 any Gulf-track system vs record cat bond outstanding is the premium event."
-  }
+  "NHC: East Pacific Rachel/Nolo tracks vs Baja shipping lanes; Atlantic basin stays quiet for US energy coast \u2014 cat bond risk premium steady while that holds",
+  "Freeze watch: first real High Plains/North gas-basin freeze setup would be the season's first weather-driven HH move \u2014 nothing on the 6-10 yet",
+  "EIA nat gas storage (Thu 14:30 UTC) and crude inventories (Wed 15:30 UTC)"
  ]
-}
+};

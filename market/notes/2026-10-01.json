@@ -1,0 +1,63 @@
+{
+ "date": "2026-10-01",
+ "asOf": "2026-10-01T14:54:01Z",
+ "board": [
+  {
+   "sym": "WTI",
+   "price": 92.18,
+   "chg": -0.45,
+   "src": "delayed"
+  },
+  {
+   "sym": "Brent",
+   "price": 101.12,
+   "chg": -3.95,
+   "src": "delayed"
+  },
+  {
+   "sym": "HH",
+   "price": 2.991,
+   "chg": -0.3,
+   "src": "delayed"
+  }
+ ],
+ "ctx": [
+  "CAT BONDS / PERIL WATCH \u2014 cat bond/ILS outstanding ~$50bn range entering Oct (Artemis monthly index, as of Sep) | NHC: Atlantic quiet for US coast (TD Hanna open water); E Pac Rachel (Cat 1) + Nolo (Cat 2) offshore \u2014 no landfall on energy infrastructure; ILS spreads steady (artemis.bm, as of Sep)",
+  "DEGREE DAYS US \u2014 Oct opens with a Midcontinent/North-Texas rain-and-cool corridor and heat exiting the West Coast; early-Oct HDDs near-to-above normal north, CDDs fading \u2014 week-ahead gas demand leaning heating-side (EIA/CPC outlooks, as of Oct 1)",
+  "DEGREE DAYS EUR/ASIA \u2014 European HDDs near normal wk-ahead, no cold outbreak signal \u2014 TTF demand neutral; NE Asia mild start to Oct \u2014 JKM demand soft (Copernicus C3S/ECMWF medium-range, as of Oct 1)"
+ ],
+ "why": [
+  {
+   "tag": "DEMAND",
+   "text": "Jump 2%+ as Chinese refiners reportedly suspend October fuel exports to protect domestic supply \u2014 Brent back above $100",
+   "src": "https://www.cnbc.com/2026/10/01/oil-prices-today-wti-brent.html"
+  },
+  {
+   "tag": "SUPPLY",
+   "text": "Middle East crude flows stay elevated; traders weigh ample physical supply against fuel-market uncertainty \u2014 weather not the driver",
+   "src": "https://www.bloomberg.com/news/articles/2026-09-30/latest-oil-market-news-and-analysis-for-oct-1"
+  },
+  {
+   "tag": "WEATHER-NEUTRAL",
+   "text": "US session weather-neutral for prices: North Texas flash-flood corridor hits gas-field logistics, not shut-ins; Henry Hub eases 0.3%",
+   "src": "https://lyralai.github.io/og-weather-briefs/market/"
+  }
+ ],
+ "trade": [
+  {
+   "region": "North Texas (Barnett Shale)",
+   "text": "Three thunderstorm windows today + Flash Flood Warnings over Tarrant/Dallas/Denton \u2192 repeated lightning standdowns and muddy-lease logistics across the basin's biggest producer footprint \u2192 local gas flows fine, watch compression uptime if cells train overnight",
+   "mkt": "Henry Hub / Waha basis"
+  },
+  {
+   "region": "Missouri Valley",
+   "text": "Flood warnings across Nebraska fertilizer/ammonia plants \u2192 rail delay risk on ammonia and UAN moves \u2192 nitrogen basis tightens if corridor stays wet into next week",
+   "mkt": "NOLA urea/NH3"
+  }
+ ],
+ "watch": [
+  "NHC: East Pacific Rachel/Nolo tracks vs Baja shipping lanes; Atlantic basin stays quiet for US energy coast \u2014 cat bond risk premium steady while that holds",
+  "Freeze watch: first real High Plains/North gas-basin freeze setup would be the season's first weather-driven HH move \u2014 nothing on the 6-10 yet",
+  "EIA nat gas storage (Thu 14:30 UTC) and crude inventories (Wed 15:30 UTC)"
+ ]
+}
