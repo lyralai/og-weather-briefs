@@ -1163,31 +1163,31 @@ const MARKET_DATA = {
 // why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
 // When NOTE.date is not today's UTC date the page hides this whole section.
 const NOTE = {
- "date": "2026-10-02",
- "asOf": "2026-10-02T14:52:17Z",
+ "date": "2026-10-03",
+ "asOf": "2026-10-02T21:00:00Z",
  "board": [
-  {"sym":"WTI","price":89.62,"chg":-3.22,"src":"delayed"},
-  {"sym":"Brent","price":100.02,"chg":-5.0,"src":"delayed"},
-  {"sym":"HH","price":3.008,"chg":0.27,"src":"delayed"}
+  {"sym":"WTI","price":91.11,"chg":-1.61,"src":"delayed"},
+  {"sym":"Brent","price":102.25,"chg":-2.88,"src":"delayed"},
+  {"sym":"HH","price":3.035,"chg":1.17,"src":"delayed"}
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH — cat bond/ILS market held ~$50bn outstanding entering Oct (Artemis monthly index, as of Sep; today's Artemis page fetch unavailable) | NHC: E Pac Rachel (Cat 1, offshore Baja) + Nolo (Cat 2, open Pacific) — no US energy-coast landfall; 80% formation chance S of Mexico early next week — ILS spreads steady while that holds",
-  "DEGREE DAYS US — post-heat West Coast cools this weekend; Gulf Coast storm corridor runs wet through tonight; early-Oct HDDs above normal across the northern tier, CDDs confined to a fading CA/South tail — week-ahead gas demand leaning heating-side (EIA/CPC outlooks, as of Oct 1)",
-  "DEGREE DAYS EUR/ASIA — European HDDs near normal wk-ahead, no cold outbreak on the medium range — TTF demand neutral; NE Asia mild start to Oct — JKM demand soft (Copernicus C3S/ECMWF medium-range, as of Oct 1)"
+  "CAT BONDS / PERIL WATCH — cat bond/ILS market ~$50bn outstanding entering Oct; Artemis (Oct 3): over $3.375bn of 2025 cat-bond issuance carries wildfire exposure after January's ~$40bn LA fire losses — aggregate-deal attachments eroded into Q4 (Artemis, as of Oct 3). NHC: Nolo (Cat 1) + weakening Rachel offshore Baja — no US energy-coast landfall; ILS hurricane-premium quiet while that holds",
+  "DEGREE DAYS US — Gulf Coast storm corridor runs wet through tonight (TX→LA flash flooding); West Coast heat event ends this weekend; early-Oct heating degree days above normal across the northern tier — week-ahead gas demand leaning heating-side (EIA/CPC outlooks, as of Oct 1)",
+  "DEGREE DAYS EUR/ASIA — European HDDs near normal week-ahead, no cold outbreak in the medium range — TTF (Europe's gas price) demand neutral; NE Asia mild to start October — Asian LNG demand soft (Copernicus C3S/ECMWF medium-range, as of Oct 1)"
  ],
  "why": [
-  {"tag":"SUPPLY","text":"Fall 5% as Saudi Red Sea export flows recover to ~3.5 mbd and Hormuz-war premium unwinds — weather not the driver","src":"https://www.cnbc.com/2026/09/29/oil-prices-today-brent-wti-hormuz.html"},
-  {"tag":"DEMAND","text":"Hold near $3.01 (+0.3%) as early-October heating demand builds across the northern tier — weather tie: first real HDD lean of the season","src":"https://www.cmegroup.com/markets/energy/natural-gas/natural-gas.html"},
-  {"tag":"WEATHER-NEUTRAL","text":"Weather is not today's crude story — geopolitical supply recovery is; honest sessions build trust","src":"https://lyralai.github.io/og-weather-briefs/market/"}
+  {"tag":"RISK PREMIUM","text":"Crude eased ~2-3% Friday (Fri close quotes; Sat session thin) as the week's geopolitical supply-premium unwind extended — weather not the driver (driver detail unverified, network)","src":"https://lyralai.github.io/og-weather-briefs/market/"},
+  {"tag":"DEMAND","text":"Henry Hub firmed 1.2% to $3.04 — heating season starting with northern-tier cold lean; weather tie: first heating-degree-day build of the season (unverified, network)","src":"https://lyralai.github.io/og-weather-briefs/market/"},
+  {"tag":"WEATHER-NEUTRAL","text":"Weather is not this session's crude story; the honest line — Gulf storms are an ops story tonight, not a price one","src":"https://lyralai.github.io/og-weather-briefs/market/"}
  ],
  "trade": [
-  {"region":"Gulf Coast (TX/LA → Mexico border fields)","text":"AccuWeather Dangerous-Weather-Imminent flash-flood flags live on South Texas + Tamaulipas producing fields; Lake Charles chem plants under Flood Warnings → lightning standdowns + loading slips tonight → prompt physical ops friction, watch Gulf-of-Mexico loadings if cells train","mkt":"Gulf physical basis / HH"},
-  {"region":"California (LA refining corridor)","text":"Final day of Extreme Heat Warning across LA basin refining → peak afternoon cooling-water load + worker exposure limits → power burn up, refinery power costs peak before weekend cooldown","mkt":"CAISO power / CARB gasoline"},
-  {"region":"Gulf of Mexico (tropics)","text":"NHC 80% formation chance S of Mexico by mid-next-week → potential Mexican Gulf/SE coast rain event for offshore loading → monitor early-week for LNG-port and terminal ops risk","mkt":"Gulf marine ops / WTI time-spreads"}
+  {"region":"Louisiana terminal belt (Port Fourchon / Calcasieu)","text":"AccuWeather 90% thunderstorm windows 5-9 PM local at Port Fourchon vs free feed ~50%/cloudy; Flood Warnings persist on Calcasieu chemical/LNG corridor → lightning standdowns, dock-transfer and crew-boat re-sequencing tonight → prompt physical ops friction at the Gulf's key service hub","mkt":"Gulf marine ops / HH basis"},
+  {"region":"Southern California (LA refining corridor)","text":"Extreme Heat Warning ends tonight across El Segundo→Carson refining → final peak cooling-water load and worker-exposure limits → CAISO power burn eases by Sunday","mkt":"CAISO power / CARB gasoline"},
+  {"region":"Gulf of Mexico (tropics)","text":"Nolo (Cat 1) and Rachel weaken offshore Baja; NHC sees no Gulf/Atlantic formation through 7 days → offshore loading windows stay clean near-term — watch the early-week southern-Mexico development chance","mkt":"Gulf marine ops / WTI time-spreads"}
  ],
  "watch": [
-  "EIA nat gas storage (Thu 14:30 UTC) printed 1 Bcf withdrawal season start — next print Oct 8; crude inventories Wed 15:30 UTC",
-  "NHC: 80% tropical development chance south of southern Mexico early-to-mid next week — cat bond risk premium and Gulf marine ops both watch it",
-  "First High Plains/North gas-basin freeze setup would be the season's first weather-driven HH move — nothing on the 6-10 yet"
+  "NHC: quiet US energy coasts through 7 days; early-week tropical development chance south of Mexico — cat bond risk premium watches it",
+  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC",
+  "First northern gas-basin freeze setup would be the season's first weather-driven Henry Hub move — nothing on the 6-10 day yet"
  ]
 };
