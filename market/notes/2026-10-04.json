@@ -1,0 +1,63 @@
+{
+ "date": "2026-10-04",
+ "asOf": "2026-10-04T15:10:00Z",
+ "board": [
+  {
+   "sym": "WTI",
+   "price": 91.11,
+   "chg": 1.94,
+   "src": "delayed"
+  },
+  {
+   "sym": "Brent",
+   "price": 102.25,
+   "chg": -0.33,
+   "src": "delayed"
+  },
+  {
+   "sym": "HH",
+   "price": 3.035,
+   "chg": 0.8,
+   "src": "delayed"
+  }
+ ],
+ "ctx": [
+  "CAT BONDS / PERIL WATCH \u2014 Record pace continues: $948M Q3 issuance after record 1H; $18.9B first-nine-months record (Artemis, as of Oct). NHC: no Gulf/Atlantic development through 7 days \u2014 ILS risk premium steady.",
+  "DEGREE DAYS US \u2014 NOAA CPC 6-10/8-14 outlooks: above-normal temps central/southern US week-ahead \u2014 heating demand starts soft; EIA HDD/CDD deviation tables next print Thu with storage report.",
+  "DEGREE DAYS EUR/ASIA \u2014 ECMWF medium range: European temps near/above normal week-ahead \u2014 European heating demand soft, TTF (Europe's gas price) loses weather support; NE Asia mild \u2014 JKM (Asia LNG price) demand-neutral."
+ ],
+ "why": [
+  {
+   "tag": "RISK PREMIUM",
+   "text": "Rise $1.9% Friday on tightening supply headlines \u2014 weekend positioning, not weather; search confirmation degraded (unverified, network)",
+   "src": "https://lyralai.github.io/og-weather-briefs/market/"
+  },
+  {
+   "tag": "DEMAND",
+   "text": "Gas gains 0.8% as October heating season opens \u2014 warm-week-ahead forecast caps the move; weather tie: southern-US warmth delays heating demand (CPC outlook)",
+   "src": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/cpcs_forecasts/"
+  }
+ ],
+ "trade": [
+  {
+   "region": "US Gulf",
+   "text": "Flash-flood flags on 370+ Louisiana-belt producing assets for a third day \u2192 field access + tank-farm runoff risk, loading slips at Gulf berths \u2192 prompt physical basis wobbles",
+   "mkt": "crude/gas prompt"
+  },
+  {
+   "region": "US Gulf",
+   "text": "Tropical moisture surge Texas\u2192Alabama through midweek (AccuWeather) \u2192 multi-day lightning-standdown risk at loading terminals \u2192 corridor-wide window compression ahead",
+   "mkt": "refined products logistics"
+  },
+  {
+   "region": "Intermountain West",
+   "text": "First Wasatch ridge of October opens inversion season \u2192 valley refinery air-quality/permitting pressure builds \u2192 no price move, optionality watch",
+   "mkt": "regional refining"
+  }
+ ],
+ "watch": [
+  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC",
+  "NHC: quiet US energy coasts through 7 days \u2014 ILS spread watch benign",
+  "Texas\u2192Alabama moisture surge: any flash-flood escalation onto refining/LNG belt tightens prompt logistics"
+ ]
+}

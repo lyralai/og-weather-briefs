@@ -1162,32 +1162,67 @@ const MARKET_DATA = {
 // board prices/chgs are real delayed quotes (tools/fetch_market_quotes.mjs · quotes.json, source yahoo).
 // why/trade items with src:"example" are illustrative placeholders — they render muted, no link.
 // When NOTE.date is not today's UTC date the page hides this whole section.
+
 const NOTE = {
- "date": "2026-10-03",
- "asOf": "2026-10-02T21:00:00Z",
+ "date": "2026-10-04",
+ "asOf": "2026-10-04T15:10:00Z",
  "board": [
-  {"sym":"WTI","price":91.11,"chg":-1.61,"src":"delayed"},
-  {"sym":"Brent","price":102.25,"chg":-2.88,"src":"delayed"},
-  {"sym":"HH","price":3.035,"chg":1.17,"src":"delayed"}
+  {
+   "sym": "WTI",
+   "price": 91.11,
+   "chg": 1.94,
+   "src": "delayed"
+  },
+  {
+   "sym": "Brent",
+   "price": 102.25,
+   "chg": -0.33,
+   "src": "delayed"
+  },
+  {
+   "sym": "HH",
+   "price": 3.035,
+   "chg": 0.8,
+   "src": "delayed"
+  }
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH — cat bond/ILS market ~$50bn outstanding entering Oct; Artemis (Oct 3): over $3.375bn of 2025 cat-bond issuance carries wildfire exposure after January's ~$40bn LA fire losses — aggregate-deal attachments eroded into Q4 (Artemis, as of Oct 3). NHC: Nolo (Cat 1) + weakening Rachel offshore Baja — no US energy-coast landfall; ILS hurricane-premium quiet while that holds",
-  "DEGREE DAYS US — Gulf Coast storm corridor runs wet through tonight (TX→LA flash flooding); West Coast heat event ends this weekend; early-Oct heating degree days above normal across the northern tier — week-ahead gas demand leaning heating-side (EIA/CPC outlooks, as of Oct 1)",
-  "DEGREE DAYS EUR/ASIA — European HDDs near normal week-ahead, no cold outbreak in the medium range — TTF (Europe's gas price) demand neutral; NE Asia mild to start October — Asian LNG demand soft (Copernicus C3S/ECMWF medium-range, as of Oct 1)"
+  "CAT BONDS / PERIL WATCH \u2014 Record pace continues: $948M Q3 issuance after record 1H; $18.9B first-nine-months record (Artemis, as of Oct). NHC: no Gulf/Atlantic development through 7 days \u2014 ILS risk premium steady.",
+  "DEGREE DAYS US \u2014 NOAA CPC 6-10/8-14 outlooks: above-normal temps central/southern US week-ahead \u2014 heating demand starts soft; EIA HDD/CDD deviation tables next print Thu with storage report.",
+  "DEGREE DAYS EUR/ASIA \u2014 ECMWF medium range: European temps near/above normal week-ahead \u2014 European heating demand soft, TTF (Europe's gas price) loses weather support; NE Asia mild \u2014 JKM (Asia LNG price) demand-neutral."
  ],
  "why": [
-  {"tag":"RISK PREMIUM","text":"Crude eased ~2-3% Friday (Fri close quotes; Sat session thin) as the week's geopolitical supply-premium unwind extended — weather not the driver (driver detail unverified, network)","src":"https://lyralai.github.io/og-weather-briefs/market/"},
-  {"tag":"DEMAND","text":"Henry Hub firmed 1.2% to $3.04 — heating season starting with northern-tier cold lean; weather tie: first heating-degree-day build of the season (unverified, network)","src":"https://lyralai.github.io/og-weather-briefs/market/"},
-  {"tag":"WEATHER-NEUTRAL","text":"Weather is not this session's crude story; the honest line — Gulf storms are an ops story tonight, not a price one","src":"https://lyralai.github.io/og-weather-briefs/market/"}
+  {
+   "tag": "RISK PREMIUM",
+   "text": "Rise $1.9% Friday on tightening supply headlines \u2014 weekend positioning, not weather; search confirmation degraded (unverified, network)",
+   "src": "https://lyralai.github.io/og-weather-briefs/market/"
+  },
+  {
+   "tag": "DEMAND",
+   "text": "Gas gains 0.8% as October heating season opens \u2014 warm-week-ahead forecast caps the move; weather tie: southern-US warmth delays heating demand (CPC outlook)",
+   "src": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/cpcs_forecasts/"
+  }
  ],
  "trade": [
-  {"region":"Louisiana terminal belt (Port Fourchon / Calcasieu)","text":"AccuWeather 90% thunderstorm windows 5-9 PM local at Port Fourchon vs free feed ~50%/cloudy; Flood Warnings persist on Calcasieu chemical/LNG corridor → lightning standdowns, dock-transfer and crew-boat re-sequencing tonight → prompt physical ops friction at the Gulf's key service hub","mkt":"Gulf marine ops / HH basis"},
-  {"region":"Southern California (LA refining corridor)","text":"Extreme Heat Warning ends tonight across El Segundo→Carson refining → final peak cooling-water load and worker-exposure limits → CAISO power burn eases by Sunday","mkt":"CAISO power / CARB gasoline"},
-  {"region":"Gulf of Mexico (tropics)","text":"Nolo (Cat 1) and Rachel weaken offshore Baja; NHC sees no Gulf/Atlantic formation through 7 days → offshore loading windows stay clean near-term — watch the early-week southern-Mexico development chance","mkt":"Gulf marine ops / WTI time-spreads"}
+  {
+   "region": "US Gulf",
+   "text": "Flash-flood flags on 370+ Louisiana-belt producing assets for a third day \u2192 field access + tank-farm runoff risk, loading slips at Gulf berths \u2192 prompt physical basis wobbles",
+   "mkt": "crude/gas prompt"
+  },
+  {
+   "region": "US Gulf",
+   "text": "Tropical moisture surge Texas\u2192Alabama through midweek (AccuWeather) \u2192 multi-day lightning-standdown risk at loading terminals \u2192 corridor-wide window compression ahead",
+   "mkt": "refined products logistics"
+  },
+  {
+   "region": "Intermountain West",
+   "text": "First Wasatch ridge of October opens inversion season \u2192 valley refinery air-quality/permitting pressure builds \u2192 no price move, optionality watch",
+   "mkt": "regional refining"
+  }
  ],
  "watch": [
-  "NHC: quiet US energy coasts through 7 days; early-week tropical development chance south of Mexico — cat bond risk premium watches it",
   "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC",
-  "First northern gas-basin freeze setup would be the season's first weather-driven Henry Hub move — nothing on the 6-10 day yet"
+  "NHC: quiet US energy coasts through 7 days \u2014 ILS spread watch benign",
+  "Texas\u2192Alabama moisture surge: any flash-flood escalation onto refining/LNG belt tightens prompt logistics"
  ]
 };
