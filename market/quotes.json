@@ -6,19 +6,19 @@
       "sym": "WTI",
       "label": "WTI crude (NYMEX front month)",
       "price": 91.11,
-      "chgPct": -1.61
+      "chgPct": 1.94
     },
     {
       "sym": "Brent",
       "label": "Brent crude (ICE front month)",
       "price": 102.25,
-      "chgPct": -2.88
+      "chgPct": -0.33
     },
     {
       "sym": "HH",
       "label": "Henry Hub nat gas (NYMEX front month)",
       "price": 3.035,
-      "chgPct": 1.17
+      "chgPct": 0.8
     }
   ]
 }
