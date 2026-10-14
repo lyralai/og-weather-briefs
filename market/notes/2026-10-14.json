@@ -1,0 +1,68 @@
+{
+ "date": "2026-10-14",
+ "asOf": "2026-10-14T23:09:56Z",
+ "board": [
+  {
+   "sym": "WTI",
+   "price": 94.65,
+   "chg": 3.05,
+   "src": "delayed"
+  },
+  {
+   "sym": "Brent",
+   "price": 105.58,
+   "chg": 0.82,
+   "src": "delayed"
+  },
+  {
+   "sym": "HH",
+   "price": 3.281,
+   "chg": 1.89,
+   "src": "delayed"
+  }
+ ],
+ "ctx": [
+  "CAT BONDS / PERIL WATCH \u2014 ILS outstanding context as of Sept (Artemis monthly index; today's site fetch blocked, unverified network) \u2014 no new Atlantic-basin threat: NHC shows no Gulf/Atlantic development through 7 days; E Pacific Trudy/Simon stay offshore of Mexico.",
+  "DEGREE DAYS US \u2014 Cool side of normal week-ahead across the northern tier as the Rockies storm exits; Plains/OH Valley storm days this week add early heating-degree-day weight vs normal.",
+  "DEGREE DAYS EUR/ASIA \u2014 European heating demand below normal week-ahead (mild Atlantic ridge): TTF (Europe's gas price) demand soft; NE Asia near normal."
+ ],
+ "why": [
+  {
+   "tag": "DEMAND",
+   "text": "Crude jumps on stronger-than-expected US inflation reading and dollar story \u2014 weather not the driver today (source: Reuters, CNBC)",
+   "src": "https://www.reuters.com/markets/quote/CLc1/"
+  },
+  {
+   "tag": "RISK PREMIUM",
+   "text": "Session is largely weather-neutral for crude; storm risk sits in physical ops not flat price \u2014 weather tie: Permian lightning standdowns + OK/WV flood warnings on producing basins tonight",
+   "src": "https://www.accuweather.com/en/severe-weather/flooding-downpours-and-gusty-storms-to-target-the-plains-through-thursday/1945861"
+  },
+  {
+   "tag": "SUPPLY",
+   "text": "Gas edges up with storm-week production friction: flood warnings blanket Oklahoma and West Virginia gas counties \u2014 freeze/off-line risk minor but real",
+   "src": "https://www.accuweather.com/en/severe-weather/flooding-downpours-and-gusty-storms-to-target-the-plains-through-thursday/1945861"
+  }
+ ],
+ "trade": [
+  {
+   "region": "Permian / Midland Basin",
+   "text": "100+ lightning strikes near Spraberry wells under an active Severe Thunderstorm Warning -> lightning standdowns on pumping and well servicing -> WTI basis widens if standdowns stack",
+   "mkt": "crude basis"
+  },
+  {
+   "region": "Appalachia",
+   "text": "Flash Flood Warnings across WV gas counties -> water hauling halted, pad access cut -> slight Marcellus flow friction, price-neutral until durations extend",
+   "mkt": "nat gas basis"
+  },
+  {
+   "region": "SoCal coast",
+   "text": "Red Flag + Wind Advisory near Ventura coastal LNG sites -> fire-weather watch, no ops impact tonight",
+   "mkt": "power/gas burn"
+  }
+ ],
+ "watch": [
+  "EIA crude inventories Wed 15:30 UTC \u2014 storm week Gulf/Plains logistics could show in the build",
+  "EIA gas storage Thu 14:30 UTC \u2014 first heating-degree-day weight of the season in the print",
+  "Storm complex exits east Thursday: watch for a dry Permian catch-up window and any shut-in restart reports"
+ ]
+}

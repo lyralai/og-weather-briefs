@@ -1164,65 +1164,70 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 
 const NOTE = {
- "date": "2026-10-04",
- "asOf": "2026-10-04T15:10:00Z",
+ "date": "2026-10-14",
+ "asOf": "2026-10-14T23:09:56Z",
  "board": [
   {
    "sym": "WTI",
-   "price": 91.11,
-   "chg": 1.94,
+   "price": 94.65,
+   "chg": 3.05,
    "src": "delayed"
   },
   {
    "sym": "Brent",
-   "price": 102.25,
-   "chg": -0.33,
+   "price": 105.58,
+   "chg": 0.82,
    "src": "delayed"
   },
   {
    "sym": "HH",
-   "price": 3.035,
-   "chg": 0.8,
+   "price": 3.281,
+   "chg": 1.89,
    "src": "delayed"
   }
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH \u2014 Record pace continues: $948M Q3 issuance after record 1H; $18.9B first-nine-months record (Artemis, as of Oct). NHC: no Gulf/Atlantic development through 7 days \u2014 ILS risk premium steady.",
-  "DEGREE DAYS US \u2014 NOAA CPC 6-10/8-14 outlooks: above-normal temps central/southern US week-ahead \u2014 heating demand starts soft; EIA HDD/CDD deviation tables next print Thu with storage report.",
-  "DEGREE DAYS EUR/ASIA \u2014 ECMWF medium range: European temps near/above normal week-ahead \u2014 European heating demand soft, TTF (Europe's gas price) loses weather support; NE Asia mild \u2014 JKM (Asia LNG price) demand-neutral."
+  "CAT BONDS / PERIL WATCH \u2014 ILS outstanding context as of Sept (Artemis monthly index; today's site fetch blocked, unverified network) \u2014 no new Atlantic-basin threat: NHC shows no Gulf/Atlantic development through 7 days; E Pacific Trudy/Simon stay offshore of Mexico.",
+  "DEGREE DAYS US \u2014 Cool side of normal week-ahead across the northern tier as the Rockies storm exits; Plains/OH Valley storm days this week add early heating-degree-day weight vs normal.",
+  "DEGREE DAYS EUR/ASIA \u2014 European heating demand below normal week-ahead (mild Atlantic ridge): TTF (Europe's gas price) demand soft; NE Asia near normal."
  ],
  "why": [
   {
-   "tag": "RISK PREMIUM",
-   "text": "Rise $1.9% Friday on tightening supply headlines \u2014 weekend positioning, not weather; search confirmation degraded (unverified, network)",
-   "src": "https://lyralai.github.io/og-weather-briefs/market/"
+   "tag": "DEMAND",
+   "text": "Crude jumps on stronger-than-expected US inflation reading and dollar story \u2014 weather not the driver today (source: Reuters, CNBC)",
+   "src": "https://www.reuters.com/markets/quote/CLc1/"
   },
   {
-   "tag": "DEMAND",
-   "text": "Gas gains 0.8% as October heating season opens \u2014 warm-week-ahead forecast caps the move; weather tie: southern-US warmth delays heating demand (CPC outlook)",
-   "src": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/cpcs_forecasts/"
+   "tag": "RISK PREMIUM",
+   "text": "Session is largely weather-neutral for crude; storm risk sits in physical ops not flat price \u2014 weather tie: Permian lightning standdowns + OK/WV flood warnings on producing basins tonight",
+   "src": "https://www.accuweather.com/en/severe-weather/flooding-downpours-and-gusty-storms-to-target-the-plains-through-thursday/1945861"
+  },
+  {
+   "tag": "SUPPLY",
+   "text": "Gas edges up with storm-week production friction: flood warnings blanket Oklahoma and West Virginia gas counties \u2014 freeze/off-line risk minor but real",
+   "src": "https://www.accuweather.com/en/severe-weather/flooding-downpours-and-gusty-storms-to-target-the-plains-through-thursday/1945861"
   }
  ],
  "trade": [
   {
-   "region": "US Gulf",
-   "text": "Flash-flood flags on 370+ Louisiana-belt producing assets for a third day \u2192 field access + tank-farm runoff risk, loading slips at Gulf berths \u2192 prompt physical basis wobbles",
-   "mkt": "crude/gas prompt"
+   "region": "Permian / Midland Basin",
+   "text": "100+ lightning strikes near Spraberry wells under an active Severe Thunderstorm Warning -> lightning standdowns on pumping and well servicing -> WTI basis widens if standdowns stack",
+   "mkt": "crude basis"
   },
   {
-   "region": "US Gulf",
-   "text": "Tropical moisture surge Texas\u2192Alabama through midweek (AccuWeather) \u2192 multi-day lightning-standdown risk at loading terminals \u2192 corridor-wide window compression ahead",
-   "mkt": "refined products logistics"
+   "region": "Appalachia",
+   "text": "Flash Flood Warnings across WV gas counties -> water hauling halted, pad access cut -> slight Marcellus flow friction, price-neutral until durations extend",
+   "mkt": "nat gas basis"
   },
   {
-   "region": "Intermountain West",
-   "text": "First Wasatch ridge of October opens inversion season \u2192 valley refinery air-quality/permitting pressure builds \u2192 no price move, optionality watch",
-   "mkt": "regional refining"
+   "region": "SoCal coast",
+   "text": "Red Flag + Wind Advisory near Ventura coastal LNG sites -> fire-weather watch, no ops impact tonight",
+   "mkt": "power/gas burn"
   }
  ],
  "watch": [
-  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC",
-  "NHC: quiet US energy coasts through 7 days \u2014 ILS spread watch benign",
-  "Texas\u2192Alabama moisture surge: any flash-flood escalation onto refining/LNG belt tightens prompt logistics"
+  "EIA crude inventories Wed 15:30 UTC \u2014 storm week Gulf/Plains logistics could show in the build",
+  "EIA gas storage Thu 14:30 UTC \u2014 first heating-degree-day weight of the season in the print",
+  "Storm complex exits east Thursday: watch for a dry Permian catch-up window and any shut-in restart reports"
  ]
 };
