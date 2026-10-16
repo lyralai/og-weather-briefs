@@ -90,7 +90,7 @@ footer{color:#8a97a4;font-size:.78rem;margin-top:1.4rem;text-align:center}
 <div class="card" style="background:#0b3d62;color:#fff;border:none"><h2 style="color:#fff;margin-top:0">Want this for every site, every day?</h2><div style="font-size:.92rem">This brief was prepared manually as a sample. AccuWeather for Business delivers this continuously: minute-by-minute nowcasting, asset-pinned alerts, and expert meteorologist support for your ops team.<br><br><b>→ Ask about a live demo for your assets · alex.deconde@accuweather.com</b></div></div>
 <footer>Prepared with AccuWeather forecast data. Radar overlay: RainViewer. Sample brief for evaluation — not an official AccuWeather publication.</footer>
 </div></div>
-<script src="data.js?v=20260912"></script>
+<script src="data.js?v=20261016"></script>
 <script>
 mapboxgl.accessToken=DATA_MAPBOX_TOKEN;
 const d=DEMO_DATA;
@@ -136,7 +136,7 @@ map.on('load', async () => {
 
   // RAINVIEWER radar frames
   let frames=[], fvHost='';
-  try{const rv=await fetch('https://api.rainviewer.com/public/weather-maps.json').then(r=>r.json());
+  try{const rv=20261016await fetch('https://api.rainviewer.com/public/weather-maps.json').then(r=>r.json());
     fvHost=rv.host; frames=[...rv.radar.past.slice(-8),...rv.radar.nowcast.slice(0,4)];
     frames.forEach((f,i)=>{const id='radar'+i;
       map.addSource(id,{type:'raster',tiles:[`${rv.host}${f.path}/512/{z}/{x}/{y}/6/1_1.png`],tileSize:512,maxzoom:7});
@@ -158,7 +158,7 @@ map.on('load', async () => {
       const rs=await Promise.allSettled(pts.map(p=>fetch('https://api.weather.gov/alerts/active?point='+p[1].toFixed(3)+','+p[0].toFixed(3)).then(r=>r.json())));
       const seen=new Map();
       rs.forEach(r=>{if(r.status==='fulfilled'&&r.value&&Array.isArray(r.value.features))r.value.features.forEach(f=>seen.set(f.id,f));});
-      const sev=e=>/warning/i.test(e)?'Warning':/watch/i.test(e)?'Watch':'Advisory';
+      const sev=20261016e=>/warning/i.test(e)?'Warning':/watch/i.test(e)?'Watch':'Advisory';
       const zoneCache=new Map();
       const zoneGeom=async u=>{
         if(zoneCache.has(u))return zoneCache.get(u);
@@ -251,7 +251,7 @@ map.on('load', async () => {
       ctx.lineWidth=dpr*1.1;ctx.lineCap='round';
       for(const p of parts){
         if(--p.age<0||p.lon<b.getWest()||p.lon>b.getEast()||p.lat<b.getSouth()||p.lat>b.getNorth()){respawn(p);continue;}
-        const uv=windAt(windGrid,p.lon,p.lat),mag=Math.hypot(uv[0],uv[1]);
+        const uv=20261016windAt(windGrid,p.lon,p.lat),mag=Math.hypot(uv[0],uv[1]);
         const a=map.project([p.lon,p.lat]);
         const a2=map.project([p.lon+uv[0]*0.05,p.lat+uv[1]*0.05]);
         const vx=a2.x-a.x,vy=a2.y-a.y,len=Math.hypot(vx,vy);
