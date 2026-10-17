@@ -1164,31 +1164,31 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 
 const NOTE = {
- "date": "2026-10-16",
- "asOf": "2026-10-16T15:00:00Z",
+ "date": "2026-10-17",
+ "asOf": "2026-10-17T15:00:00Z",
  "board": [
-  {"sym":"WTI","price":95.79,"chg":2.19,"src":"delayed"},
-  {"sym":"Brent","price":105.91,"chg":-0.69,"src":"delayed"},
-  {"sym":"HH","price":3.100,"chg":-2.12,"src":"delayed"}
+  {"sym":"WTI","price":99.02,"chg":5.63,"src":"delayed"},
+  {"sym":"Brent","price":109.86,"chg":3.01,"src":"delayed"},
+  {"sym":"HH","price":3.116,"chg":-1.61,"src":"delayed"}
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH \u2014 ILS outstanding ~$50bn context (Artemis monthly index; today's site fetch pending, labeled unverified network) \u2014 hurricane season runs through Nov: NHC shows no Gulf/Atlantic development through 7 days; E Pacific Trudy (TS 40 mph) & Simon stay offshore of Mexico \u2014 risk premium drifting out of cat bond spreads.",
-  "DEGREE DAYS US \u2014 Cold front sweeping the Gulf/eastern US this weekend: first real heating-degree-day weight of the season for the northern tier behind it; South stays warm (CDD-light) \u2014 heating demand builds into next week.",
-  "DEGREE DAYS EUR/ASIA \u2014 European heating demand below normal week-ahead (mild Atlantic ridge): TTF (Europe's gas price) demand soft; NE Asia near normal, Japan/Korea LNG heating pull modest."
+  "CAT BONDS / PERIL WATCH — Artemis site fetch blocked (403, network) today: ILS outstanding ~$50bn context carried from the monthly index, labeled unverified. Hurricane season runs through Nov: NHC shows no Gulf/Atlantic development through 7 days; EPac Hurricane Trudy heads into Mexico's Pacific coast, away from US cat-bond exposure zones.",
+  "DEGREE DAYS US — First real heating-degree-day weight of the season spreads across the northern tier this weekend behind the departing front; the South stays warm — heating demand builds into next week (EIA storage report next Thu).",
+  "DEGREE DAYS EUR/ASIA — European heating demand below normal week-ahead (mild Atlantic ridge): TTF (Europe's gas price) demand soft; NE Asia near normal — Japan/Korea LNG heating pull modest."
  ],
  "why": [
-  {"tag":"RISK PREMIUM","text":"Crude holds above $95 as traders price a pre-midterm Iran no-strike pledge against depleted inventories and continuing shipping attacks through Hormuz \u2014 geopolitics, not weather, is today's driver (discoveryalert.com/CNBC)","src":"https://discoveryalert.com/analysis/crude-oil-prices-above-100-iran-october-2026/"},
-  {"tag":"SUPPLY","text":"Gulf gale warnings blanket every US LNG corridor marine zone tonight \u2014 pilot boarding and tug windows tighten through Friday morning; cargo loadings slip hours, not days (weather tie: gale Cameron\u2013High Island \u2192 Corpus \u2192 Mobile \u2192 Chesapeake)","src":"https://www.nhc.noaa.gov/"},
-  {"tag":"DEMAND","text":"Gas slips 2% on mild early-season demand \u2014 forecasts keep US heating degree days light this week despite the weekend front; weather is the whole gas story today","src":"https://www.eia.gov/naturalgas/weekly/"}
+  {"tag":"RISK PREMIUM","text":"Oil surges as Middle East supply fears push Brent near $110 — WTI settled Friday at $101.41, up 3.5%, on Iran-war escalation risk through Hormuz; geopolitics, not weather, is the driver (energynow.ca)","src":"https://energynow.ca/2026/10/oil-surges-as-middle-east-supply-fears-push-brent-near-110-and-wti-above-100-both-post-strong-weekly-gains/"},
+  {"tag":"DEMAND","text":"Gas slips ~2% on mild early-season demand — US heating degree days stay light this week ahead of the weekend front; weather is the whole gas story (eia.gov)","src":"https://www.eia.gov/naturalgas/weekly/"},
+  {"tag":"SUPPLY","text":"Gulf gales ended overnight — post-frontal high pressure returns the cleanest loading window of the week; Friday's gale holds pushed cargo timings hours, not days (weather tie: gale corridors cleared by 12z) (nhc.noaa.gov)","src":"https://www.nhc.noaa.gov/"}
  ],
  "trade": [
-  "Gale warnings on all 6 US Gulf LNG-corridor marine zones (incl. Cameron\u2013High Island & Corpus Christi Bay) \u2192 pilot holds + tug delays tonight \u2192 next-day feedgas print dips, cargo slips hours",
-  "RGV Red Flag + Wind Advisory at LNG construction fence lines \u2192 hot-work bans + crane wind limits \u2192 schedule risk on 3-train build, insurance attention",
-  "Cool air behind the front reaches the northern-tier gas basins this weekend \u2192 first real heating pull of the season \u2192 storage draw beats recent norms, floor builds under gas"
+  "Cleanest Gulf loading window of the week after last night's gales → pilot boardings resume, backlog clears through the weekend → Monday feedgas print rebounds",
+  "Post-frontal Red Flag + Wind Advisories across LA/E-TX parishes → hot-work bans near Gulf Coast terminal and pipeline zones → maintenance schedule risk, insurance attention",
+  "Hurricane Trudy landfalling on Mexico's Pacific coast → Manzanillo/Lázaro Cárdenas port closures likely → watch Latin America crude/LNG cargo reroutes, not US Gulf"
  ],
  "watch": [
-  "NHC 7-day window stays empty for Gulf/Atlantic \u2014 any Cape Verde cluster changes the cat-bond mood fast (season through Nov 30)",
-  "EIA gas storage report Thu 14:30 UTC \u2014 does the first heating week flip the draw narrative?",
-  "Weekend front timing vs Gulf loading schedule \u2014 a 12h slower front turns gale delays into Monday cargo shuffles"
+  "NHC 7-day window stays empty for Gulf/Atlantic — any Cape Verde cluster changes the cat-bond mood fast (season through Nov 30)",
+  "EIA crude inventories Wed 15:30 UTC; gas storage Thu 14:30 UTC — does the first heating week flip the draw narrative?",
+  "Oil at $99 WTI: $100+ prints invite SPR-release chatter — headline risk cuts both ways on the risk premium"
  ]
 };
