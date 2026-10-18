@@ -1,6 +1,6 @@
 const DEMO_DATA = {
   operator: "PETRONAS (MLNG)",
-  generated: "2026-09-16",
+  generated: "2026-10-18",
   topline: "UPDATE (Oct 18): Violent Typhoon CHAMPI (104 mph) spins east of the Philippines — elevated seas on Asia-US LNG lanes, no direct Bintulu threat yet. Locally AccuWeather shows a quiet overnight at the MLNG complex (20-25% rain) clearing to 87F by late morning; the free feed says 41-71% drizzle all night at the jetties. Same coordinates, different calls.",
 
   risk_level: "MONITOR",
