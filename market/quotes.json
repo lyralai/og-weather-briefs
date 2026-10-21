@@ -1,24 +1,24 @@
 {
-  "asOf": "2026-10-20T14:50:43.000Z",
+  "asOf": "2026-10-21T14:50:44.000Z",
   "source": "yahoo",
   "quotes": [
     {
       "sym": "WTI",
       "label": "WTI crude (NYMEX front month)",
-      "price": 95.91,
-      "chgPct": -2.1
+      "price": 97.73,
+      "chgPct": -3.63
     },
     {
       "sym": "Brent",
       "label": "Brent crude (ICE front month)",
-      "price": 106.7,
-      "chgPct": 0.74
+      "price": 109.01,
+      "chgPct": -0.77
     },
     {
       "sym": "HH",
       "label": "Henry Hub nat gas (NYMEX front month)",
-      "price": 2.987,
-      "chgPct": -7.69
+      "price": 2.84,
+      "chgPct": -8.86
     }
   ]
 }
