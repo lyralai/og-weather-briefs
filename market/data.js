@@ -1164,31 +1164,31 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 
 const NOTE = {
- "date": "2026-10-21",
- "asOf": "2026-10-21T14:50:44Z",
+ "date": "2026-10-23",
+ "asOf": "2026-10-23T14:50:54Z",
  "board": [
-  { "sym": "WTI", "price": 97.73, "chg": -3.63, "src": "delayed" },
-  { "sym": "Brent", "price": 109.01, "chg": -0.77, "src": "delayed" },
-  { "sym": "HH", "price": 2.84, "chg": -8.86, "src": "delayed" }
+  { "sym": "WTI", "price": 102.29, "chg": -1.32, "src": "delayed" },
+  { "sym": "Brent", "price": 111.31, "chg": 1.61, "src": "delayed" },
+  { "sym": "HH", "price": 3.042, "chg": -0.52, "src": "delayed" }
  ],
  "ctx": [
-  "CAT BONDS (insurance-linked securities): ~$50bn outstanding market — Artemis monthly index page unreachable again this run (unverified, last checked 2026-10-21); hurricane-season tail runs through Nov 30 with no US landfall threat on the board.",
-  "DEGREE DAYS US: WTI drops on recovering Middle East exports while US gas slides again — mild weather still delays the first real heating week; the California storm is rain, not cold, so it does not move heating demand (NOAA CPC outlooks, qualitative).",
-  "DEGREE DAYS EUR/ASIA: European heating demand soft week-ahead (mild anomaly — TTF, Europe's gas price, gets little weather support); NE Asia heating load still light with CHAMPI fading — Asia LNG demand leans on storage cycles, not weather."
+  "CAT BONDS (insurance-linked securities): ~$50bn outstanding market; no US landfall threat on the board and hurricane-season tail runs through Nov 30 — risk premium quiet (Artemis, as of 2026-10-23, unverified this run).",
+  "DEGREE DAYS US: heating degree days (how much colder than normal) stay below normal week-ahead after a mild October — Henry Hub keeps waiting for its first real heating week; Rockies first-cold shot (Great Falls 32F) is a regional, not national, demand event (NOAA CPC outlooks, qualitative).",
+  "DEGREE DAYS EUR/ASIA: European heating demand still soft week-ahead (mild anomaly — little weather support for TTF, Europe's gas price); NE Asia light too — Asia LNG demand leans on storage cycles, not weather."
  ],
  "why": [
-  { "tag": "SUPPLY", "text": "Crude falls hard as Middle East exports recover — WTI down ~3.6%, the day's biggest oil move; weather is NOT the crude driver (reuters.com)", "src": "https://www.reuters.com/business/energy/oil-prices-rise-second-session-continued-middle-east-supply-concern-2026-09-29/" },
-  { "tag": "DEMAND", "text": "Natural gas extends its slide (-8.9%) as mild late-October weather keeps heaters off — the weather IS the gas driver again today", "src": "https://www.naturalgasintel.com/news/natural-gas-spot-prices-sink-in-appalachia-california-as-henry-hub-bucks-downtrend/" },
-  { "tag": "RISK PREMIUM", "text": "Category-2 hurricane TD 22E strengthens in the East Pacific toward Mexico — no US Gulf threat, so no Gulf supply premium; Salina Cruz port ops watch the track", "src": "https://www.nhc.noaa.gov/" }
+  { "tag": "SUPPLY", "text": "Brent gains as Houthi attacks in Saudi Arabia stoke Middle East supply-disruption fear; WTI slips on US inventory pressure — weather is NOT the crude driver", "src": "https://www.reuters.com/markets/quote/CLc1/" },
+  { "tag": "RISK PREMIUM", "text": "Hurricane Vance (Cat 1, 86 mph) strengthens off Pacific Mexico toward major status — no US Gulf threat, but Pacific-basin tanker and Manzanillo port watch the track; weather tie: Pacific LNG/port premium watch", "src": "https://www.accuweather.com/en/hurricane/vance-to-become-11th-major-eastern-pacific-hurricane-this-season-will-it-turn-toward-mexico/1949604" },
+  { "tag": "DEMAND", "text": "Henry Hub eases half a percent — mild week-ahead heating keeps gas bid-less; freeze watch tonight in western Wyoming gas fields is too local to move the national price", "src": "https://www.nhc.noaa.gov/" }
  ],
  "trade": [
-  "Season's first storm hits the Kern County oil belt tonight (Flood Watch: Belridge, Cymric, Lost Hills, Midway-Sunset, Elk Hills) -> slick lease roads and pad runoff controls -> minor California-heavy-oil production friction, not enough to move the national price",
-  "AccuWeather shows 67% rain at the Kern fields vs free feed's 13% for the same hours -> ops teams on enterprise data secure pads hours earlier -> the lead-time gap is the product story of the day",
-  "San Juan basin flash-flood flags persist a second night (Doe Canyon, Ignacio Blanco, McElmo) -> Rockies gas haul roads face stand-down windows -> minor shut-in risk on Rockies volumes while gas sits at multi-week lows"
+  "Hurricane Vance strengthening toward major status off Pacific Mexico -> Manzanillo/Salina Cruz port ops and Pacific tanker routes face delay windows -> East Pacific weather premium stays in freight, not Henry Hub",
+  "First freeze of the season: Freeze Warning on the Oregon Coast Range lowlands (Bradwood Landing LNG idle site) + Hard Freeze reaching Great Falls renewables corridor tonight -> winterization and rail/truck logistics checks start -> regional propane/renewable-diesel logistics tighten before national gas notices",
+  "High Wind Warnings across Wyoming's Wamsutter/Creston gas belt (BP, Crowheart, Southland acreage) -> compressor and workover stand-downs overnight -> minor Rockies gas flow friction while gas sits near $3.04"
  ],
  "watch": [
-  "EIA crude inventories today 15:30 UTC — first look at the week's export pull after the price drop",
-  "EIA weekly natural gas storage Thursday 14:30 UTC — does mild weather keep builds fat?",
-  "NHC windows quiet Gulf/Atlantic through 7 days; East Pacific Cat-2 (TD 22E) tracks toward Mexico — Salina Cruz tanker ops the thing to watch"
+  "Hurricane Vance: AccuWeather expects major-hurricane status this weekend — Mexico Pacific port ops the watch item; no US Gulf threat",
+  "NHC: Atlantic/Gulf quiet — no tropical formation expected through 7 days (both basins)",
+  "Freeze/offshore-wind pattern: Wyoming high-wind stand-downs tonight, Oregon freeze watch, San Juan basin flood flags easing — the first multi-region winter-ops pattern of the season"
  ]
 };
