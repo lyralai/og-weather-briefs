@@ -1,73 +1,78 @@
 const DEMO_DATA = {
- "operator": "Citgo",
- "generated": "2026-09-20",
- "topline": "RIGHT NOW at Lemont Refinery: AccuWeather shows thunderstorms hammering the corridor through 5 PM (85% probability, 0.1\"/hr) with an active flash-flood threat across the Chicago area — Lemont sits inside the weekend's moderate-risk flood zone. The free feed drops the storm signal to ~40% and carries no rain accumulation at all. Same sky, two very different briefings for a dock-adjacent refinery on the Chicago Ship & Sanitary Canal.",
- "risk_level": "ELEVATED",
+ "operator": "CITGO — Lemont IL",
+ "generated": "2026-10-24",
+ "topline": "RIGHT NOW at Lemont (~167 kbd on the Des Plaines River): a dry, mild Saturday — AccuWeather holds 0% storm probability through tonight while the free feed hedges with 1-3% and cloud-cover wobble. The real seasonal story: Chicago's first freeze window opens within days, and this site's winter is barge-ice on the river. Gulf Coast sites are quiet; the freeze season your ops calendar cares about starts now.",
+ "risk_level": "LOW",
  "assets": [
   {
-   "name": "Lemont Refinery",
-   "lat": 41.67,
-   "lon": -88.08,
-   "current": "Thunderstorms, 68°F",
-   "risk": "ELEVATED",
+   "name": "CITGO Lemont Refinery (~167 kbd, Des Plaines River)",
+   "lat": 41.672,
+   "lon": -88.093,
+   "current": "Intermittent clouds, 62-70°F",
+   "risk": "LOW",
    "risk_why": [
-    "⛈ Active thunderstorms through ~5 PM local (77-85% probability, ~0.1 in/hr) — lightning standdown territory for tank and dock work",
-    "Weekend 'moderate risk' (level 3/4) flash-flood zone covers the Chicago corridor; heavy rain training over the same bands",
-    "NWS Flood Watch + AccuWeather flash-flood flags live across northern Illinois — truck/rail logistics in and out of the plant are the exposure",
-    "Clearing tonight; a clean Monday ops window follows"
+    "Dry through tonight — no precipitation signal from either feed; full outdoor-work window",
+    "Mid-60s to 70°F afternoon, cooling to the low 50s overnight — first real autumn cooldown of the season",
+    "Quiet tropics: NHC expects no Atlantic/Gulf formation for 7 days",
+    "Winter positioning: barge-ice season on the Des Plaines is the site's annual weather chokepoint — freeze-watch hours start mattering now"
    ]
   }
  ],
  "storm_track": [],
  "storm_label": "",
  "near_miss": {
-  "headline": "The Midwest's flood week is still aimed at Lemont's logistics",
+  "headline": "Midwest quiet day, freeze season opening",
   "facts": [
-   "A stalled storm firehose has dumped on Iowa/Wisconsin/northern Illinois since Friday; another 1-3\" falls today in the same corridor",
-   "Lemont ships by pipeline, barge and rail — flood-delayed rail and high-water barge restrictions are the repeat pattern this week",
-   "Free weather feeds show '57% chance' with zero rain-rate data; AccuWeather gives hour-by-hour rain rate, wind gust and lightning density at the plant fence",
-   "The difference shows up in dock scheduling: which hours are actually workable today"
+   "Both feeds agree: dry, cooling, no storm risk through Sunday",
+   "NHC Atlantic outlook: no tropical formation expected for 7 days",
+   "West Coast gas assets took the season's first Freeze Warnings today — the freeze line starts marching toward Chicago",
+   "Quiet days are when free feeds go vague; AccuWeather keeps hourly precision and seasonal-risk watch"
   ]
  },
  "next_72h": [
   {
-   "when": "This afternoon",
-   "what": "Thunderstorms, heavy at times, through ~5 PM",
-   "impact": "Suspend crane/tank/dock work; lightning watch; expect local ponding on low rail spurs"
+   "when": "Today",
+   "what": "Intermittent clouds, 62-70°F, dry",
+   "impact": "Full ops window for outdoor and dock work"
   },
   {
-   "when": "This evening",
-   "what": "System exits east; clearing begins",
-   "impact": "Verify drainage and track inspection before night-shift moves"
+   "when": "Tonight",
+   "what": "Cooling to low 50s under mostly cloudy skies",
+   "impact": "No weather constraints on night work"
   },
   {
-   "when": "Monday-Tuesday",
-   "what": "Dry, seasonable (low 70s)",
-   "impact": "Full ops window — catch-up on delayed transfers"
+   "when": "Next 7 days",
+   "what": "Mild, then the first freeze-watch windows open as November patterns arrive",
+   "impact": "Pre-winter checks: barge-ice protocols, tank-heat readiness"
   }
  ],
  "comparison": {
-  "intro": "Your ops team can already pull free weather data (OpenMeteo, NOAA/GFS feeds, NWS alerts). Here's what each would have told you about this exact event — and what AccuWeather adds.",
+  "intro": "Your ops team can already pull free weather data (OpenMeteo, NOAA/GFS feeds, NWS alerts). Here's what each source says about the same hours at this site — and what AccuWeather adds.",
   "rows": [
    {
-    "feature": "Rain rate & accumulation at plant coordinates",
-    "free": "Probability only — no accumulation, no rate",
-    "awx": "Hour-by-hour rain rate and totals at 41.67°N 88.08°W"
+    "feature": "Today's hourly at the refinery",
+    "free": "1-3% rain hedge all day — 'cloudy' with no commitment",
+    "awx": "0% storm and rain probability hour-by-hour — a confident 'dry' your planning can use"
    },
    {
-    "feature": "Thunderstorm arrival & intensity at the site",
-    "free": "Percent-chance for a ~40×40 mi grid",
-    "awx": "Hourly storm windows with precip rate, gusts and lightning density at the refinery"
+    "feature": "Temperature curve for unit ops",
+    "free": "Coarser grid, lags the afternoon peak",
+    "awx": "Hourly: 62°F rising to 70°F by 3 PM, easing to the 50s overnight"
+   },
+   {
+    "feature": "Lightning risk quantified",
+    "free": "Not available — no free API serves lightning probability",
+    "awx": "Thunderstorm probability hour-by-hour, tied to your coordinates"
    },
    {
     "feature": "Official alerts",
-    "free": "NWS watch already issued — no escalation detail",
-    "awx": "Proprietary severity tiers + pre-threshold escalation on your ops triggers"
+    "free": "NWS warnings — issued after threshold met",
+    "awx": "Proprietary alerts 30-120 min earlier; pre-threshold escalation on your ops triggers"
    },
    {
-    "feature": "Flood-threat context for logistics",
-    "free": "None",
-    "awx": "Basin-level heavy-rain guidance tied to your rail/barge corridors"
+    "feature": "Tropical cyclone decision support",
+    "free": "NHC public cone, 5-day, updates 2×/day",
+    "awx": "Storm-track probabilities tied to your asset; expert meteorologist consult"
    },
    {
     "feature": "Historical event verification",
@@ -75,26 +80,26 @@ const DEMO_DATA = {
     "awx": "Event archive per asset — audit what hit, when, for post-incident review and insurance"
    }
   ],
-  "closer": "Free data answers \"is weather happening?\" AccuWeather answers \"when does it hit MY refinery, and what do I do about it?\""
+  "closer": "Free data answers \"is weather happening?\" AccuWeather answers \"when does it hit MY fence line, and what do I do about it?\""
  },
  "capabilities": [
   [
-   "Hour-by-hour storm windows, site-pinned",
-   "Rain rate, gusts and lightning density at the plant fence — not the county."
+   "Confident quiet-day forecasts",
+   "When free feeds hedge 1-3%, AccuWeather commits hour-by-hour — planning-grade certainty."
   ],
   [
-   "Flood & heavy-rain logistics guidance",
-   "Rail and barge corridor impacts flagged before the water arrives."
+   "Freeze-watch hours per asset",
+   "First West Coast freeze warnings are live; Chicago's window opens within weeks. Barge-ice prep starts with freeze-hour warning."
   ],
   [
-   "Threshold alerting per facility",
+   "Winter storm decision support",
+   "Lake-effect snow bands and cold snaps, tracked to Lemont coordinates with expert meteorologist consult."
+  ],
+  [
+   "Threshold alerting per site",
    "Your ops triggers, your sites — auto-escalation when conditions cross your lines."
-  ],
-  [
-   "Event archive per asset",
-   "Audit what hit, when — for post-incident review and insurance."
   ]
  ]
 };
-const LIVE_COMPARISON = {"awx":[{"t":"11:00","wx":"Thunderstorms","tp":67.0,"pop":77,"rain":0.03,"cloud":100},{"t":"12:00","wx":"Thunderstorms","tp":68.0,"pop":85,"rain":0.1,"cloud":100},{"t":"13:00","wx":"Thunderstorms","tp":68.0,"pop":85,"rain":0.1,"cloud":100},{"t":"14:00","wx":"Rain","tp":68.0,"pop":66,"rain":0.04,"cloud":99},{"t":"15:00","wx":"Cloudy","tp":67.0,"pop":49,"rain":0.0,"cloud":99},{"t":"16:00","wx":"Rain","tp":67.0,"pop":66,"rain":0.04,"cloud":99},{"t":"17:00","wx":"Cloudy","tp":67.0,"pop":49,"rain":0.0,"cloud":99},{"t":"18:00","wx":"Cloudy","tp":66.0,"pop":49,"rain":0.0,"cloud":99},{"t":"19:00","wx":"Rain","tp":66.0,"pop":53,"rain":0.04,"cloud":100},{"t":"20:00","wx":"Showers","tp":64.0,"pop":40,"rain":0.0,"cloud":99},{"t":"21:00","wx":"Cloudy","tp":64.0,"pop":37,"rain":0.0,"cloud":99},{"t":"22:00","wx":"Cloudy","tp":64.0,"pop":33,"rain":0.0,"cloud":98}],"om":[{"t":"15:00","tp":65.4,"pop":57,"cloud":100},{"t":"16:00","tp":65.4,"pop":43,"cloud":100},{"t":"17:00","tp":64.9,"pop":27,"cloud":100},{"t":"18:00","tp":63.6,"pop":22,"cloud":100},{"t":"19:00","tp":63.2,"pop":18,"cloud":100},{"t":"20:00","tp":62.8,"pop":17,"cloud":100},{"t":"21:00","tp":62.8,"pop":16,"cloud":100},{"t":"22:00","tp":62.6,"pop":10,"cloud":100},{"t":"23:00","tp":62.9,"pop":7,"cloud":100},{"t":"00:00","tp":62.6,"pop":8,"cloud":100},{"t":"01:00","tp":62.1,"pop":8,"cloud":100},{"t":"02:00","tp":61.2,"pop":7,"cloud":100}],"loc":"Lemont","key":"2241344"};
+const LIVE_COMPARISON = {"awx":[{"t":"11:00","wx":"Intermittent clouds","tp":63,"pop":0,"rain":0.0,"cloud":51},{"t":"12:00","wx":"Intermittent clouds","tp":66,"pop":0,"rain":0.0,"cloud":51},{"t":"13:00","wx":"Intermittent clouds","tp":68,"pop":0,"rain":0.0,"cloud":51},{"t":"14:00","wx":"Intermittent clouds","tp":69,"pop":0,"rain":0.0,"cloud":51},{"t":"15:00","wx":"Intermittent clouds","tp":70,"pop":0,"rain":0.0,"cloud":51},{"t":"16:00","wx":"Intermittent clouds","tp":69,"pop":0,"rain":0.0,"cloud":65},{"t":"17:00","wx":"Mostly cloudy","tp":68,"pop":0,"rain":0.0,"cloud":75},{"t":"18:00","wx":"Mostly cloudy","tp":65,"pop":0,"rain":0.0,"cloud":75},{"t":"19:00","wx":"Mostly cloudy","tp":63,"pop":0,"rain":0.0,"cloud":75},{"t":"20:00","wx":"Mostly cloudy","tp":61,"pop":0,"rain":0.0,"cloud":84},{"t":"21:00","wx":"Mostly cloudy","tp":58,"pop":0,"rain":0.0,"cloud":75},{"t":"22:00","wx":"Intermittent clouds","tp":57,"pop":0,"rain":0.0,"cloud":65}],"om":[{"t":"15:00","tp":70.5,"pop":1,"cloud":null},{"t":"16:00","tp":70.3,"pop":1,"cloud":null},{"t":"17:00","tp":68.0,"pop":1,"cloud":null},{"t":"18:00","tp":64.0,"pop":1,"cloud":null},{"t":"19:00","tp":61.7,"pop":2,"cloud":null},{"t":"20:00","tp":60.3,"pop":2,"cloud":null},{"t":"21:00","tp":58.2,"pop":2,"cloud":null},{"t":"22:00","tp":56.3,"pop":2,"cloud":null},{"t":"23:00","tp":55.1,"pop":2,"cloud":null},{"t":"00:00","tp":54.4,"pop":2,"cloud":null},{"t":"01:00","tp":52.8,"pop":2,"cloud":null},{"t":"02:00","tp":51.7,"pop":3,"cloud":null}],"loc":"CITGO Lemont Refinery (~167 kbd, Des Plaines River)","key":"332786"};
 const DATA_MAPBOX_TOKEN='p'+'k.eyJ1IjoibHlyYWxhaSIsImEiOiJjbXI1YmlibXYwbGpnMzJvc2IzYnkyNHJqIn0.GvHNgoPjz_v6-oS5rgquSw';
