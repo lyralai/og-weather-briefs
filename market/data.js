@@ -1167,30 +1167,9 @@ const NOTE = {
  "date": "2026-10-25",
  "asOf": "Prices as of 2026-10-23 close (delayed). Cat bonds as of Oct 1 (Artemis).",
  "board": [
-  {
-   "sym": "WTI",
-   "name": "WTI crude",
-   "px": "$103.27",
-   "chg": "+1.45%",
-   "dir": "up",
-   "gloss": "Crude grinds higher on supply discipline."
-  },
-  {
-   "sym": "Brent",
-   "name": "Brent crude",
-   "px": "$111.70",
-   "chg": "+2.67%",
-   "dir": "up",
-   "gloss": "Brent leads — Atlantic-basin tightness."
-  },
-  {
-   "sym": "HH",
-   "name": "Henry Hub gas",
-   "px": "$3.05",
-   "chg": "+2.94%",
-   "dir": "up",
-   "gloss": "Heating-season bid builds on early freeze signals."
-  }
+  { "sym": "WTI", "name": "WTI crude", "price": 103.27, "chg": 1.45, "px": "$103.27", "chgPct": "+1.45%", "dir": "up", "gloss": "Crude grinds higher on supply discipline." },
+  { "sym": "Brent", "name": "Brent crude", "price": 111.70, "chg": 2.67, "px": "$111.70", "chgPct": "+2.67%", "dir": "up", "gloss": "Brent leads — Atlantic-basin tightness." },
+  { "sym": "HH", "name": "Henry Hub gas", "price": 3.05, "chg": 2.94, "px": "$3.05", "chgPct": "+2.94%", "dir": "up", "gloss": "Heating-season bid builds on early freeze signals." }
  ],
  "ctx": [
   "CAT BONDS: 2026 issuance hit a record $18.9B through Q3 ($948M in Q3 alone, above seasonal norms) — softening risk pricing for wind-exposed energy perils. (Artemis, as of Oct 1.)",
