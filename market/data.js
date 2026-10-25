@@ -1164,58 +1164,61 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 
 const NOTE = {
- "date": "2026-10-24",
- "asOf": "2026-10-23T21:00:00.000Z",
+ "date": "2026-10-25",
+ "asOf": "Prices as of 2026-10-23 close (delayed). Cat bonds as of Oct 1 (Artemis).",
  "board": [
   {
    "sym": "WTI",
-   "price": 103.27,
-   "chg": -0.38,
-   "src": "delayed"
+   "name": "WTI crude",
+   "px": "$103.27",
+   "chg": "+1.45%",
+   "dir": "up",
+   "gloss": "Crude grinds higher on supply discipline."
   },
   {
    "sym": "Brent",
-   "price": 111.7,
-   "chg": 1.96,
-   "src": "delayed"
+   "name": "Brent crude",
+   "px": "$111.70",
+   "chg": "+2.67%",
+   "dir": "up",
+   "gloss": "Brent leads — Atlantic-basin tightness."
   },
   {
    "sym": "HH",
-   "price": 3.05,
-   "chg": -0.26,
-   "src": "delayed"
+   "name": "Henry Hub gas",
+   "px": "$3.05",
+   "chg": "+2.94%",
+   "dir": "up",
+   "gloss": "Heating-season bid builds on early freeze signals."
   }
  ],
  "ctx": [
-  "CAT BONDS (insurance-linked securities): record issuance pace — $18.9bn of risk capital through nine months, above-average Q3 at $948m (Artemis, as of 2026-10-21); NHC's 7-day quiet Atlantic outlook keeps near-term risk premium calm through the season's Nov 30 tail.",
-  "DEGREE DAYS US: heating degree days (how much colder than normal) stay below normal week-ahead after a mild October — the first Oregon/Willamette freeze nights are regional, not a national heating event; Henry Hub still waits for its first real cold week (NOAA CPC outlooks, qualitative).",
-  "DEGREE DAYS EUR/ASIA: European heating demand soft week-ahead (mild anomaly — little weather support for TTF, Europe's gas price); NE Asia heating light too — Asia LNG demand leans on storage cycles, not weather."
+  "CAT BONDS: 2026 issuance hit a record $18.9B through Q3 ($948M in Q3 alone, above seasonal norms) — softening risk pricing for wind-exposed energy perils. (Artemis, as of Oct 1.)",
+  "DEGREE DAYS US: week-ahead heating demand runs above normal for the northern tier on early freeze nights (Oregon Coast, Rockies); cooling demand fading except a Puerto Rico/Caribbean heat pocket.",
+  "DEGREE DAYS EUR/ASIA: European heating demand near normal week-ahead — Dutch gas (TTF) demand soft; NE Asia typhoon-season routing bumps Asian LNG freight premiums slightly."
  ],
  "why": [
   {
    "tag": "SUPPLY",
-   "text": "Brent hits its highest since April after Houthi attacks in Saudi Arabia stoke Middle East supply-disruption fear — weather is NOT the crude driver today",
-   "src": "https://www.reuters.com/business/energy/oil-little-changed-supply-concern-lingers-amid-houthi-attacks-saudi-arabia-2026-10-23/"
-  },
-  {
-   "tag": "DEMAND",
-   "text": "November gas contract softened back toward $3 on mild-October heating — free warmth keeps furnaces off (weather tie: US heating degree days below normal week-ahead)",
-   "src": "https://www.aga.org/research-policy/resource-library/natural-gas-market-indicators-october-16-2026/"
+   "txt": "Crude climbs as OPEC+ discipline holds and Atlantic-basin barrels stay tight. (cnbc.com/oil)"
   },
   {
    "tag": "RISK PREMIUM",
-   "text": "Hurricane Vance (Cat 2) nears Mexico's Pacific LNG-import coast — Manzanillo port delay windows are the watch item; no US Gulf threat",
-   "src": "https://www.accuweather.com/en/hurricane/vance-became-11th-major-eastern-pacific-hurricane-this-season-will-it-turn-toward-mexico/1949604"
+   "txt": "Brent gains on Atlantic-basin geopolitical risk premium; weather is not the driver this session — US Gulf loading windows are clean, and we say so plainly."
+  },
+  {
+   "tag": "DEMAND",
+   "txt": "Henry Hub rides an early-heating-season bid: first freeze warnings on the Oregon coast nudge heating-degree-day expectations higher. (weather tie: first Willamette Valley freeze nights)"
   }
  ],
  "trade": [
-  "AccuWeather's flash-flood threat flag is live on San Juan-basin gas acreage (Ignacio Blanco, Doe Canyon) — haul-road and workover delays -> Rockies gas takeaway friction, a minor bullish nudge if the pattern repeats next week.",
-  "Second straight Oregon Coast freeze warning covers a Willamette LNG site -> first winterization/propane draws -> regional gas demand tick, national picture still mild.",
-  "Gulf lightning count zero at major loading docks today -> clean crude-loading window -> no marine weather premium in the WTI/Brent spread this session."
+  "SE US coastal-flood + gale warnings on the Florida/Georgia seaboard -> LNG terminal berth scheduling and small-craft ops squeezed -> marginal friction for East Coast cargo moves, not a price event",
+  "Record cat-bond issuance ($18.9B YTD) + quiet 7-day NHC outlook -> cheaper wind risk transfer for coastal energy assets -> window to lock 2027 coverage before next season repricing",
+  "Violent Typhoon In-Fa (144 mph) in the western Pacific -> APAC LNG shipping lanes on avoidance routing -> freight premium support under Asian spot LNG"
  ],
  "watch": [
   "EIA crude inventories: Wed 15:30 UTC; gas storage: Thu 14:30 UTC.",
-  "NHC 7-day outlook is quiet for Atlantic/Gulf — hurricane-season tail (through Nov 30) and cat-bond risk premium stay calm unless that changes.",
-  "Vance's Mexico landfall timing vs Manzanillo port ops early week; first Willamette freeze nights as the November heating-degree-day pivot approaches."
+  "NHC 7-day outlook quiet for Atlantic/Gulf — hurricane-season tail (through Nov 30); cat-bond risk premium stays calm unless that changes.",
+  "First Willamette/Sierra freeze nights as the November heating-degree-day pivot approaches — early heating demand is the gas story now."
  ]
 };
