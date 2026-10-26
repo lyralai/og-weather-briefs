@@ -1,0 +1,47 @@
+{
+ "date": "2026-10-26",
+ "asOf": "14:54 UTC (Yahoo, delayed)",
+ "board": [
+  {
+   "sym": "WTI",
+   "label": "WTI crude",
+   "price": 100.98,
+   "chgPct": 3.94,
+   "gloss": "geopolitics premium, off Friday spike"
+  },
+  {
+   "sym": "Brent",
+   "label": "Brent crude",
+   "price": 110.15,
+   "chgPct": 1.22,
+   "gloss": "Saudi-Iran de-escalation talks drag premium"
+  },
+  {
+   "sym": "HH",
+   "label": "Henry Hub nat gas",
+   "price": 3.022,
+   "chgPct": 8.32,
+   "gloss": "November contract strength on early cold"
+  }
+ ],
+ "ctx": [
+  "CAT BONDS / PERIL WATCH: ~$50bn+ outstanding (Artemis, monthly index; detail unverified \u2014 network, as of Oct 2026). NHC: no Atlantic tropical formation expected within 7 days \u2014 hurricane-season cat bond risk premium should keep drifting toward season-close repricing.",
+  "DEGREE DAYS US: cold shot late Oct into Nov \u2014 heating degree days run above normal for the northern tier week-ahead (NOAA CPC), early heating-season gas demand is building; Friday's sharp gas rally says the market noticed first.",
+  "DEGREE DAYS EUR/ASIA: European HDDs near-to-above normal week-ahead (ECMWF medium range, qualitative) \u2014 TTF (Europe's gas price) demand leans heating-side; NE Asia colder turns support LNG demand into Japan/Korea delivery windows (In-Fa rerouting aside)."
+ ],
+ "why": [
+  "[RISK PREMIUM] Crude swings on Saudi-Iran de-escalation talks, not weather: defense ministers meet in Tehran after Houthi strikes on Saudi energy infrastructure reignited supply fear Friday. https://www.cnbc.com/2026/10/26/oil-prices-today-wti-brent.html",
+  "[RISK PREMIUM] Weather is NOT the driver today \u2014 the geopolitics premium is. Honest line: today's crude move prices diplomacy, not storms.",
+  "[DEMAND] Henry Hub jumps 8%+ as the November contract prices the season's first real cold outbreak \u2014 heating degree days above normal ahead for the northern US. weather tie: early-season heating demand arrives with the late-Oct cold shot."
+ ],
+ "trade": [
+  "Southeast coastal-flood + gale pattern, day 2 (Florida-Georgia): East Coast LNG berths under wind/surf advisories \u2192 small-craft and berth friction for East Coast terminals \u2192 basis wobble at Northeast delivery points, minor vs Henry Hub rally.",
+  "Puerto Rico territory-wide heat advisory: island cooling load pinned at San Juan gas-belt + Caribbean LNG positions \u2192 Caribbean power-burn gas demand stays elevated \u2192 marginal support for regional LNG spot demand.",
+  "Wyoming High Wind Watch (Tuesday): Salt Creek / Lost Soldier / Waltman-area oil field crane and loading windows likely shut \u2192 modest Powder River-basin production/logistics friction \u2192 watch for tie to WTI physical differentials if gusts verify."
+ ],
+ "watch": [
+  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC \u2014 the cold shot lands with the storage report.",
+  "NHC: quiet 7-day Atlantic window \u2014 watch whether season-close cat bond repricing accelerates.",
+  "Wyoming wind verify Tue; first freeze-risk windows for gas basins appear on the 8-14 day outlook."
+ ]
+}

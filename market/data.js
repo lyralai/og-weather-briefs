@@ -1164,40 +1164,49 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 
 const NOTE = {
- "date": "2026-10-25",
- "asOf": "Prices as of 2026-10-23 close (delayed). Cat bonds as of Oct 1 (Artemis).",
+ "date": "2026-10-26",
+ "asOf": "14:54 UTC (Yahoo, delayed)",
  "board": [
-  { "sym": "WTI", "name": "WTI crude", "price": 103.27, "chg": 1.45, "px": "$103.27", "chgPct": "+1.45%", "dir": "up", "gloss": "Crude grinds higher on supply discipline." },
-  { "sym": "Brent", "name": "Brent crude", "price": 111.70, "chg": 2.67, "px": "$111.70", "chgPct": "+2.67%", "dir": "up", "gloss": "Brent leads — Atlantic-basin tightness." },
-  { "sym": "HH", "name": "Henry Hub gas", "price": 3.05, "chg": 2.94, "px": "$3.05", "chgPct": "+2.94%", "dir": "up", "gloss": "Heating-season bid builds on early freeze signals." }
- ],
- "ctx": [
-  "CAT BONDS: 2026 issuance hit a record $18.9B through Q3 ($948M in Q3 alone, above seasonal norms) — softening risk pricing for wind-exposed energy perils. (Artemis, as of Oct 1.)",
-  "DEGREE DAYS US: week-ahead heating demand runs above normal for the northern tier on early freeze nights (Oregon Coast, Rockies); cooling demand fading except a Puerto Rico/Caribbean heat pocket.",
-  "DEGREE DAYS EUR/ASIA: European heating demand near normal week-ahead — Dutch gas (TTF) demand soft; NE Asia typhoon-season routing bumps Asian LNG freight premiums slightly."
- ],
- "why": [
   {
-   "tag": "SUPPLY",
-   "txt": "Crude climbs as OPEC+ discipline holds and Atlantic-basin barrels stay tight. (cnbc.com/oil)"
+   "sym": "WTI",
+   "label": "WTI crude",
+   "price": 100.98,
+   "chgPct": 3.94,
+   "gloss": "geopolitics premium, off Friday spike"
   },
   {
-   "tag": "RISK PREMIUM",
-   "txt": "Brent gains on Atlantic-basin geopolitical risk premium; weather is not the driver this session — US Gulf loading windows are clean, and we say so plainly."
+   "sym": "Brent",
+   "label": "Brent crude",
+   "price": 110.15,
+   "chgPct": 1.22,
+   "gloss": "Saudi-Iran de-escalation talks drag premium"
   },
   {
-   "tag": "DEMAND",
-   "txt": "Henry Hub rides an early-heating-season bid: first freeze warnings on the Oregon coast nudge heating-degree-day expectations higher. (weather tie: first Willamette Valley freeze nights)"
+   "sym": "HH",
+   "label": "Henry Hub nat gas",
+   "price": 3.022,
+   "chgPct": 8.32,
+   "gloss": "November contract strength on early cold"
   }
  ],
+ "ctx": [
+  "CAT BONDS / PERIL WATCH: ~$50bn+ outstanding (Artemis, monthly index; detail unverified — network, as of Oct 2026). NHC: no Atlantic tropical formation expected within 7 days — hurricane-season cat bond risk premium should keep drifting toward season-close repricing.",
+  "DEGREE DAYS US: cold shot late Oct into Nov — heating degree days run above normal for the northern tier week-ahead (NOAA CPC), early heating-season gas demand is building; Friday's sharp gas rally says the market noticed first.",
+  "DEGREE DAYS EUR/ASIA: European HDDs near-to-above normal week-ahead (ECMWF medium range, qualitative) — TTF (Europe's gas price) demand leans heating-side; NE Asia colder turns support LNG demand into Japan/Korea delivery windows (In-Fa rerouting aside)."
+ ],
+ "why": [
+  "[RISK PREMIUM] Crude swings on Saudi-Iran de-escalation talks, not weather: defense ministers meet in Tehran after Houthi strikes on Saudi energy infrastructure reignited supply fear Friday. https://www.cnbc.com/2026/10/26/oil-prices-today-wti-brent.html",
+  "[RISK PREMIUM] Weather is NOT the driver today — the geopolitics premium is. Honest line: today's crude move prices diplomacy, not storms.",
+  "[DEMAND] Henry Hub jumps 8%+ as the November contract prices the season's first real cold outbreak — heating degree days above normal ahead for the northern US. weather tie: early-season heating demand arrives with the late-Oct cold shot."
+ ],
  "trade": [
-  "SE US coastal-flood + gale warnings on the Florida/Georgia seaboard -> LNG terminal berth scheduling and small-craft ops squeezed -> marginal friction for East Coast cargo moves, not a price event",
-  "Record cat-bond issuance ($18.9B YTD) + quiet 7-day NHC outlook -> cheaper wind risk transfer for coastal energy assets -> window to lock 2027 coverage before next season repricing",
-  "Violent Typhoon In-Fa (144 mph) in the western Pacific -> APAC LNG shipping lanes on avoidance routing -> freight premium support under Asian spot LNG"
+  "Southeast coastal-flood + gale pattern, day 2 (Florida-Georgia): East Coast LNG berths under wind/surf advisories → small-craft and berth friction for East Coast terminals → basis wobble at Northeast delivery points, minor vs Henry Hub rally.",
+  "Puerto Rico territory-wide heat advisory: island cooling load pinned at San Juan gas-belt + Caribbean LNG positions → Caribbean power-burn gas demand stays elevated → marginal support for regional LNG spot demand.",
+  "Wyoming High Wind Watch (Tuesday): Salt Creek / Lost Soldier / Waltman-area oil field crane and loading windows likely shut → modest Powder River-basin production/logistics friction → watch for tie to WTI physical differentials if gusts verify."
  ],
  "watch": [
-  "EIA crude inventories: Wed 15:30 UTC; gas storage: Thu 14:30 UTC.",
-  "NHC 7-day outlook quiet for Atlantic/Gulf — hurricane-season tail (through Nov 30); cat-bond risk premium stays calm unless that changes.",
-  "First Willamette/Sierra freeze nights as the November heating-degree-day pivot approaches — early heating demand is the gas story now."
+  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC — the cold shot lands with the storage report.",
+  "NHC: quiet 7-day Atlantic window — watch whether season-close cat bond repricing accelerates.",
+  "Wyoming wind verify Tue; first freeze-risk windows for gas basins appear on the 8-14 day outlook."
  ]
 };
