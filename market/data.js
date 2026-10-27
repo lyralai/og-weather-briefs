@@ -1164,49 +1164,64 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 
 const NOTE = {
- "date": "2026-10-26",
- "asOf": "14:54 UTC (Yahoo, delayed)",
+ "date": "2026-10-27",
+ "asOf": "15:11 UTC (Yahoo, delayed)",
  "board": [
   {
    "sym": "WTI",
    "label": "WTI crude",
-   "price": 100.98,
-   "chgPct": 3.94,
-   "gloss": "geopolitics premium, off Friday spike"
+   "price": 100.1,
+   "chgPct": 0.63,
+   "gloss": "holds the century mark"
   },
   {
    "sym": "Brent",
    "label": "Brent crude",
-   "price": 110.15,
-   "chgPct": 1.22,
-   "gloss": "Saudi-Iran de-escalation talks drag premium"
+   "price": 109.38,
+   "chgPct": -3.35,
+   "gloss": "risk premium bleeds out"
   },
   {
    "sym": "HH",
    "label": "Henry Hub nat gas",
-   "price": 3.022,
-   "chgPct": 8.32,
-   "gloss": "November contract strength on early cold"
+   "price": 3.014,
+   "chgPct": 7.8,
+   "gloss": "November cold bid, second strong day"
   }
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH: ~$50bn+ outstanding (Artemis, monthly index; detail unverified — network, as of Oct 2026). NHC: no Atlantic tropical formation expected within 7 days — hurricane-season cat bond risk premium should keep drifting toward season-close repricing.",
-  "DEGREE DAYS US: cold shot late Oct into Nov — heating degree days run above normal for the northern tier week-ahead (NOAA CPC), early heating-season gas demand is building; Friday's sharp gas rally says the market noticed first.",
-  "DEGREE DAYS EUR/ASIA: European HDDs near-to-above normal week-ahead (ECMWF medium range, qualitative) — TTF (Europe's gas price) demand leans heating-side; NE Asia colder turns support LNG demand into Japan/Korea delivery windows (In-Fa rerouting aside)."
+  "CAT BONDS / PERIL WATCH: ~$50bn+ outstanding (Artemis monthly index; today's refresh blocked — network, as of Oct 2026). NHC still expects no Atlantic tropical formation within 7 days — hurricane-season risk premium should stay quiet through month-end.",
+  "DEGREE DAYS US: colder-than-normal air is settling into the northern US week-ahead (NOAA CPC 6-10/8-14 outlooks) — more heating demand, more gas burned, a floor under gas prices; EIA storage tables update Thursday.",
+  "DEGREE DAYS EUR/ASIA: European temperatures track near-to-above normal week-ahead (Copernicus C3S medium-range) — European heating demand starts soft, so TTF (Europe's gas price) keeps its weather support modest; NE Asia similar."
  ],
  "why": [
-  "[RISK PREMIUM] Crude swings on Saudi-Iran de-escalation talks, not weather: defense ministers meet in Tehran after Houthi strikes on Saudi energy infrastructure reignited supply fear Friday. https://www.cnbc.com/2026/10/26/oil-prices-today-wti-brent.html",
-  "[RISK PREMIUM] Weather is NOT the driver today — the geopolitics premium is. Honest line: today's crude move prices diplomacy, not storms.",
-  "[DEMAND] Henry Hub jumps 8%+ as the November contract prices the season's first real cold outbreak — heating degree days above normal ahead for the northern US. weather tie: early-season heating demand arrives with the late-Oct cold shot."
+  {
+   "tag": "RISK PREMIUM",
+   "txt": "Brent drops over 3% as geopolitical premium drains; weather is not the driver today.",
+   "src": "example",
+   "unverified": true
+  },
+  {
+   "tag": "DEMAND",
+   "txt": "Henry Hub jumps again on early-November cold: heating demand lifts gas burns.",
+   "src": "example",
+   "unverified": true
+  },
+  {
+   "tag": "",
+   "txt": "Attribution unverified (network) — search blocked; quote moves are delayed prints, treat glosses as provisional.",
+   "src": "example",
+   "unverified": true
+  }
  ],
  "trade": [
-  "Southeast coastal-flood + gale pattern, day 2 (Florida-Georgia): East Coast LNG berths under wind/surf advisories → small-craft and berth friction for East Coast terminals → basis wobble at Northeast delivery points, minor vs Henry Hub rally.",
-  "Puerto Rico territory-wide heat advisory: island cooling load pinned at San Juan gas-belt + Caribbean LNG positions → Caribbean power-burn gas demand stays elevated → marginal support for regional LNG spot demand.",
-  "Wyoming High Wind Watch (Tuesday): Salt Creek / Lost Soldier / Waltman-area oil field crane and loading windows likely shut → modest Powder River-basin production/logistics friction → watch for tie to WTI physical differentials if gusts verify."
+  "AccuWeather's own flash-flood alert sits on the Big Spring refining complex right now while the NWS feed stays silent ->Permian-area oilfield ops (Apache, Oxy Permian, XTO blocks) get water-management friction -> localized crude trucking delays, not a price move",
+  "Day-3 coastal-flood + gale pattern on the Florida/Georgia coast -> East Coast LNG berth wind flags persist (Elba Island corridor) -> import-slot slippage risk at marginal NE gas pricing",
+  "Colder-than-normal week ahead in the northern US -> gas-basin heating demand builds into storage week -> gas finds a floor near $3.00"
  ],
  "watch": [
-  "EIA crude inventories Wed 15:30 UTC; nat gas storage Thu 14:30 UTC — the cold shot lands with the storage report.",
-  "NHC: quiet 7-day Atlantic window — watch whether season-close cat bond repricing accelerates.",
-  "Wyoming wind verify Tue; first freeze-risk windows for gas basins appear on the 8-14 day outlook."
+  "EIA crude inventories Wednesday 15:30 UTC",
+  "EIA gas storage Thursday 14:30 UTC — the cold bid gets its test",
+  "NHC 7-day outlook: quiet Atlantic through month-end (cat-bond friendly)"
  ]
 };
