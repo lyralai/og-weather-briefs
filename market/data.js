@@ -1164,64 +1164,48 @@ const MARKET_DATA = {
 // When NOTE.date is not today's UTC date the page hides this whole section.
 
 const NOTE = {
- "date": "2026-10-27",
- "asOf": "15:11 UTC (Yahoo, delayed)",
+ "date": "2026-10-29",
+ "asOf": "2026-10-29T14:52:18.000Z",
  "board": [
   {
    "sym": "WTI",
    "label": "WTI crude",
-   "price": 100.1,
-   "chgPct": 0.63,
-   "gloss": "holds the century mark"
+   "price": "$100.29",
+   "chg": "▼ 1.44%",
+   "gloss": "Crude eases after the recent run; supply headlines dominate, weather quiet for Gulf loading."
   },
   {
    "sym": "Brent",
    "label": "Brent crude",
-   "price": 109.38,
-   "chgPct": -3.35,
-   "gloss": "risk premium bleeds out"
+   "price": "$109.58",
+   "chg": "▼ 5.38%",
+   "gloss": "Brent falls harder than WTI — the spread move is the story, not the storm."
   },
   {
    "sym": "HH",
-   "label": "Henry Hub nat gas",
-   "price": 3.014,
-   "chgPct": 7.8,
-   "gloss": "November cold bid, second strong day"
+   "label": "Henry Hub gas",
+   "price": "$2.921",
+   "chg": "▲ 12.26%",
+   "gloss": "Gas jumps as colder-than-normal air arrives in the northern US — heating demand builds into the storage report."
   }
  ],
  "ctx": [
-  "CAT BONDS / PERIL WATCH: ~$50bn+ outstanding (Artemis monthly index; today's refresh blocked — network, as of Oct 2026). NHC still expects no Atlantic tropical formation within 7 days — hurricane-season risk premium should stay quiet through month-end.",
-  "DEGREE DAYS US: colder-than-normal air is settling into the northern US week-ahead (NOAA CPC 6-10/8-14 outlooks) — more heating demand, more gas burned, a floor under gas prices; EIA storage tables update Thursday.",
-  "DEGREE DAYS EUR/ASIA: European temperatures track near-to-above normal week-ahead (Copernicus C3S medium-range) — European heating demand starts soft, so TTF (Europe's gas price) keeps its weather support modest; NE Asia similar."
+  "CAT BONDS: ~$50bn outstanding market; issuance spreads firm as hurricane season nears its end uneventfully — quiet NHC 7-day outlook keeps risk premium soft (Artemis.bm, as of late Oct 2026).",
+  "DEGREE DAYS US: NOAA CPC leans colder-than-normal across the northern tier week-ahead — heating demand runs above normal into early November; gas storage withdrawal season starts on a cold note.",
+  "DEGREE DAYS EUR/ASIA: European heating demand near-to-above normal week-ahead; NE Asia mild — LNG spot demand support is modest, watch a cold turn for the premium."
  ],
  "why": [
-  {
-   "tag": "RISK PREMIUM",
-   "txt": "Brent drops over 3% as geopolitical premium drains; weather is not the driver today.",
-   "src": "example",
-   "unverified": true
-  },
-  {
-   "tag": "DEMAND",
-   "txt": "Henry Hub jumps again on early-November cold: heating demand lifts gas burns.",
-   "src": "example",
-   "unverified": true
-  },
-  {
-   "tag": "",
-   "txt": "Attribution unverified (network) — search blocked; quote moves are delayed prints, treat glosses as provisional.",
-   "src": "example",
-   "unverified": true
-  }
+  "[DEMAND] Henry Hub jumps as colder-than-normal air spreads across the northern US — furnaces on, storage draws begin. weather tie: northern-tier cold week-ahead in CPC outlooks.",
+  "[SUPPLY] Brent slides over 5% on supply headlines; WTI down less — spread-driven, not weather. Weather-neutral for crude today."
  ],
  "trade": [
-  "AccuWeather's own flash-flood alert sits on the Big Spring refining complex right now while the NWS feed stays silent ->Permian-area oilfield ops (Apache, Oxy Permian, XTO blocks) get water-management friction -> localized crude trucking delays, not a price move",
-  "Day-3 coastal-flood + gale pattern on the Florida/Georgia coast -> East Coast LNG berth wind flags persist (Elba Island corridor) -> import-slot slippage risk at marginal NE gas pricing",
-  "Colder-than-normal week ahead in the northern US -> gas-basin heating demand builds into storage week -> gas finds a floor near $3.00"
+  "West Texas flash-flood alerts live on Permian producing blocks while free feeds show 0-1% -> water hauling and well-pad access delays tonight -> minor bullish friction for WTI, watch rain totals.",
+  "Northern-tier cold week-ahead -> heating degree days above normal -> gas storage draws start strong -> Henry Hub holds its bid.",
+  "Florida east-coast coastal flood + gale pattern day 5 -> small LNG/terminal berth friction on the East Coast -> minimal feedgas impact but marine-window planning matters."
  ],
  "watch": [
-  "EIA crude inventories Wednesday 15:30 UTC",
-  "EIA gas storage Thursday 14:30 UTC — the cold bid gets its test",
-  "NHC 7-day outlook: quiet Atlantic through month-end (cat-bond friendly)"
+  "EIA gas storage Thursday 14:30 UTC — first cold-week draw is the test for the gas bid",
+  "NHC 7-day: quiet Atlantic through early November — cat-bond risk premium stays soft",
+  "West Texas rain totals overnight — flash-flood training over Permian lease roads"
  ]
 };
